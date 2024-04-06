@@ -1,0 +1,26 @@
+version 3
+run General-0-20240331-23:00:36-16080
+attr configname General
+attr datetime 20240331-23:00:36
+attr datetimef 20240331-230036
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network MainNetwork
+attr processid 16080
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../inet4.5/images
+config network MainNetwork
+
+par MainNetwork.pc1 typename "\"Network.SimpleServer.Computer.Computer\""
+par MainNetwork.pc2 typename "\"Network.SimpleServer.Computer.Computer\""
+par MainNetwork.server typename "\"Network.SimpleServer.Server.Server\""
+par MainNetwork typename "\"Network.SimpleServer.MainNetwork\""
+

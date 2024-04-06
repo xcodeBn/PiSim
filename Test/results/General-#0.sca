@@ -1,0 +1,24 @@
+version 3
+run General-0-20240331-19:14:47-18220
+attr configname General
+attr datetime 20240331-19:14:47
+attr datetimef 20240331-191447
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network Network
+attr processid 18220
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network Network
+
+par Network.simpleServer typename "\"Test.SimpleServer\""
+par Network.simpleServer isReal false
+par Network typename "\"Test.Network\""
+
