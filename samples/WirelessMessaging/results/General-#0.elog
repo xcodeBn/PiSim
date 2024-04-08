@@ -1,4 +1,4 @@
-SB ov 1536 ev 2 rid General-0-20240405-17:47:21-20820
+SB ov 1536 ev 2 rid General-0-20240406-23:42:37-13668
 
 E # 0 t 0 m 1 ce -1 msg -1
 MC id 1 c omnetpp::cModule t samples.WirelessMessaging.Network n Network cm 1
@@ -9,12 +9,6 @@ MDC id 2 d p=74,183;i=device/wifilaptop
 MC id 3 c PClient t samples.WirelessMessaging.PClient pid 1 n client
 GC m 3 g 0 n radioIn o 0
 MDC id 3 d p=393,183;i=device/wifilaptop
-MC id 4 c PClient t samples.WirelessMessaging.PClient pid 1 n pClient
-GC m 4 g 0 n radioIn o 0
-MDC id 4 d p=324,77;i=device/wifilaptop
-MC id 5 c PClient t samples.WirelessMessaging.PClient pid 1 n pClient1
-GC m 5 g 0 n radioIn o 0
-MDC id 5 d p=302,250;i=device/wifilaptop
 CMB sm 1 tm 2 m initialize(0)
 CME
 CMB sm 1 tm 3 m initialize(0)
@@ -24,127 +18,95 @@ BS id 1 tid 0 eid 1 etid 0 c omnetpp::cMessage n RTS sm 3 st 0 am 3 at 0.5488135
 ES id 1 tid 0 eid 1 etid 0 c omnetpp::cMessage n RTS sm 3 st 0 am 3 at 0.548813502304 pe 0
 - INFO: client Initializedclient Initialization complete 
 CME
-CMB sm 1 tm 4 m initialize(0)
-CM id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n RTS pe -1
-CL id 3 tid 2 eid 3 etid 2 c omnetpp::cMessage n RTS m 4 pe -1 cid 2
-BS id 3 tid 2 eid 3 etid 2 c omnetpp::cMessage n RTS sm 4 st 0 am 4 at 0.592844616389 pe 0
-ES id 3 tid 2 eid 3 etid 2 c omnetpp::cMessage n RTS sm 4 st 0 am 4 at 0.592844616389 pe 0
-- INFO: pClient InitializedpClient Initialization complete 
-CME
-CMB sm 1 tm 5 m initialize(0)
-CM id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n RTS pe -1
-CL id 5 tid 4 eid 5 etid 4 c omnetpp::cMessage n RTS m 5 pe -1 cid 4
-BS id 5 tid 4 eid 5 etid 4 c omnetpp::cMessage n RTS sm 5 st 0 am 5 at 0.715189364972 pe 0
-ES id 5 tid 4 eid 5 etid 4 c omnetpp::cMessage n RTS sm 5 st 0 am 5 at 0.715189364972 pe 0
-- INFO: pClient1 InitializedpClient1 Initialization complete 
-CME
 
 E # 1 t 0.548813502304 m 3 ce 0 msg 1
 - INFO: HandleMessagePClient called 
-CM id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n RTS pe -1
-BS id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n RTS m 3 pe 1
+CM id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n RTS pe -1
+BS id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n RTS m 3 pe 1
 SD sm 3 dm 2 dg 0
-ES id 6 tid 6 eid 6 etid 6 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 1
-CL id 7 tid 6 eid 7 etid 6 c omnetpp::cMessage n RTS m 3 pe -1 cid 6
-CL id 7 tid 6 eid 7 etid 6 c omnetpp::cMessage n RTS m 3 pe -1 cid 6
-BS id 7 tid 6 eid 7 etid 6 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.393079246394 pe 1
-ES id 7 tid 6 eid 7 etid 6 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.393079246394 pe 1
+ES id 2 tid 2 eid 2 etid 2 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 1
+CL id 3 tid 2 eid 3 etid 2 c omnetpp::cMessage n RTS m 3 pe -1 cid 2
+CL id 3 tid 2 eid 3 etid 2 c omnetpp::cMessage n RTS m 3 pe -1 cid 2
+BS id 3 tid 2 eid 3 etid 2 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.141658118693 pe 1
+ES id 3 tid 2 eid 3 etid 2 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.141658118693 pe 1
 
-E # 2 t 0.548813502304 m 2 ce 1 msg 6
-CM id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n Hello pe -1
-BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n Hello m 2 pe 2
+E # 2 t 0.548813502304 m 2 ce 1 msg 2
+CM id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n Hello pe -1
+BS id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n Hello m 2 pe 2
 SD sm 2 dm 3 dg 0
-ES id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 2
-CL id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n Hello m 2 pe -1 cid 8
+ES id 4 tid 4 eid 4 etid 4 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 2
+CL id 5 tid 4 eid 5 etid 4 c omnetpp::cMessage n Hello m 2 pe -1 cid 4
 
-E # 3 t 0.548813502304 m 3 ce 2 msg 8
+E # 3 t 0.548813502304 m 3 ce 2 msg 4
 - INFO: HandleMessagePClient called 
-CM id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n RTS pe -1
-BS id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n RTS m 3 pe 3
+CM id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n RTS pe -1
+BS id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n RTS m 3 pe 3
 SD sm 3 dm 2 dg 0
-ES id 9 tid 9 eid 9 etid 9 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 3
-CL id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n RTS m 3 pe -1 cid 9
-CL id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n RTS m 3 pe -1 cid 9
-BS id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.151576872682 pe 3
-ES id 10 tid 9 eid 10 etid 9 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.151576872682 pe 3
+ES id 5 tid 5 eid 5 etid 5 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 3
+CL id 6 tid 5 eid 6 etid 5 c omnetpp::cMessage n RTS m 3 pe -1 cid 5
+CL id 6 tid 5 eid 6 etid 5 c omnetpp::cMessage n RTS m 3 pe -1 cid 5
+BS id 6 tid 5 eid 6 etid 5 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.264002867276 pe 3
+ES id 6 tid 5 eid 6 etid 5 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.264002867276 pe 3
 
-E # 4 t 0.548813502304 m 2 ce 3 msg 9
-CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n Hello pe -1
-BS id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n Hello m 2 pe 4
+E # 4 t 0.548813502304 m 2 ce 3 msg 5
+CM id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n Hello pe -1
+BS id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n Hello m 2 pe 4
 SD sm 2 dm 3 dg 0
-ES id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 4
-CL id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n Hello m 2 pe -1 cid 11
+ES id 7 tid 7 eid 7 etid 7 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 4
+CL id 8 tid 7 eid 8 etid 7 c omnetpp::cMessage n Hello m 2 pe -1 cid 7
 
-E # 5 t 0.548813502304 m 3 ce 4 msg 11
+E # 5 t 0.548813502304 m 3 ce 4 msg 7
 - INFO: HandleMessagePClient called 
-CM id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n RTS pe -1
-BS id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n RTS m 3 pe 5
+CM id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n RTS pe -1
+BS id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n RTS m 3 pe 5
 SD sm 3 dm 2 dg 0
-ES id 12 tid 12 eid 12 etid 12 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 5
-CL id 13 tid 12 eid 13 etid 12 c omnetpp::cMessage n RTS m 3 pe -1 cid 12
-CL id 13 tid 12 eid 13 etid 12 c omnetpp::cMessage n RTS m 3 pe -1 cid 12
-BS id 13 tid 12 eid 13 etid 12 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.406759122153 pe 5
-ES id 13 tid 12 eid 13 etid 12 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.406759122153 pe 5
+ES id 8 tid 8 eid 8 etid 8 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 5
+CL id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n RTS m 3 pe -1 cid 8
+CL id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n RTS m 3 pe -1 cid 8
+BS id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.393079246394 pe 5
+ES id 9 tid 8 eid 9 etid 8 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.393079246394 pe 5
 
-E # 6 t 0.548813502304 m 2 ce 5 msg 12
-CM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n Hello pe -1
-BS id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n Hello m 2 pe 6
+E # 6 t 0.548813502304 m 2 ce 5 msg 8
+CM id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n Hello pe -1
+BS id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n Hello m 2 pe 6
 SD sm 2 dm 3 dg 0
-ES id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 6
-CL id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n Hello m 2 pe -1 cid 14
+ES id 10 tid 10 eid 10 etid 10 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 6
+CL id 11 tid 10 eid 11 etid 10 c omnetpp::cMessage n Hello m 2 pe -1 cid 10
 
-E # 7 t 0.548813502304 m 3 ce 6 msg 14
+E # 7 t 0.548813502304 m 3 ce 6 msg 10
 - INFO: HandleMessagePClient called 
-CM id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n RTS pe -1
-BS id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n RTS m 3 pe 7
+CM id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n RTS pe -1
+BS id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n RTS m 3 pe 7
 SD sm 3 dm 2 dg 0
-ES id 15 tid 15 eid 15 etid 15 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 7
-CL id 16 tid 15 eid 16 etid 15 c omnetpp::cMessage n RTS m 3 pe -1 cid 15
-CL id 16 tid 15 eid 16 etid 15 c omnetpp::cMessage n RTS m 3 pe -1 cid 15
-BS id 16 tid 15 eid 16 etid 15 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.093696679687 pe 7
-ES id 16 tid 15 eid 16 etid 15 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.093696679687 pe 7
+ES id 11 tid 11 eid 11 etid 11 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 7
+CL id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n RTS m 3 pe -1 cid 11
+CL id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n RTS m 3 pe -1 cid 11
+BS id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.151576872682 pe 7
+ES id 12 tid 11 eid 12 etid 11 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.151576872682 pe 7
 
-E # 8 t 0.548813502304 m 2 ce 7 msg 15
-CM id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n Hello pe -1
-BS id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n Hello m 2 pe 8
+E # 8 t 0.548813502304 m 2 ce 7 msg 11
+CM id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n Hello pe -1
+BS id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n Hello m 2 pe 8
 SD sm 2 dm 3 dg 0
-ES id 17 tid 17 eid 17 etid 17 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 8
-CL id 18 tid 17 eid 18 etid 17 c omnetpp::cMessage n Hello m 2 pe -1 cid 17
+ES id 13 tid 13 eid 13 etid 13 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 8
+CL id 14 tid 13 eid 14 etid 13 c omnetpp::cMessage n Hello m 2 pe -1 cid 13
 
-E # 9 t 0.548813502304 m 3 ce 8 msg 17
+E # 9 t 0.548813502304 m 3 ce 8 msg 13
 - INFO: HandleMessagePClient called 
-CM id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n RTS pe -1
-BS id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n RTS m 3 pe 9
+CM id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n RTS pe -1
+BS id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n RTS m 3 pe 9
 SD sm 3 dm 2 dg 0
-ES id 18 tid 18 eid 18 etid 18 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 9
-CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n RTS m 3 pe -1 cid 18
-CL id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n RTS m 3 pe -1 cid 18
-BS id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.396065239561 pe 9
-ES id 19 tid 18 eid 19 etid 18 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.396065239561 pe 9
+ES id 14 tid 14 eid 14 etid 14 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 9
+CL id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n RTS m 3 pe -1 cid 14
+CL id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n RTS m 3 pe -1 cid 14
+BS id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.406759122153 pe 9
+ES id 15 tid 14 eid 15 etid 14 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 1.406759122153 pe 9
 
-E # 10 t 0.548813502304 m 2 ce 9 msg 18
-CM id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n Hello pe -1
-BS id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n Hello m 2 pe 10
+E # 10 t 0.548813502304 m 2 ce 9 msg 14
+CM id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n Hello pe -1
+BS id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n Hello m 2 pe 10
 SD sm 2 dm 3 dg 0
-ES id 20 tid 20 eid 20 etid 20 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 10
-CL id 21 tid 20 eid 21 etid 20 c omnetpp::cMessage n Hello m 2 pe -1 cid 20
-
-E # 11 t 0.548813502304 m 3 ce 10 msg 20
-- INFO: HandleMessagePClient called 
-CM id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n RTS pe -1
-BS id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n RTS m 3 pe 11
-SD sm 3 dm 2 dg 0
-ES id 21 tid 21 eid 21 etid 21 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 2 ag 0 at 0.548813502304 pe 11
-CL id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n RTS m 3 pe -1 cid 21
-CL id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n RTS m 3 pe -1 cid 21
-BS id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 0.972468299092 pe 11
-ES id 22 tid 21 eid 22 etid 21 c omnetpp::cMessage n RTS sm 3 st 0.548813502304 am 3 at 0.972468299092 pe 11
-
-E # 12 t 0.548813502304 m 2 ce 11 msg 21
-CM id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n Hello pe -1
-BS id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n Hello m 2 pe 12
-SD sm 2 dm 3 dg 0
-ES id 23 tid 23 eid 23 etid 23 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 12
-CL id 24 tid 23 eid 24 etid 23 c omnetpp::cMessage n Hello m 2 pe -1 cid 23
+ES id 16 tid 16 eid 16 etid 16 c omnetpp::cMessage n Hello sm 2 st 0.548813502304 am 3 ag 0 at 0.548813502304 pe 10
+CL id 17 tid 16 eid 17 etid 16 c omnetpp::cMessage n Hello m 2 pe -1 cid 16
 
 SE e 0 c -1 m ""

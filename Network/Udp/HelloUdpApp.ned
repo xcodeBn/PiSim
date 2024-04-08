@@ -13,22 +13,16 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __PISIM_HELLOUDPAPP_H_
-#define __PISIM_HELLOUDPAPP_H_
+package Network.Udp;
 
-#include <omnetpp.h>
-#include "inet/applications/udpapp/UdpBasicApp.h"
-using namespace omnetpp;
+//
+// TODO auto-generated module
+//
+import inet.applications.udpapp.UdpBasicApp;
 
-/**
- * TODO - Generated class
- */
-class HelloUdpApp: public inet::UdpBasicApp {
-protected:
-    virtual void initialize(int stage) override;
-    virtual void handleMessageWhenUp(cMessage *msg) override;
-    virtual void sendPacket() override;
+simple HelloUdpApp extends UdpBasicApp
+{
+    parameters:
 
-};
 
-#endif
+}

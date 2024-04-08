@@ -13,14 +13,4 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package Network;
-
-//
-// TODO auto-generated module
-//
-import inet.applications.udpapp.UdpBasicApp;
-
-simple HelloUdpApp extends UdpBasicApp
-{
-    
-}
+package samples.WirelessMessaging.Alia1;

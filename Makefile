@@ -36,7 +36,10 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 OBJS = \
     $O/Modules/Simple/Computer/Computer.o \
     $O/Modules/Simple/Server/Server.o \
-    $O/Network/HelloUdpApp.o \
+    $O/Network/Udp/HelloUdpApp.o \
+    $O/Network/Udp/HelloUdpSink.o \
+    $O/Network/Udp/PiUdpComApp.o \
+    $O/Network/Udp/PiUdpComApp_test.o \
     $O/Test/SimpleServer.o \
     $O/Test/InetTests/UdpBasicAppTest.o \
     $O/Util/DashSummer/DashSummer.o \

@@ -31,3 +31,7 @@
 *.exe
 *.out
 *.app
+samples/Alia1/results/Wireless02-\#0.vec
+samples/Alia1/results/Wireless01-\#0.vci
+samples/Alia1/results/Wireless01-\#0.vec
+samples/Alia1/results/Wireless02-\#0.vci
