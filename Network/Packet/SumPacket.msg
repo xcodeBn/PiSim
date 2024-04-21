@@ -11,16 +11,19 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
-package Network.Udp;
+//
+import inet.common.packet.chunk.Chunk;
+cplusplus {{
 
-import inet.applications.udpapp.UdpBasicApp;
+#include "inet/common/packet/chunk/FieldsChunk.h"
 
-simple HelloUdpApp extends UdpBasicApp
-{
-    parameters:
-        int numToSend = default(1);
-        bool isSummer = default(false);
-    @class(HelloUdpApp);
-   
+}}
+class SumPacket extends inet::FieldsChunk{
+
+string data = "";
+int sourcePort = -1;
+int destinationPort = -1;
+string senderName = "";
+string recieverName = "";
+bool isTest = false;
 }

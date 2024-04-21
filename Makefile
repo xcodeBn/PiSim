@@ -36,20 +36,24 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 OBJS = \
     $O/Modules/Simple/Computer/Computer.o \
     $O/Modules/Simple/Server/Server.o \
+    $O/Network/Reciever/UdpSummerSink.o \
     $O/Network/Udp/HelloUdpApp.o \
-    $O/Network/Udp/HelloUdpSink.o \
-    $O/Network/Udp/PiUdpComApp.o \
-    $O/Network/Udp/PiUdpComApp_test.o \
+    $O/Network/Udp/SummerEchoApp.o \
+    $O/Network/Udp/SummerUdpApp.o \
     $O/Test/SimpleServer.o \
     $O/Test/InetTests/UdpBasicAppTest.o \
     $O/Util/DashSummer/DashSummer.o \
     $O/Util/StringUtil/StringUtil.o \
     $O/examples/DrAlia/Node.o \
     $O/samples/WirelessMessaging/PClient.o \
-    $O/samples/WirelessMessaging/PServer.o
+    $O/samples/WirelessMessaging/PServer.o \
+    $O/Network/Packet/HelloPacket_m.o \
+    $O/Network/Packet/SumPacket_m.o
 
 # Message files
-MSGFILES =
+MSGFILES = \
+    Network/Packet/HelloPacket.msg \
+    Network/Packet/SumPacket.msg
 
 # SM files
 SMFILES =

@@ -22,7 +22,7 @@ Define_Module(PServer);
 void PServer::initialize(){};
 
 void PServer::handleMessage(cMessage *msg){
-    msg = new cMessage("Hello");
+
     cModule *target = getParentModule()->getSubmodule("client");
     sendDirect(msg,target,"radioIn");
 };

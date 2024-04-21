@@ -11,16 +11,21 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
-package Network.Udp;
+//
 
-import inet.applications.udpapp.UdpBasicApp;
+import inet.common.packet.chunk.Chunk;
 
-simple HelloUdpApp extends UdpBasicApp
-{
-    parameters:
-        int numToSend = default(1);
-        bool isSummer = default(false);
-    @class(HelloUdpApp);
-   
+cplusplus {{
+
+#include "inet/common/packet/chunk/FieldsChunk.h"
+
+}}
+class HelloPacket extends inet::FieldsChunk{
+
+string data = "";
+int sourcePort = -1;
+int destinationPort = -1;
+int x= 0;
+int y = 0;
+
 }

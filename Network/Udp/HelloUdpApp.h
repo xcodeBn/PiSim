@@ -15,20 +15,44 @@
 
 #ifndef __PISIM_HELLOUDPAPP_H_
 #define __PISIM_HELLOUDPAPP_H_
-
-#include <omnetpp.h>
 #include "inet/applications/udpapp/UdpBasicApp.h"
-using namespace omnetpp;
+#include <omnetpp.h>
 
+#include "Util/Generators/RandomGenerator.h"
+#include "Util/DashSummer/Summer.h"
+using namespace omnetpp;
+using namespace inet;
 /**
  * this model generates two ints packets
  */
-class HelloUdpApp: public inet::UdpBasicApp {
+class HelloUdpApp: public UdpBasicApp {
 protected:
+
     virtual void initialize(int stage) override;
     virtual void handleMessageWhenUp(cMessage *msg) override;
-    virtual void sendPacket() override;
+    virtual void finish() override;
+    virtual void refreshDisplay() const override;
 
+    // chooses random destination address
+    virtual L3Address chooseDestAddr() override;
+    virtual void sendPacket() override;
+    virtual void processPacket(Packet *msg) override ;
+    virtual void setSocketOptions() override;
+
+    virtual void processStart() override;
+    virtual void processSend() override;
+    virtual void processStop() override;
+
+private:
+    piutil::RandomGenerator randomGenerator;
+    Summer *sum ;
+    std::string generateMessage();
+
+
+public:
+    HelloUdpApp() {
+    }
+    virtual ~HelloUdpApp();
 };
 
 #endif

@@ -12,15 +12,17 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
-package Network.Udp;
 
-import inet.applications.udpapp.UdpBasicApp;
+package Network.Reciever;
 
-simple HelloUdpApp extends UdpBasicApp
+
+import inet.applications.udpapp.UdpSink;
+
+simple UdpSummerSink extends UdpSink
 {
     parameters:
         int numToSend = default(1);
-        bool isSummer = default(false);
-    @class(HelloUdpApp);
+       	
+    @class(UdpSummerSink);
    
 }

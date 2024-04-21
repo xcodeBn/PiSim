@@ -1,0 +1,119 @@
+file 4464 1712670605                                            
+version 3
+run Wirless02-0-20240409-16:50:00-20388
+attr configname Wirless02
+attr datetime 20240409-16:50:00
+attr datetimef 20240409-165000
+attr experiment Wirless02
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network WirelessA
+attr processid 20388
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config cmdenv-express-mode true
+config image-path ../../../inet4.5/images
+config description "tcp two host wireless"
+config network WirelessA
+config sim-time-limit 40s
+config *.*.numApps 1
+config *.hostA.app[0].typename TcpClientApp
+config *.hostA.app[0].io.connectAddress "\"server\""
+config *.hostA.app[0].io.connectPort 1000
+config *.hostA.app[0].source.productionInterval "uniform(0s, 20s)"
+config *.hostA.app[0].source.packetLength "intuniform(100B, 200B)"
+config *.hostA.app[0].source.packetData "intuniform(0, 1)"
+config *.hostB.app[0].typename TcpServerApp
+config *.hostB.app[0].listener.localPort 1000
+
+vector 0 WirelessA.hostA.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 1 WirelessA.hostA.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 2 WirelessA.hostA.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 3 WirelessA.hostA.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 WirelessA.hostA.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 WirelessA.hostA.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 WirelessA.hostB.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 7 WirelessA.hostB.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 8 WirelessA.hostB.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 9 WirelessA.hostB.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 WirelessA.hostB.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 WirelessA.hostB.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 WirelessA.hostA.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+0	4288 18 0 0 0 0 2 0 0 0 0
+1	4306 18 0 0 0 0 2 0 0 0 0
+2	4324 18 0 0 0 0 2 0 0 0 0
+3	4342 9 0 0 0 0 1 0 0 0 0
+4	4351 9 0 0 0 0 1 0 0 0 0
+5	4360 9 0 0 0 0 1 0 0 0 0
+6	4369 18 0 0 0 0 2 0 0 0 0
+7	4387 18 0 0 0 0 2 0 0 0 0
+8	4405 18 0 0 0 0 2 0 0 0 0
+9	4423 9 0 0 0 0 1 0 0 0 0
+10	4432 10 0 0 0 0 1 0 0 0 0
+11	4442 10 0 0 0 0 1 0 0 0 0
+12	4452 10 0 0 0 0 1 0 0 0 0
+
