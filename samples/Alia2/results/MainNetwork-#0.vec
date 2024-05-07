@@ -1,16 +1,16 @@
 version 3
-run Wireless08-0-20240508-01:26:19-2492
-attr configname Wireless08
-attr datetime 20240508-01:26:19
-attr datetimef 20240508-012619
-attr experiment Wireless08
+run MainNetwork-0-20240508-01:45:34-23996
+attr configname MainNetwork
+attr datetime 20240508-01:45:34
+attr datetimef 20240508-014534
+attr experiment MainNetwork
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network WirelessA
-attr processid 2492
+attr processid 23996
 attr repetition 0
 attr replication #0
 attr resultdir results

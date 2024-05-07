@@ -41,6 +41,7 @@ OBJS = \
     $O/Network/Udp/SummerUdpApp.o \
     $O/Network/Udp/Base/PiBaseSummerApp.o \
     $O/Network/Udp/Base/PiUdpBaseApp.o \
+    $O/Network/Udp/Custom/EvenOddApp.o \
     $O/Network/Udp/Custom/SenderUdpApp.o \
     $O/Network/Udp/archieve/SummerEchoApp.o \
     $O/Test/SimpleServer.o \
@@ -48,8 +49,6 @@ OBJS = \
     $O/Util/DashSummer/DashSummer.o \
     $O/Util/StringUtil/StringUtil.o \
     $O/examples/DrAlia/Node.o \
-    $O/samples/WirelessMessaging/PClient.o \
-    $O/samples/WirelessMessaging/PServer.o \
     $O/Network/Packet/DataChunk_m.o \
     $O/Network/Packet/DetailedResultChunk_m.o \
     $O/Network/Packet/EvenOddChunk_m.o \

@@ -58,6 +58,7 @@ simple SummerUdpApp like IApp
         double stopOperationExtraTime @unit(s) = default(-1s); // Additional time after lifecycle stop operation finished
         double stopOperationTimeout @unit(s) = default(2s); // Timeout for lifecycle stop operation
 
+		bool checkEvenOdd = default(false);
         // Signals and Statistics
         @signal[packetSent](type="inet::Packet");
         @signal[packetReceived](type="inet::Packet");

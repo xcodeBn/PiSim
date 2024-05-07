@@ -29,11 +29,17 @@ protected:
     int numSent = 0;
     int numReceived = 0;
     ChunkType chunkType;
+    bool checkEvenOdd = false;
 
 public:
     /** Lifecycle stages */
     virtual int numInitStages() const override {
         return inet::NUM_INIT_STAGES;
+    }
+
+    // Utility function to check if a number is even or odd
+    virtual std::string evenOrOdd(int number) {
+        return (number % 2 == 0) ? "even" : "odd";
     }
 
 protected:

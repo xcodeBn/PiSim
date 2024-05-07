@@ -12,7 +12,8 @@
 #include "inet/transportlayer/contract/udp/UdpControlInfo_m.h"
 #include "Util/DashSummer/Summer.h"
 #include "Network/Packet/XY_Packet_m.h"
-
+#include "Network/Udp/Util/ChunkType.h"
+#include "Network/Udp/Util/PacketHelper.h"
 Define_Module(PiUdpBaseApp);
 
 void PiUdpBaseApp::initialize(int stage) {
@@ -76,16 +77,23 @@ void PiUdpBaseApp::sendPacket() {
     numSent++;
 }
 
+void PiUdpBaseApp::getChunkType(Packet *msg) {
+    chunkType = PacketHelper::checkPacketChunk(msg);
+}
+
 void PiUdpBaseApp::processPacket(Packet *msg) {
+    getChunkType(msg);
+    switch (chunkType) {
+        case ChunkType::NOCHUNK:
+            EV_WARN<< "Recieved packet does not contain any data or chunks" << endl;
+            break;
+        default:
+            break;
+    }
+
     EV_INFO << "Received packet: " << msg->str() << endl;
     numReceived++;
     const auto &helloChunk = msg->peekAtFront<XY_Packet>(B(-1), Chunk::PF_ALLOW_ALL);
-    if (!helloChunk) {
-        EV_WARN << "Received packet does not contain a HelloPacket chunk." << endl;
-        delete msg;
-        return;
-    }
-
     std::string answer = helloChunk->getData();
     EV << "Results arrived: " << answer << endl;
 }

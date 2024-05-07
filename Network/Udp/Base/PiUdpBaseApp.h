@@ -33,7 +33,8 @@ using namespace omnetpp;
 class PiUdpBaseApp: public UdpBasicApp {
 protected:
 
-    virtual ChunkType getChunkType(Packet pk*);
+
+    ChunkType chunkType = ChunkType::NOCHUNK;
 
     virtual void initialize(int stage) override;
     virtual void handleMessageWhenUp(cMessage *msg) override;
@@ -51,6 +52,7 @@ protected:
     virtual void processStop() override;
 
     virtual std::string generateMessage();
+    void getChunkType(inet::Packet *msg);
 
     piutil::RandomGenerator randomGenerator;
 private:

@@ -12,25 +12,22 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
-package samples.SimpleServer;
-import Modules.Simple.Computer.Computer;
-import Modules.Simple.Server.Server;
-network MainNetwork
+
+#ifndef __PISIM_EVENODDAPP_H_
+#define __PISIM_EVENODDAPP_H_
+
+#include <omnetpp.h>
+#include "Network/Udp/Custom/SenderUdpApp.h"
+using namespace omnetpp;
+
+/**
+ * TODO - Generated class
+ */
+class EvenOddApp : public SenderUdpApp
 {
-    @display("bgb=854,443");
-    submodules:
-        pc1: Computer {
-            @display("p=135,267;is=l");
-        }
-        pc2: Computer {
-            @display("p=646,247;is=l");
-        }
-        server: Server {
-            @display("p=350,88;is=vl");
-        }
-    connections:
-        pc1.out --> server.in1;
-        server.out1 --> pc1.in;
-        server.out2 --> pc2.in;
-        pc2.out --> server.in2;
-}
+protected:
+    virtual void processPacket(Packet* msg) override;
+
+};
+
+#endif

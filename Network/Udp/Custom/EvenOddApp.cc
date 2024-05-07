@@ -13,38 +13,25 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package samples.WirelessMessaging;
+#include "EvenOddApp.h"
+#include "Network/Packet/EvenOddChunk_m.h"
+Define_Module(EvenOddApp);
 
+void EvenOddApp::processPacket(Packet *msg) {
 
-simple PServer
-{
-    @display("i=device/wifilaptop");
-    gates:
-        input radioIn @directIn;
+    EV_INFO << "Received packet: " << msg->str() << endl;
+    numReceived++;
+
+    const auto &dataChunk = msg->peekAtFront<EvenOddChunk>(B(-1),
+            Chunk::PF_ALLOW_ALL);
+    if (!dataChunk) {
+        EV_WARN << "Received packet does not contain a HelloPacket chunk."
+                       << endl;
+        delete msg;
+        return;
+    }
+
+    std::string answer = dataChunk->getData();
+    EV << "Summation results arrived: " << answer << endl;
+
 }
-//
-// TODO documentation
-//
-simple PClient
-{
-    @display("i=device/wifilaptop");
-    gates:
-        input radioIn @directIn;
-}
-
-//
-// TODO documentation
-//
-network Network
-{
-    @display("bgb=492,309");
-    submodules:
-        server: PServer {
-            @display("p=74,183");
-        }
-        client: PClient {
-            @display("p=393,183");
-        }
-        
-}
-

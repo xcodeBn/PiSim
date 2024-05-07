@@ -50,6 +50,8 @@ void SummerUdpApp::initialize(int stage) {
         localPort = par("localPort");
         destPort = par("destPort");
         packetName = par("packetName").str();
+        checkEvenOdd = par("checkEvenOdd");
+
     }
 }
 
@@ -186,6 +188,11 @@ void SummerUdpApp::processDataChunk(UdpSocket *socket, Packet *pk) {
     int result = x + y;
     nlohmann::json resultJson;
     resultJson["Results"] = result;
+
+    if (checkEvenOdd) {
+        resultJson["x"] = { { "Value", x }, { "Even/Odd", evenOrOdd(x) } };
+        resultJson["y"] = { { "Value", y }, { "Even/Odd", evenOrOdd(y) } };
+    }
 
     std::string resultStr = resultJson.dump();
 

@@ -13,4 +13,11 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package samples.WirelessMessaging;
+package Network.Udp.Custom;
+
+
+simple EvenOddApp extends SenderUdpApp
+{
+    
+    @class(EvenOddApp);
+}

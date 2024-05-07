@@ -1,42 +1,48 @@
-file 31209 1715120745                                           
+file 86415 1715120401                                           
 version 3
-run Wireless07-0-20240508-01:24:15-5008
-attr configname Wireless07
-attr datetime 20240508-01:24:15
-attr datetimef 20240508-012415
-attr experiment Wireless07
+run Wireless01-0-20240508-01:19:34-10968
+attr configname Wireless01
+attr datetime 20240508-01:19:34
+attr datetimef 20240508-011934
+attr experiment Wireless01
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network WirelessA
-attr processid 5008
+attr processid 10968
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 config image-path ../../../inet4.5/images
-config description "Turning on ACKs in CSMA"
-config extends Wireless06
-config *.host*.wlan[0].mac.useAck true
-config description "Using CSMA to better utilize the medium"
-config extends Wireless05
-config *.host*.wlan[0].typename WirelessInterface
-config *.host*.wlan[0].radio.typename UnitDiskRadio
-config *.host*.wlan[0].mac.typename CsmaCaMac
-config *.host*.wlan[0].mac.ackTimeout 300us
-config *.host*.wlan[0].queue.typename DropTailQueue
-config *.host*.wlan[0].queue.packetCapacity -1
-config description "Taking interference into account"
-config extends Wireless04
-config *.host*.wlan[0].radio.receiver.ignoreInterference false
-config *.host*.wlan[0].radio.transmitter.interferenceRange 500m
-config *.hostA.wlan[0].radio.displayInterferenceRange true
-config *.visualizer.dataLinkVisualizer.packetFilter "\"\""
-config description "Setting up static routing"
-config extends Wireless03
+config description "Two hosts communicating wirelessly"
+config network WirelessA
+config sim-time-limit 40s
+config *.host*.ipv4.arp.typename GlobalArp
+config *.hostA.numApps 1
+config *.hostA.app[0].typename SenderUdpApp
+config *.hostA.app[0].destPort 5000
+config *.hostA.app[0].messageLength 1000B
+config *.hostA.app[0].sendInterval exponential(12ms)
+config *.hostA.app[0].packetName "\"UDPData\""
+config *.hostA.app[0].stopTime 2.0s
+config *.hostA.app[0].varName "\"x\""
+config *.hostB.numApps 1
+config *.hostB.app[0].localPort 5000
+config *.host*.wlan[0].mac.useAck false
+config *.host*.wlan[0].mac.fullDuplex false
+config *.host*.wlan[0].radio.receiver.ignoreInterference true
+config *.host*.wlan[0].mac.headerLength 23B
+config *.host*.**.bitrate 1Mbps
+config *.hostA.wlan[0].radio.displayCommunicationRange true
+config *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+config *.visualizer.mediumVisualizer.displaySignals true
+config *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData*\""
+config *.host*.wlan[0].radio.transmitter.communicationRange 200m
+config *.host*.wlan[0].radio.displayCommunicationRange true
 config *.host*.forwarding true
 config *.hostA.app[0].destAddresses "\"hostE\""
 config *.hostE.numApps 1
@@ -62,43 +68,12 @@ config *.visualizer.networkRouteVisualizer.displayRoutes true
 config *.visualizer.*LinkVisualizer.lineShift 0
 config *.visualizer.networkRouteVisualizer.lineShift 0
 config *.visualizer.networkRouteVisualizer.packetFilter "\"UDPData*\""
-config description "Adding more nodes and decreasing the communication range"
-config extends Wireless02
-config *.host*.wlan[0].radio.transmitter.communicationRange 200m
-config *.host*.wlan[0].radio.displayCommunicationRange true
-config description "Setting up some animations"
-config extends Wireless01
-config *.hostA.wlan[0].radio.displayCommunicationRange true
-config *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
-config *.visualizer.mediumVisualizer.displaySignals true
-config *.visualizer.physicalLinkVisualizer.displayLinks true
-config *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData*\""
-config description "Two hosts communicating wirelessly"
-config network WirelessA
-config sim-time-limit 40s
-config *.host*.ipv4.arp.typename GlobalArp
-config *.hostA.numApps 1
-config *.hostA.app[0].typename SenderUdpApp
-config *.hostA.app[0].destAddresses "\"hostB\""
-config *.hostA.app[0].destPort 5000
-config *.hostA.app[0].messageLength 1000B
-config *.hostA.app[0].sendInterval exponential(12ms)
-config *.hostA.app[0].packetName "\"UDPData\""
-config *.hostA.app[0].stopTime 2.0s
-config *.hostA.app[0].varName "\"x\""
-config *.hostB.numApps 1
-config *.hostB.app[0].typename SummerUdpApp
-config *.hostB.app[0].localPort 5000
-config *.hostB.app[0].destPort 5000
-config *.hostB.app[0].messageLength 1000B
-config *.hostB.app[0].destAddresses "\"hostA\""
-config *.host*.wlan[0].typename AckingWirelessInterface
-config *.host*.wlan[0].mac.useAck false
-config *.host*.wlan[0].mac.fullDuplex false
-config *.host*.wlan[0].radio.transmitter.communicationRange 500m
-config *.host*.wlan[0].radio.receiver.ignoreInterference true
-config *.host*.wlan[0].mac.headerLength 23B
-config *.host*.**.bitrate 1Mbps
+config *.host*.wlan[0].typename WirelessInterface
+config *.host*.wlan[0].radio.typename UnitDiskRadio
+config *.host*.wlan[0].mac.typename CsmaCaMac
+config *.host*.wlan[0].mac.ackTimeout 300us
+config *.host*.wlan[0].queue.typename DropTailQueue
+config *.host*.wlan[0].queue.packetCapacity -1
 
 vector 0 WirelessA.hostA.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
@@ -314,91 +289,91 @@ attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
-vector 40 WirelessA.hostC.wlan[0].queue incomingPacketLengths:vector ETV
+vector 40 WirelessA.hostA.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 41 WirelessA.hostC.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
-vector 41 WirelessA.hostC.wlan[0].queue queueLength:vector ETV
+vector 42 WirelessA.hostC.wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 43 WirelessA.hostC.wlan[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 44 WirelessA.hostC.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
-vector 42 WirelessA.hostC.wlan[0].queue queueBitLength:vector ETV
+vector 45 WirelessA.hostC.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
-vector 43 WirelessA.hostC.wlan[0].radio transmissionState:vector ETV
+vector 46 WirelessA.hostC.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
-vector 44 WirelessA.hostC.wlan[0].queue queueingTime:vector ETV
-attr interpolationmode none
-attr recordingmode vector
-attr source queueingTime(packetPulled)
-attr title "queueing times"
-attr unit s
-vector 45 WirelessA.hostC.wlan[0].queue outgoingPacketLengths:vector ETV
-attr interpolationmode none
-attr recordingmode vector
-attr source packetLength(packetPulled)
-attr title "outgoing packet lengths"
-attr unit b
-vector 46 WirelessA.hostD.wlan[0].queue incomingPacketLengths:vector ETV
+vector 47 WirelessA.hostD.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
-vector 47 WirelessA.hostD.wlan[0].queue queueLength:vector ETV
+vector 48 WirelessA.hostD.wlan[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 49 WirelessA.hostD.wlan[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 50 WirelessA.hostD.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
-vector 48 WirelessA.hostD.wlan[0].queue queueBitLength:vector ETV
+vector 51 WirelessA.hostD.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
-vector 49 WirelessA.hostB.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+vector 52 WirelessA.hostB.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
-vector 50 WirelessA.hostA.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+vector 53 WirelessA.hostA.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
-vector 51 WirelessA.hostD.wlan[0].radio transmissionState:vector ETV
-attr interpolationmode sample-hold
-attr recordingmode vector
-attr source transmissionStateChanged
-attr title "Radio transmission state"
-vector 52 WirelessA.hostD.wlan[0].queue queueingTime:vector ETV
-attr interpolationmode none
-attr recordingmode vector
-attr source queueingTime(packetPulled)
-attr title "queueing times"
-attr unit s
-vector 53 WirelessA.hostD.wlan[0].queue outgoingPacketLengths:vector ETV
-attr interpolationmode none
-attr recordingmode vector
-attr source packetLength(packetPulled)
-attr title "outgoing packet lengths"
-attr unit b
-vector 54 WirelessA.hostA.wlan[0].radio transmissionState:vector ETV
+vector 54 WirelessA.hostD.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
@@ -413,134 +388,143 @@ attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceived
 attr title "packets received, packetBytes"
-vector 57 WirelessA.hostE.wlan[0].radio transmissionState:vector ETV
-attr interpolationmode sample-hold
+vector 57 WirelessA.hostA.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
 attr recordingmode vector
-attr source transmissionStateChanged
-attr title "Radio transmission state"
-vector 58 WirelessA.hostE.app[0] packetSent:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetSent
-attr title "Packets Sent, packetBytes"
-vector 59 WirelessA.hostE.udp packetSent:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetSent
-attr title "packets sent, packetBytes"
-vector 60 WirelessA.hostE.wlan[0].queue incomingPacketLengths:vector ETV
-attr interpolationmode none
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 58 WirelessA.hostA.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
 attr recordingmode vector
-attr source packetLength(packetPushStarted)
-attr title "incoming packet lengths"
-attr unit b
-vector 61 WirelessA.hostE.wlan[0].queue queueLength:vector ETV
-attr autoWarmupFilter false
-attr interpolationmode sample-hold
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 59 WirelessA.hostA.app[0] throughput:vector ETV
 attr recordingmode vector
-attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
-attr title "queue length"
-attr unit pk
-vector 62 WirelessA.hostE.wlan[0].queue queueBitLength:vector ETV
-attr autoWarmupFilter false
-attr interpolationmode sample-hold
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+vector 60 WirelessA.hostB.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
 attr recordingmode vector
-attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
-attr title "queue bit length"
-attr unit b
-vector 63 WirelessA.hostE.wlan[0].queue queueingTime:vector ETV
-attr interpolationmode none
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 61 WirelessA.hostB.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
 attr recordingmode vector
-attr source queueingTime(packetPulled)
-attr title "queueing times"
-attr unit s
-vector 64 WirelessA.hostE.wlan[0].queue outgoingPacketLengths:vector ETV
-attr interpolationmode none
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 62 WirelessA.hostB.app[0] throughput:vector ETV
 attr recordingmode vector
-attr source packetLength(packetPulled)
-attr title "outgoing packet lengths"
-attr unit b
-vector 65 WirelessA.hostE.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, packetBytes"
-vector 66 WirelessA.hostD.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, packetBytes"
-vector 67 WirelessA.hostA.udp packetReceived:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetReceived
-attr title "packets received, packetBytes"
-0	20741 33 0 278 0 0.035039722334 2 0 1 1 1
-1	20774 9 0 0 0 0 1 0 0 0 0
-2	20783 9 0 0 0 0 1 0 0 0 0
-3	20792 9 0 0 0 0 1 0 0 0 0
-4	20801 9 0 0 0 0 1 0 0 0 0
-5	20810 9 0 0 0 0 1 0 0 0 0
-6	20819 9 0 0 0 0 1 0 0 0 0
-7	20828 9 0 0 0 0 1 0 0 0 0
-8	20837 9 0 0 0 0 1 0 0 0 0
-9	20846 9 0 0 0 0 1 0 0 0 0
-10	20855 10 0 0 0 0 1 0 0 0 0
-11	20865 10 0 0 0 0 1 0 0 0 0
-12	20875 60 0 177 0 0.028950155023 3 0 2 3 5
-13	20935 10 0 0 0 0 1 0 0 0 0
-14	20945 10 0 0 0 0 1 0 0 0 0
-15	20955 128 0 287 0 0.035289722334 7 0 3 12 30
-16	21083 76 0 21 0 0.02332556865 5 0 3 7 17
-17	21159 324 0 270 0 0.035039130097 15 0 3 32 82
-18	21483 349 0 312 0 0.036987673024 16 0 3 35 91
-19	21832 230 0 304 0 0.036977185487 11 0 3 22 56
-20	22062 971 0 317 0 0.03698867706 40 0 3 62 122
-21	23033 961 0 316 0 0.036988654098 40 0 3 64 126
-22	23994 973 0 314 0 0.036988160561 40 0 3 58 126
-23	24967 963 0 312 0 0.036987673024 40 0 3 56 122
-24	25930 966 0 315 0 0.036988160561 40 0 3 59 119
-25	26896 23 3 3 0.022315250545 0.022315250545 1 9 9 9 81
-26	26919 24 5 5 0.022315250545 0.022315250545 1 17 17 17 289
-27	26943 25 7 7 0.022315250545 0.022315250545 1 296 296 296 87616
-28	26968 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
-29	26991 25 7 7 0.022315250545 0.022315250545 1 296 296 296 87616
-30	27016 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
-31	27039 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
-32	27062 22 9 9 0.02254756865 0.02254756865 1 9 9 9 81
-33	27084 24 11 11 0.02254756865 0.02254756865 1 17 17 17 289
-34	27108 25 13 13 0.02254756865 0.02254756865 1 296 296 296 87616
-35	27133 23 13 13 0.02254756865 0.02254756865 1 0 0 0 0
-36	27156 25 13 13 0.02254756865 0.02254756865 1 296 296 296 87616
-37	27181 23 13 13 0.02254756865 0.02254756865 1 0 0 0 0
-38	27204 23 13 13 0.02254756865 0.02254756865 1 0 0 0 0
-39	27227 92 15 21 0.02271756865 0.02332556865 4 0 2 4 6
-40	27319 80 25 241 0.023326121065 0.032983130097 3 296 1184 1776 1577088
-41	27399 146 25 244 0.023326121065 0.032993130097 6 0 1 3 3
-42	27545 153 25 244 0.023326121065 0.032993130097 6 0 1184 1776 1577088
-43	27698 588 29 270 0.023336121065 0.035039130097 24 0 2 24 36
-44	28286 85 29 244 0.023336121065 0.032993130097 3 1e-05 1e-05 3e-05 3e-10
-45	28371 80 29 244 0.023336121065 0.032993130097 3 296 1184 1776 1577088
-46	28451 108 55 308 0.024374608602 0.036977673024 4 296 1184 2960 2978944
-47	28559 196 55 312 0.024374608602 0.036987673024 8 0 1 4 4
-48	28755 206 55 312 0.024374608602 0.036987673024 8 0 1184 2960 2978944
-49	28961 76 57 274 0.02437467348 0.035039682512 3 64 175 303 38817
-50	29037 51 59 120 0.024374713302 0.026512797112 2 64 64 128 8192
-51	29088 638 61 313 0.024384608602 0.036987673024 26 0 2 27 41
-52	29726 123 61 312 0.024384608602 0.036987673024 4 1e-05 0.001298975074 0.001328975074 1.6876362428733e-06
-53	29849 108 61 312 0.024384608602 0.036987673024 4 296 1184 2960 2978944
-54	29957 196 76 287 0.024715612638 0.035289722334 8 0 2 8 12
-55	30153 52 145 174 0.027561179949 0.028950155023 2 64 64 128 8192
-56	30205 52 148 177 0.027561179949 0.028950155023 2 17 17 34 578
-57	30257 400 152 304 0.027571179949 0.036977185487 16 0 2 16 24
-58	30657 27 178 178 0.028950155023 0.028950155023 1 120 120 120 14400
-59	30684 54 179 180 0.028950155023 0.028950155023 2 128 128 256 32768
-60	30738 56 183 184 0.028950155023 0.028950155023 2 1184 1184 2368 2803712
-61	30794 100 183 224 0.028950155023 0.031337130097 4 0 2 4 6
-62	30894 109 183 224 0.028950155023 0.031337130097 4 0 2368 4736 8411136
-63	31003 67 187 224 0.028960155023 0.031337130097 2 1e-05 0.002386975074 0.002396975074 5.6977500038973e-06
-64	31070 56 187 224 0.028960155023 0.031337130097 2 1184 1184 2368 2803712
-65	31126 27 239 239 0.032983130097 0.032983130097 1 175 175 175 30625
-66	31153 27 272 272 0.035039617634 0.035039617634 1 175 175 175 30625
-67	31180 27 278 278 0.035039722334 0.035039722334 1 128 128 128 16384
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+vector 63 WirelessA.hostC.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 64 WirelessA.hostC.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 65 WirelessA.hostD.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 66 WirelessA.hostD.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 67 WirelessA.hostE.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 68 WirelessA.hostE.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+0	19222 9 0 0 0 0 1 0 0 0 0
+1	19231 9 0 0 0 0 1 0 0 0 0
+2	19240 9 0 0 0 0 1 0 0 0 0
+3	19249 9 0 0 0 0 1 0 0 0 0
+4	19258 9 0 0 0 0 1 0 0 0 0
+5	19267 9 0 0 0 0 1 0 0 0 0
+6	19276 9 0 0 0 0 1 0 0 0 0
+7	19285 9 0 0 0 0 1 0 0 0 0
+8	19294 9 0 0 0 0 1 0 0 0 0
+9	19303 9 0 0 0 0 1 0 0 0 0
+10	19312 10 0 0 0 0 1 0 0 0 0
+11	19322 10 0 0 0 0 1 0 0 0 0
+12	19332 34 0 66 0 0.025260817856 2 0 1 1 1
+13	19366 10 0 0 0 0 1 0 0 0 0
+14	19376 10 0 0 0 0 1 0 0 0 0
+15	19386 78 0 33 0 0.023443250545 5 0 3 7 17
+16	19464 76 0 25 0 0.02327556865 5 0 3 7 17
+17	19540 78 0 44 0 0.024191842782 5 0 3 7 17
+18	19618 78 0 60 0 0.025260330319 5 0 3 7 17
+19	19696 30 0 0 0 0 3 0 2 2 4
+20	19726 106 0 51 0 0.024192435019 5 0 3 6 12
+21	19832 104 0 49 0 0.024192395197 5 0 3 6 12
+22	19936 178 0 61 0 0.025260817856 8 0 3 12 26
+23	20114 106 0 60 0 0.025260330319 5 0 3 6 12
+24	20220 58 0 62 0 0.025260817856 3 1 3 5 11
+25	20278 23 3 3 0.022315250545 0.022315250545 1 9 9 9 81
+26	20301 24 5 5 0.022315250545 0.022315250545 1 17 17 17 289
+27	20325 25 7 7 0.022315250545 0.022315250545 1 296 296 296 87616
+28	20350 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
+29	20373 25 7 7 0.022315250545 0.022315250545 1 296 296 296 87616
+30	20398 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
+31	20421 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
+32	20444 22 8 8 0.02254756865 0.02254756865 1 9 9 9 81
+33	20466 24 10 10 0.02254756865 0.02254756865 1 17 17 17 289
+34	20490 25 12 12 0.02254756865 0.02254756865 1 296 296 296 87616
+35	20515 23 12 12 0.02254756865 0.02254756865 1 0 0 0 0
+36	20538 25 12 12 0.02254756865 0.02254756865 1 296 296 296 87616
+37	20563 23 12 12 0.02254756865 0.02254756865 1 0 0 0 0
+38	20586 23 12 12 0.02254756865 0.02254756865 1 0 0 0 0
+39	20609 92 13 25 0.02266756865 0.02327556865 4 0 2 4 6
+40	20701 96 19 33 0.022835250545 0.023443250545 4 0 2 4 6
+41	20797 26 29 29 0.023276121065 0.023276121065 1 296 296 296 87616
+42	20823 24 29 29 0.023276121065 0.023276121065 1 0 0 0 0
+43	20847 26 29 29 0.023276121065 0.023276121065 1 296 296 296 87616
+44	20873 24 29 29 0.023276121065 0.023276121065 1 0 0 0 0
+45	20897 24 29 29 0.023276121065 0.023276121065 1 0 0 0 0
+46	20921 96 38 44 0.023583842782 0.024191842782 4 0 2 4 6
+47	21017 26 48 48 0.024192330319 0.024192330319 1 296 296 296 87616
+48	21043 24 48 48 0.024192330319 0.024192330319 1 0 0 0 0
+49	21067 26 48 48 0.024192330319 0.024192330319 1 296 296 296 87616
+50	21093 24 48 48 0.024192330319 0.024192330319 1 0 0 0 0
+51	21117 24 48 48 0.024192330319 0.024192330319 1 0 0 0 0
+52	21141 25 50 50 0.024192395197 0.024192395197 1 64 64 64 4096
+53	21166 25 52 52 0.024192435019 0.024192435019 1 64 64 64 4096
+54	21191 96 54 60 0.024652330319 0.025260330319 4 0 2 4 6
+55	21287 25 63 63 0.025260817856 0.025260817856 1 64 64 64 4096
+56	21312 25 66 66 0.025260817856 0.025260817856 1 17 17 17 289
+57	21337 5424 74 74 0.1 40 400 0 2960 2960 8761600
+58	26761 5424 74 74 0.1 40 400 0 2960 2960 8761600
+59	32185 5421 74 74 0.1 40 400 0 0 0 0
+60	37606 5424 74 74 0.1 40 400 0 2960 2960 8761600
+61	43030 5424 74 74 0.1 40 400 0 2960 2960 8761600
+62	48454 5421 74 74 0.1 40 400 0 0 0 0
+63	53875 5424 74 74 0.1 40 400 0 2960 2960 8761600
+64	59299 5424 74 74 0.1 40 400 0 2960 2960 8761600
+65	64723 5424 74 74 0.1 40 400 0 2960 2960 8761600
+66	70147 5424 74 74 0.1 40 400 0 2960 2960 8761600
+67	75571 5421 74 74 0.1 40 400 0 0 0 0
+68	80992 5421 74 74 0.1 40 400 0 0 0 0
 
