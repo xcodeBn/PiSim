@@ -47,6 +47,6 @@ public:
         return arr;
     }
 };
-
-#endif // RANDOM_GENERATOR_H
 }
+#endif // RANDOM_GENERATOR_H
+

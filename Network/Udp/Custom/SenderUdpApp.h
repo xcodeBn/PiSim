@@ -13,29 +13,39 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __PISIM_HELLOUDPAPP_H_
-#define __PISIM_HELLOUDPAPP_H_
+#ifndef __PISIM_XUDPAPP_H_
+#define __PISIM_XUDPAPP_H_
 
 #include <omnetpp.h>
 #include "Network/Udp/Base/PiUdpBaseApp.h"
-
+#include "Core/repository/JsonHelperRepository.h"
+#include "Util/Generators/RandomGenerator.h"
 using namespace omnetpp;
-using namespace inet;
+
 /**
- * this model generates two ints packets
+ * TODO - Generated class
  */
-class HelloUdpApp: public PiUdpBaseApp {
+class SenderUdpApp: public PiUdpBaseApp, private JsonHelperRepository {
 protected:
+    virtual void initialize(int stage) override;
+    virtual std::string generateMessage() override;
 
+    virtual void sendPacket() override;
+    virtual void processPacket(Packet *msg) override ;
 
+    virtual void processJsonData(const nlohmann::json& jsonData) override; // Implement this method
+    piutil::RandomGenerator randomGenerator;
 
-
-
-
+private:
+    std::string varName;
+    int varValue;
+    std::string message;
 public:
-    HelloUdpApp() {
+    SenderUdpApp() {
     }
-    virtual ~HelloUdpApp();
+    virtual ~SenderUdpApp() {
+
+    };
 };
 
 #endif

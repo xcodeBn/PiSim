@@ -1,0 +1,262 @@
+version 3
+run Wireless07-0-20240505-02:56:00-26776
+attr configname Wireless07
+attr datetime 20240505-02:56:00
+attr datetimef 20240505-025600
+attr experiment Wireless07
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network WirelessA
+attr processid 26776
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../inet4.5/images
+config description "Turning on ACKs in CSMA"
+config extends Wireless06
+config *.host*.wlan[0].mac.useAck true
+config description "Using CSMA to better utilize the medium"
+config extends Wireless05
+config *.host*.wlan[0].typename WirelessInterface
+config *.host*.wlan[0].radio.typename UnitDiskRadio
+config *.host*.wlan[0].mac.typename CsmaCaMac
+config *.host*.wlan[0].mac.ackTimeout 300us
+config *.host*.wlan[0].queue.typename DropTailQueue
+config *.host*.wlan[0].queue.packetCapacity -1
+config description "Taking interference into account"
+config extends Wireless04
+config *.host*.wlan[0].radio.receiver.ignoreInterference false
+config *.host*.wlan[0].radio.transmitter.interferenceRange 500m
+config *.hostA.wlan[0].radio.displayInterferenceRange true
+config *.visualizer.dataLinkVisualizer.packetFilter "\"\""
+config description "Setting up static routing"
+config extends Wireless03
+config *.host*.forwarding true
+config *.hostA.app[0].destAddresses "\"hostE\""
+config *.hostE.numApps 1
+config *.hostE.app[0].typename SummerUdpApp
+config *.hostE.app[0].localPort 5000
+config *.hostE.app[0].destPort 5000
+config *.hostE.app[0].messageLength 1000B
+config *.hostE.app[0].destAddresses "\"hostA\""
+config *.hostB.app[0].typename SenderUdpApp
+config *.hostB.app[0].destAddresses "\"hostE\""
+config *.hostB.app[0].destPort 5000
+config *.hostB.app[0].messageLength 1000B
+config *.hostB.app[0].sendInterval exponential(12ms)
+config *.hostB.app[0].packetName "\"Y-Data\""
+config *.hostB.app[0].stopTime 2.0s
+config *.hostB.app[0].varName "\"y\""
+config *.configurator.config "xmldoc(\"config.xml\")"
+config *.configurator.optimizeRoutes true
+config *.host*.ipv4.routingTable.netmaskRoutes "\"\""
+config *.visualizer.physicalLinkVisualizer.displayLinks true
+config *.visualizer.dataLinkVisualizer.displayLinks true
+config *.visualizer.networkRouteVisualizer.displayRoutes true
+config *.visualizer.*LinkVisualizer.lineShift 0
+config *.visualizer.networkRouteVisualizer.lineShift 0
+config *.visualizer.networkRouteVisualizer.packetFilter "\"UDPData*\""
+config description "Adding more nodes and decreasing the communication range"
+config extends Wireless02
+config *.host*.wlan[0].radio.transmitter.communicationRange 200m
+config *.host*.wlan[0].radio.displayCommunicationRange true
+config description "Setting up some animations"
+config extends Wireless01
+config *.hostA.wlan[0].radio.displayCommunicationRange true
+config *.visualizer.sceneVisualizer.descriptionFigure "\"title\""
+config *.visualizer.mediumVisualizer.displaySignals true
+config *.visualizer.physicalLinkVisualizer.displayLinks true
+config *.visualizer.physicalLinkVisualizer.packetFilter "\"UDPData*\""
+config description "Two hosts communicating wirelessly"
+config network WirelessA
+config sim-time-limit 40s
+config *.host*.ipv4.arp.typename GlobalArp
+config *.hostA.numApps 1
+config *.hostA.app[0].typename SenderUdpApp
+config *.hostA.app[0].destAddresses "\"hostB\""
+config *.hostA.app[0].destPort 5000
+config *.hostA.app[0].messageLength 1000B
+config *.hostA.app[0].sendInterval exponential(12ms)
+config *.hostA.app[0].packetName "\"UDPData\""
+config *.hostA.app[0].stopTime 2.0s
+config *.hostA.app[0].varName "\"x\""
+config *.hostB.numApps 1
+config *.hostB.app[0].typename SummerUdpApp
+config *.hostB.app[0].localPort 5000
+config *.hostB.app[0].destPort 5000
+config *.hostB.app[0].messageLength 1000B
+config *.hostB.app[0].destAddresses "\"hostA\""
+config *.host*.wlan[0].typename AckingWirelessInterface
+config *.host*.wlan[0].mac.useAck false
+config *.host*.wlan[0].mac.fullDuplex false
+config *.host*.wlan[0].radio.transmitter.communicationRange 500m
+config *.host*.wlan[0].radio.receiver.ignoreInterference true
+config *.host*.wlan[0].mac.headerLength 23B
+config *.host*.**.bitrate 1Mbps
+
+vector 0 WirelessA.hostA.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 1 WirelessA.hostA.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 2 WirelessA.hostA.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 3 WirelessA.hostB.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 WirelessA.hostB.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 WirelessA.hostB.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 WirelessA.hostC.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 7 WirelessA.hostC.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 8 WirelessA.hostC.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 9 WirelessA.hostD.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 WirelessA.hostD.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 WirelessA.hostD.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 WirelessA.hostE.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 13 WirelessA.hostE.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 14 WirelessA.hostE.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 15 WirelessA.hostA.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 16 WirelessA.hostB.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 17 WirelessA.hostC.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 18 WirelessA.hostD.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 19 WirelessA.hostE.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 20 WirelessA.hostA.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 21 WirelessA.hostB.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 22 WirelessA.hostC.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 23 WirelessA.hostD.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 24 WirelessA.hostE.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+0	0	0	0
+1	0	0	0
+2	0	0	0
+3	0	0	0
+4	0	0	0
+5	0	0	0
+6	0	0	0
+7	0	0	0
+8	0	0	0
+9	0	0	0
+10	0	0	0
+11	0	0	0
+12	0	0	0
+13	0	0	0
+14	0	0	0
+15	0	0	0
+15	0	0	0
+15	0	0	2
+16	0	0	0
+16	0	0	0
+16	0	0	2
+17	0	0	0
+17	0	0	0
+17	0	0	2
+18	0	0	0
+18	0	0	0
+18	0	0	2
+19	0	0	0
+19	0	0	0
+19	0	0	2
+20	0	0	1
+21	0	0	1
+22	0	0	1
+23	0	0	1
+24	0	0	1
+

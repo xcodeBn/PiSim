@@ -13,29 +13,15 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __PISIM_HELLOUDPAPP_H_
-#define __PISIM_HELLOUDPAPP_H_
+package Network.Udp.Base;
 
-#include <omnetpp.h>
-#include "Network/Udp/Base/PiUdpBaseApp.h"
-
-using namespace omnetpp;
-using namespace inet;
-/**
- * this model generates two ints packets
- */
-class HelloUdpApp: public PiUdpBaseApp {
-protected:
-
-
-
-
-
-
-public:
-    HelloUdpApp() {
-    }
-    virtual ~HelloUdpApp();
-};
-
-#endif
+//
+// TODO auto-generated module
+//
+simple PiBaseSummerApp
+{
+    parameters:
+    int x = default(-1);
+    int y = default(-1);
+    string data= default("");
+}

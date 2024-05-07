@@ -12,7 +12,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
-
+#include <string.h>
 #include "HelloUdpApp.h"
 #include "inet/applications/udpapp/UdpBasicApp.h"
 #include "inet/applications/base/ApplicationPacket_m.h"
@@ -29,98 +29,9 @@
 Define_Module(HelloUdpApp);
 using namespace inet;
 
-void HelloUdpApp::initialize(int stage) {
 
-    bool isSummer = par("isSummer");
-    if (isSummer) {
 
-    } else {
-        UdpBasicApp::initialize(stage);
-    }
-}
 
-void HelloUdpApp::handleMessageWhenUp(cMessage *msg) {
-
-    UdpBasicApp::handleMessageWhenUp(msg);
-}
-
-void HelloUdpApp::finish() {
-
-    UdpBasicApp::finish();
-}
-
-void HelloUdpApp::refreshDisplay() const {
-
-    UdpBasicApp::refreshDisplay();
-}
-
-L3Address HelloUdpApp::chooseDestAddr() {
-    return UdpBasicApp::chooseDestAddr();
-}
-
-void HelloUdpApp::sendPacket() {
-
-    int numToSend = par("numToSend");
-    if (numSent >= numToSend) {
-        return;
-    }
-    std::ostringstream str;
-    str << packetName << "-" << numSent;
-    std::string message = generateMessage();
-    HelloPacket *helloPacket = new HelloPacket();
-    helloPacket->setData(message.c_str());
-    Packet *packet = new Packet(str.str().c_str());
-    if (dontFragment)
-        packet->addTag<FragmentationReq>()->setDontFragment(true);
-    const auto &payload = makeShared<HelloPacket>();
-    payload->setChunkLength(B(par("messageLength")));
-
-    payload->setData(message.c_str());
-    payload->addTag<CreationTimeTag>()->setCreationTime(simTime());
-
-    packet->insertAtBack(payload);
-    L3Address destAddr = chooseDestAddr();
-    emit(packetSentSignal, packet);
-    EV << packet->str();
-    socket.sendTo(packet, destAddr, destPort);
-    numSent++;
-
-}
-
-void HelloUdpApp::processPacket(Packet *msg) {
-    EV_INFO << "Received packettt: " << msg->str() << endl;
-    numReceived++;
-    UdpBasicApp::processPacket(msg);
-
-}
-
-void HelloUdpApp::setSocketOptions() {
-    UdpBasicApp::setSocketOptions();
-}
-
-void HelloUdpApp::processStart() {
-    UdpBasicApp::processStart();
-}
-
-void HelloUdpApp::processSend() {
-
-    sendPacket();
-
-    selfMsg->setKind(STOP);
-}
-
-void HelloUdpApp::processStop() {
-    UdpBasicApp::processStop();
-}
-
-std::string HelloUdpApp::generateMessage() {
-
-    int a = randomGenerator.generateRandomInt();
-    int b = randomGenerator.generateRandomInt();
-    sum = new Summer(a, b);
-    std::string stuff = sum->serialize();
-    return stuff;
-}
 
 HelloUdpApp::~HelloUdpApp() {
     // cleanup if necessary

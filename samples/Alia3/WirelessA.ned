@@ -13,14 +13,23 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package samples.Alia1;
+package samples.Alia3;
+
+
+
+//
+// SPDX-License-Identifier: LGPL-3.0-or-later
+//
+
+
+package inet.tutorials.wireless;
+
 import inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator;
 import inet.node.contract.INetworkNode;
 import inet.physicallayer.wireless.common.contract.packetlevel.IRadioMedium;
 import inet.visualizer.contract.IIntegratedVisualizer;
 
-
-network WirelessB
+network WirelessA
 {
     parameters:
         @display("bgb=795.312,504;bgg=100,1,grey95");
@@ -49,10 +58,11 @@ network WirelessB
             @display("p=181.44,296.35202");
         }
         hostD: <default("WirelessHost")> like INetworkNode {
-            @display("p=324.57602,296.35202");
+            @display("p=327.6,296.35202");
         }
         hostE: <default("WirelessHost")> like INetworkNode {
             @display("p=473.76,296.35202");
         }
 }
+
 

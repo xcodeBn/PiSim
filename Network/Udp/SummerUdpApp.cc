@@ -31,8 +31,12 @@ using namespace inet;
 #include "inet/networklayer/common/FragmentationTag_m.h"
 #include "inet/networklayer/common/L3AddressResolver.h"
 #include "inet/transportlayer/contract/udp/UdpControlInfo_m.h"
-#include "Network/Packet/HelloPacket_m.h"
+
 #include "Util/DashSummer/Summer.h"
+#include "Network/Packet/DataChunk_m.h"
+#include "Network/Packet/XY_Packet_m.h"
+#include "Network/Udp/Util/PacketHelper.h"
+#include  "Util/json/json.h"
 Define_Module(SummerUdpApp);
 
 void SummerUdpApp::initialize(int stage) {
@@ -43,20 +47,20 @@ void SummerUdpApp::initialize(int stage) {
         numReceived = 0;
         WATCH(numSent);
         WATCH(numReceived);
-
         localPort = par("localPort");
         destPort = par("destPort");
-
         packetName = par("packetName").str();
-
     }
 }
 
 void SummerUdpApp::handleMessageWhenUp(cMessage *msg) {
     if (msg->isSelfMessage()) {
         // Handle timers here
+        EV << "Self message:" << msg->str() << endl;
     } else {
         // Handle incoming packet
+        EV << "Incoming packet:" << msg->str() << endl;
+        socket.processMessage(msg);
     }
 }
 
@@ -75,6 +79,9 @@ L3Address SummerUdpApp::chooseDestAddr() {
     return L3Address();
 }
 
+ChunkType SummerUdpApp::getChunkType(Packet *pk) {
+    return PacketHelper::checkPacketChunk(pk);
+}
 void SummerUdpApp::sendPacket(const std::string &data) {
     // Packet sending logic
     std::ostringstream str;
@@ -82,16 +89,16 @@ void SummerUdpApp::sendPacket(const std::string &data) {
     std::string message = data;  // Use the data string as the packet's message
 
     // Create a HelloPacket and set its data
-    auto helloPacket = makeShared<HelloPacket>();
-    helloPacket->setData(message.c_str());
-    helloPacket->setChunkLength(B(message.size())); // Set the chunk's byte length to match the message size
+    auto dataChunk = makeShared<DataChunk>();
+    dataChunk->setData(message.c_str());
+    dataChunk->setChunkLength(B(message.size())); // Set the chunk's byte length to match the message size
 
     // Create a Packet object to encapsulate the HelloPacket
     Packet *packet = new Packet(str.str().c_str());
     if (dontFragment) {
         packet->addTag<FragmentationReq>()->setDontFragment(true); // Set the 'do not fragment' flag if specified
     }
-    packet->insertAtBack(helloPacket); // Insert the HelloPacket into the Packet
+    packet->insertAtBack(dataChunk); // Insert the HelloPacket into the Packet
 
     // Choose the destination address and send the packet
     L3Address destAddr = chooseDestAddr();
@@ -106,18 +113,115 @@ void SummerUdpApp::processPacket(Packet *packet) {
     // Packet processing logic
 }
 
-void SummerUdpApp::processPacket(UdpSocket *socket, Packet *pk) {
+void SummerUdpApp::echoSendPacket(const L3Address &remoteAddress, int srcPort,
+        UdpSocket *socket, const std::string &data) {
+    std::string packetName = "SumResponsePacket:" + std::to_string(sentPackets);
+    // Create a new Packet instance for each send operation
+    Packet *newPacket = new Packet(packetName.c_str()); // Consider using a more descriptive name or a variable name
+
+    // Assuming the payload is being set up here; ensure `data` contains your desired payload
+    auto payload = makeShared<DataChunk>();
+    payload->setChunkLength(B(data.length() * 8)); // Assuming each character is one byte, adjust accordingly
+    payload->setData(data.c_str());
+    newPacket->insertAtBack(payload);
+
+    // Send the newly created packet
+    socket->sendTo(newPacket, remoteAddress, srcPort);
+    sentPackets++;
+
+}
+
+void SummerUdpApp::processDataChunk(UdpSocket *socket, Packet *pk) {
+    // Determine its source address/port
+    const auto &l3AddressInd = pk->getTag<L3AddressInd>();
+    const auto &l4PortInd = pk->getTag<L4PortInd>();
+    L3Address remoteAddress = l3AddressInd->getSrcAddress();
+    int srcPort = l4PortInd->getSrcPort();
+    EV << "Testttt" << pk->str() << endl;
+    // Peek at the HelloPacket chunk to modify
+    const auto &dataChunk = pk->peekAtFront<DataChunk>(B(-1),
+            Chunk::PF_ALLOW_ALL);
+    if (!dataChunk) {
+        EV_WARN << "Received packet does not contain a DataChunk chunk."
+                       << endl;
+        delete pk;
+        return;
+    }
+    nlohmann::json jsonData = deserializeJson(dataChunk->getData());
+    try {
+        x = jsonData.at("x");
+        EV_INFO << "Value of x: " << x << endl;
+        hostAAddress = remoteAddress;
+        hostAPort = srcPort;
+
+    } catch (nlohmann::json::out_of_range &e) {
+        EV_ERROR << "Error: x does not exist in the JSON data." << endl;
+    } catch (nlohmann::json::type_error &e) {
+        EV_ERROR
+                        << "Type Error: Expected an integer for x, but found different type."
+                        << endl;
+    }
+
+    try {
+        y = jsonData.at("y");
+        EV_INFO << "Value of y: " << y << endl;
+        hostBAddress = remoteAddress;
+        hostBPort = srcPort;
+    } catch (nlohmann::json::out_of_range &e) {
+        EV_ERROR << "Error: y does not exist in the JSON data." << endl;
+    } catch (nlohmann::json::type_error &e) {
+        EV_ERROR
+                        << "Type Error: Expected an integer for y, but found different type."
+                        << endl;
+    }
+    EV << "DataChunkRecieved:::" << dataChunk->getData() << endl;
+
+    bool isReady = isReadyToSum();
+    if (!isReady) {
+        EV_WARN << "NOT READY YET" << endl;
+        delete pk;
+        return;
+    }
+
+    int result = x + y;
+    nlohmann::json resultJson;
+    resultJson["Results"] = result;
+
+    std::string resultStr = resultJson.dump();
+
+    auto newPayload = makeShared<DataChunk>();
+    newPayload->setChunkLength(B(resultStr.length() * 8)); // Assuming 8 bits per character
+    newPayload->setData(resultStr.c_str());
+
+    // Create a new packet with the new payload
+    Packet *responsePacket = new Packet("ResponsePacket");
+    responsePacket->insertAtBack(newPayload);
+    // Clear the original packet's tags and prepare for sending
+    pk->clearTags();
+    pk->trim();
+    // Sending the response packet
+    emit(packetSentSignal, responsePacket);
+    // Log the sending action
+    EV << "Sending response packet to HostA" << endl;
+    echoSendPacket(hostAAddress, hostAPort, socket, resultStr);
+
+    // Log the sending action
+    EV << "Sending response packet to HostB" << endl;
+    echoSendPacket(hostBAddress, hostBPort, socket, resultStr);
+    delete pk; // Clean up the original packet
+}
+
+void SummerUdpApp::processHelloChunk(UdpSocket *socket, Packet *pk) {
+    EV << "Testttt" << pk->str() << endl;
+    // Peek at the HelloPacket chunk to modify
+    const auto &helloChunk = pk->peekAtFront<XY_Packet>(B(-1),
+            Chunk::PF_ALLOW_ALL);
     // Determine its source address/port
     const auto &l3AddressInd = pk->getTag<L3AddressInd>();
     const auto &l4PortInd = pk->getTag<L4PortInd>();
     L3Address remoteAddress = l3AddressInd->getSrcAddress();
     int srcPort = l4PortInd->getSrcPort();
 
-    EV << "Testttt" << pk->str() << endl;
-
-    // Peek at the HelloPacket chunk to modify
-    const auto &helloChunk = pk->peekAtFront<HelloPacket>(B(-1),
-            Chunk::PF_ALLOW_REINTERPRETATION);
     if (!helloChunk) {
         EV_WARN << "Received packet does not contain a HelloPacket chunk."
                        << endl;
@@ -125,30 +229,55 @@ void SummerUdpApp::processPacket(UdpSocket *socket, Packet *pk) {
         return;
     }
     EV << "Testt2" << pk->str() << endl;
-
     // Deserialize the data and calculate the response
     Summer sum;
     sum.deserialize(helloChunk->getData());
     std::string answer = std::to_string(sum.a + sum.b);
-    auto newPayload = makeShared<HelloPacket>();
+    auto newPayload = makeShared<XY_Packet>();
     newPayload->setData(answer.c_str());
     newPayload->setChunkLength(B(answer.length()));
-
     // Create a new packet with the new payload
     Packet *responsePacket = new Packet("ResponsePacket");
     responsePacket->insertAtBack(newPayload);
-
     // Clear the original packet's tags and prepare for sending
     pk->clearTags();
     pk->trim();
-
     // Sending the response packet
     emit(packetSentSignal, responsePacket);
     EV << "Sending response packet: " << responsePacket->str() << endl;
     socket->sendTo(responsePacket, remoteAddress, srcPort);
-
-    delete pk;  // Clean up the original packet
+    delete pk; // Clean up the original packet
 }
+
+void SummerUdpApp::processXYChunk(UdpSocket *socket, Packet *pk) {
+    processHelloChunk(socket, pk);
+}
+
+void SummerUdpApp::processPacket(UdpSocket *socket, Packet *pk) {
+
+    EV_INFO << "Processing packet...:" << endl;
+    ChunkType chunkType = PacketHelper::checkPacketChunk(pk); // Ensure this method is defined to return the correct chunk type
+    EV_INFO << "Processing packet +1:" << endl;
+    switch (chunkType) {
+    case ChunkType::HELLO_CHUNK:
+        EV << " HELLO CHUNK RECIEVED" << endl;
+        processHelloChunk(socket, pk);
+        break;  // Prevents fall-through
+
+    case ChunkType::DATA_CHUNK:
+        processDataChunk(socket, pk);
+        break;  // Prevents fall-through
+
+    case ChunkType::XY_CHUNK:
+        processXYChunk(socket, pk);
+        break;
+
+    default:
+        return;
+        break;  // Handles cases where no known chunk type is found
+    }
+}
+
 void SummerUdpApp::handleStartOperation(LifecycleOperation *operation) {
     socket.setOutputGate(gate("socketOut"));
     int localPort = par("localPort").intValue();
@@ -188,4 +317,16 @@ void SummerUdpApp::handleCrashOperation(LifecycleOperation *operation) {
     socket.setCallback(nullptr);
 }
 
-
+bool SummerUdpApp::isReadyToSum() {
+    if (x < 0) {
+        EV_INFO << "x not recieved..." << endl;
+    }
+    if (y < 0) {
+        EV_INFO << "y not recieved..." << endl;
+    }
+    if (x < 0 || y < 0) {
+        return false;
+    }
+    EV_INFO << "READY TO SUM" << endl;
+    return true;
+}

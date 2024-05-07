@@ -11,31 +11,24 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
-
-#ifndef __PISIM_HELLOUDPAPP_H_
-#define __PISIM_HELLOUDPAPP_H_
-
-#include <omnetpp.h>
-#include "Network/Udp/Base/PiUdpBaseApp.h"
-
-using namespace omnetpp;
-using namespace inet;
-/**
- * this model generates two ints packets
- */
-class HelloUdpApp: public PiUdpBaseApp {
-protected:
+//
 
 
 
+import inet.common.packet.chunk.Chunk;
 
+cplusplus {{
 
+#include "inet/common/packet/chunk/FieldsChunk.h"
 
-public:
-    HelloUdpApp() {
-    }
-    virtual ~HelloUdpApp();
-};
+}}
+class DataChunk extends inet::FieldsChunk{
 
-#endif
+string data = "";
+int sourcePort = -1;
+int destinationPort = -1;
+string destinationAddress = "";
+bool shouldDiscard = false ;
+bool isFinal = false; 
+
+}

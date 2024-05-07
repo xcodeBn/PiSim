@@ -13,29 +13,21 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __PISIM_HELLOUDPAPP_H_
-#define __PISIM_HELLOUDPAPP_H_
+package Network.Udp.Custom;
 
-#include <omnetpp.h>
-#include "Network/Udp/Base/PiUdpBaseApp.h"
+import Network.Udp.Base.PiUdpBaseApp;
 
-using namespace omnetpp;
-using namespace inet;
-/**
- * this model generates two ints packets
- */
-class HelloUdpApp: public PiUdpBaseApp {
-protected:
+simple SenderUdpApp extends PiUdpBaseApp
+{
+    parameters:
+        bool shouldGenerateRandomVar = default(true);
+        bool evenOddCheck = default(false);
+        bool isMainSenderApp = default(false);
+        string testName = default("TestingSend");
+        string varName = default("x");
+        int appVar = default(-1);
+        
+        @class(SenderUdpApp);
+        
 
-
-
-
-
-
-public:
-    HelloUdpApp() {
-    }
-    virtual ~HelloUdpApp();
-};
-
-#endif
+}

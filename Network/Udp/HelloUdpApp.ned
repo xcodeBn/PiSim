@@ -15,12 +15,12 @@
 package Network.Udp;
 
 import inet.applications.udpapp.UdpBasicApp;
+import Network.Udp.Base.PiUdpBaseApp;
 
-simple HelloUdpApp extends UdpBasicApp
+simple HelloUdpApp extends PiUdpBaseApp
 {
     parameters:
-        int numToSend = default(1);
-        bool isSummer = default(false);
+
     @class(HelloUdpApp);
    
 }

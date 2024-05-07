@@ -38,8 +38,11 @@ OBJS = \
     $O/Modules/Simple/Server/Server.o \
     $O/Network/Reciever/UdpSummerSink.o \
     $O/Network/Udp/HelloUdpApp.o \
-    $O/Network/Udp/SummerEchoApp.o \
     $O/Network/Udp/SummerUdpApp.o \
+    $O/Network/Udp/Base/PiBaseSummerApp.o \
+    $O/Network/Udp/Base/PiUdpBaseApp.o \
+    $O/Network/Udp/Custom/SenderUdpApp.o \
+    $O/Network/Udp/archieve/SummerEchoApp.o \
     $O/Test/SimpleServer.o \
     $O/Test/InetTests/UdpBasicAppTest.o \
     $O/Util/DashSummer/DashSummer.o \
@@ -47,13 +50,23 @@ OBJS = \
     $O/examples/DrAlia/Node.o \
     $O/samples/WirelessMessaging/PClient.o \
     $O/samples/WirelessMessaging/PServer.o \
+    $O/Network/Packet/DataChunk_m.o \
+    $O/Network/Packet/DetailedResultChunk_m.o \
+    $O/Network/Packet/EvenOddChunk_m.o \
     $O/Network/Packet/HelloPacket_m.o \
-    $O/Network/Packet/SumPacket_m.o
+    $O/Network/Packet/ResultChunk_m.o \
+    $O/Network/Packet/SumPacket_m.o \
+    $O/Network/Packet/XY_Packet_m.o
 
 # Message files
 MSGFILES = \
+    Network/Packet/DataChunk.msg \
+    Network/Packet/DetailedResultChunk.msg \
+    Network/Packet/EvenOddChunk.msg \
     Network/Packet/HelloPacket.msg \
-    Network/Packet/SumPacket.msg
+    Network/Packet/ResultChunk.msg \
+    Network/Packet/SumPacket.msg \
+    Network/Packet/XY_Packet.msg
 
 # SM files
 SMFILES =

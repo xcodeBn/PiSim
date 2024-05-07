@@ -13,29 +13,21 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __PISIM_HELLOUDPAPP_H_
-#define __PISIM_HELLOUDPAPP_H_
+#ifndef __PISIM_PIBASESUMMERAPP_H_
+#define __PISIM_PIBASESUMMERAPP_H_
 
 #include <omnetpp.h>
-#include "Network/Udp/Base/PiUdpBaseApp.h"
 
 using namespace omnetpp;
-using namespace inet;
+
 /**
- * this model generates two ints packets
+ * TODO - Generated class
  */
-class HelloUdpApp: public PiUdpBaseApp {
-protected:
-
-
-
-
-
-
-public:
-    HelloUdpApp() {
-    }
-    virtual ~HelloUdpApp();
+class PiBaseSummerApp : public cSimpleModule
+{
+  protected:
+    virtual void initialize() override;
+    virtual void handleMessage(cMessage *msg) override;
 };
 
 #endif

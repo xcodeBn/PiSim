@@ -13,29 +13,14 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef __PISIM_HELLOUDPAPP_H_
-#define __PISIM_HELLOUDPAPP_H_
-
-#include <omnetpp.h>
-#include "Network/Udp/Base/PiUdpBaseApp.h"
-
-using namespace omnetpp;
-using namespace inet;
-/**
- * this model generates two ints packets
- */
-class HelloUdpApp: public PiUdpBaseApp {
-protected:
+package samples.Alia1;
+import inet.environment.common.PhysicalEnvironment;
 
 
-
-
-
-
-public:
-    HelloUdpApp() {
-    }
-    virtual ~HelloUdpApp();
-};
-
-#endif
+network WirelessC extends WirelessB
+{
+    submodules:
+        physicalEnvironment: PhysicalEnvironment {
+            @display("p=580,425");
+        }
+}

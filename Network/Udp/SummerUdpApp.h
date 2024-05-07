@@ -5,7 +5,8 @@
 #include "inet/common/packet/Packet.h"
 #include "inet/applications/base/ApplicationBase.h"
 #include "inet/transportlayer/contract/udp/UdpSocket.h"
-
+#include "Network/Udp/Util/ChunkType.h"
+#include "Core/repository/JsonHelperRepository.h"
 using namespace inet;
 
 /**
@@ -14,7 +15,9 @@ using namespace inet;
  * It can be configured to send packets to multiple destinations and supports
  * various network features such as multicast, DSCP settings, and more.
  */
-class SummerUdpApp: public ApplicationBase, public UdpSocket::ICallback {
+class SummerUdpApp: public ApplicationBase,
+        public UdpSocket::ICallback,
+        private JsonHelperRepository {
 protected:
     UdpSocket socket;
     std::vector<L3Address> destAddresses;
@@ -25,6 +28,7 @@ protected:
     bool dontFragment = false;    // Flag to prevent IP fragmentation
     int numSent = 0;
     int numReceived = 0;
+    ChunkType chunkType;
 
 public:
     /** Lifecycle stages */
@@ -33,6 +37,8 @@ public:
     }
 
 protected:
+    virtual ChunkType getChunkType(Packet *pk);
+
     /** Initialize the application */
     virtual void initialize(int stage) override;
 
@@ -55,7 +61,13 @@ protected:
     virtual void processPacket(Packet *packet);
 
     /** Process the received packet */
-    virtual void processPacket(UdpSocket *socket,Packet *packet);
+    virtual void processPacket(UdpSocket *socket, Packet *packet);
+
+    /** Process the received data chunk */
+    virtual void processDataChunk(UdpSocket *socket, Packet *pk);
+
+    /** Process the received hello chunk */
+    void processHelloChunk(UdpSocket *socket, inet::Packet *pk);
 
     /** Handle start lifecycle operation */
     virtual void handleStartOperation(LifecycleOperation *operation) override;
@@ -75,6 +87,23 @@ protected:
 
     /** Callback when the socket is closed */
     virtual void socketClosed(UdpSocket *sock) override;
+
+private:
+    bool isReadyToSum();
+    void echoSendPacket(const L3Address &remoteAddress, int srcPort,
+            UdpSocket *socket, const std::string &data);
+
+    void processXYChunk(inet::UdpSocket *socket, inet::Packet *pk);
+
+    int x = -1;
+    int y = -1;
+    L3Address hostAAddress;
+    int hostAPort;
+    L3Address hostBAddress;
+    int hostBPort;
+
+    int sentPackets = 0;
+
 };
 
 #endif // __PISIM_SUMMERUDPAPP_H_

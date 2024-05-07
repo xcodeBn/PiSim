@@ -145,6 +145,9 @@ void SummerEchoApp::sendPacket(Packet *pckt, std::string data) {
     EV << packet->str();
     socket.sendTo(packet, destAddr, destPort);
 
+
+
+
 }
 
 L3Address SummerEchoApp::chooseDestAddr() {
