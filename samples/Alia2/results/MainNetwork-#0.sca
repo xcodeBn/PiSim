@@ -1,8 +1,8 @@
 version 3
-run MainNetwork-0-20240508-01:45:34-23996
+run MainNetwork-0-20240508-13:21:38-15420
 attr configname MainNetwork
-attr datetime 20240508-01:45:34
-attr datetimef 20240508-014534
+attr datetime 20240508-13:21:38
+attr datetimef 20240508-132138
 attr experiment MainNetwork
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,14 +10,14 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network WirelessA
-attr processid 23996
+attr processid 15420
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
 config image-path ../../../inet4.5/images
-config description "Energy model"
+config description "Main net to present"
 config extends Wireless07
 config *.host*.wlan[0].radio.energyConsumer.typename StateBasedEpEnergyConsumer
 config *.host*.wlan[0].radio.energyConsumer.offPowerConsumption 0mW
@@ -904,7 +904,7 @@ scalar WirelessA.radioMedium "reception result cache hit" 0
 attr unit %
 par WirelessA.hostA.radioIn[0].channel typename "\"ned.IdealChannel\""
 par WirelessA.hostA.energyStorage typename "\"inet.power.storage.IdealEpEnergyStorage\""
-scalar WirelessA.hostA.energyStorage residualEnergyCapacity:last -0.001210360385492
+scalar WirelessA.hostA.energyStorage residualEnergyCapacity:last -0.001218040385492
 attr interpolationmode linear
 attr recordingmode last
 attr source residualEnergyCapacityChanged
@@ -1436,7 +1436,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, count"
-scalar WirelessA.hostA.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 386
+scalar WirelessA.hostA.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 410
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
@@ -1932,7 +1932,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetReceived
 attr title "packets received, count"
-scalar WirelessA.hostA.udp packetReceived:sum(packetBytes) 292
+scalar WirelessA.hostA.udp packetReceived:sum(packetBytes) 316
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceived
@@ -2140,7 +2140,7 @@ par WirelessA.hostA hasSctp false
 par WirelessA.hostA numApps 1
 par WirelessA.hostB.radioIn[0].channel typename "\"ned.IdealChannel\""
 par WirelessA.hostB.energyStorage typename "\"inet.power.storage.IdealEpEnergyStorage\""
-scalar WirelessA.hostB.energyStorage residualEnergyCapacity:last -0.001141201891814
+scalar WirelessA.hostB.energyStorage residualEnergyCapacity:last -0.001148881891814
 attr interpolationmode linear
 attr recordingmode last
 attr source residualEnergyCapacityChanged
@@ -2690,7 +2690,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, count"
-scalar WirelessA.hostB.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 386
+scalar WirelessA.hostB.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 410
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
@@ -3186,7 +3186,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetReceived
 attr title "packets received, count"
-scalar WirelessA.hostB.udp packetReceived:sum(packetBytes) 292
+scalar WirelessA.hostB.udp packetReceived:sum(packetBytes) 316
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetReceived
@@ -3394,7 +3394,7 @@ par WirelessA.hostB hasSctp false
 par WirelessA.hostB numApps 1
 par WirelessA.hostC.radioIn[0].channel typename "\"ned.IdealChannel\""
 par WirelessA.hostC.energyStorage typename "\"inet.power.storage.IdealEpEnergyStorage\""
-scalar WirelessA.hostC.energyStorage residualEnergyCapacity:last -0.001877561569966
+scalar WirelessA.hostC.energyStorage residualEnergyCapacity:last -0.001921721569966
 attr interpolationmode linear
 attr recordingmode last
 attr source residualEnergyCapacityChanged
@@ -3542,14 +3542,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar WirelessA.hostC.wlan[0].queue queueBitLength:max 1248
+scalar WirelessA.hostC.wlan[0].queue queueBitLength:max 1440
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar WirelessA.hostC.wlan[0].queue queueBitLength:timeavg 0.013827532942839
+scalar WirelessA.hostC.wlan[0].queue queueBitLength:timeavg 0.013923599698487
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -3643,7 +3643,7 @@ attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar WirelessA.hostC.wlan[0].queue outgoingPacketLengths:sum 5520
+scalar WirelessA.hostC.wlan[0].queue outgoingPacketLengths:sum 5904
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
@@ -3651,18 +3651,20 @@ attr title "outgoing packet lengths, sum"
 attr unit b
 statistic WirelessA.hostC.wlan[0].queue outgoingPacketLengths:histogram
 field count 10
-field mean 552
-field stddev 369.73504026532
+field mean 590.4
+field stddev 450.16619153375
 field min 296
-field max 1248
-field sum 5520
-field sqrsum 4277376
+field max 1440
+field sum 5904
+field sqrsum 5309568
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
+bin	0	0
+bin	20	0
 bin	40	0
 bin	60	0
 bin	80	0
@@ -3723,7 +3725,7 @@ bin	1160	0
 bin	1180	0
 bin	1200	0
 bin	1220	0
-bin	1240	2
+bin	1240	0
 bin	1260	0
 bin	1280	0
 bin	1300	0
@@ -3733,10 +3735,22 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	2
 bin	1460	0
 bin	1480	0
 bin	1500	0
+bin	1520	0
+bin	1540	0
+bin	1560	0
+bin	1580	0
+bin	1600	0
+bin	1620	0
+bin	1640	0
+bin	1660	0
+bin	1680	0
+bin	1700	0
+bin	1720	0
+bin	1740	0
 statistic WirelessA.hostC.wlan[0].queue flowQueueingTime:histogram
 field count 0
 field mean nan
@@ -3758,7 +3772,7 @@ attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar WirelessA.hostC.wlan[0].queue incomingPacketLengths:sum 5520
+scalar WirelessA.hostC.wlan[0].queue incomingPacketLengths:sum 5904
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
@@ -3766,18 +3780,20 @@ attr title "incoming packet lengths, sum"
 attr unit b
 statistic WirelessA.hostC.wlan[0].queue incomingPacketLengths:histogram
 field count 10
-field mean 552
-field stddev 369.73504026532
+field mean 590.4
+field stddev 450.16619153375
 field min 296
-field max 1248
-field sum 5520
-field sqrsum 4277376
+field max 1440
+field sum 5904
+field sqrsum 5309568
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
+bin	0	0
+bin	20	0
 bin	40	0
 bin	60	0
 bin	80	0
@@ -3838,7 +3854,7 @@ bin	1160	0
 bin	1180	0
 bin	1200	0
 bin	1220	0
-bin	1240	2
+bin	1240	0
 bin	1260	0
 bin	1280	0
 bin	1300	0
@@ -3848,10 +3864,22 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	2
 bin	1460	0
 bin	1480	0
 bin	1500	0
+bin	1520	0
+bin	1540	0
+bin	1560	0
+bin	1580	0
+bin	1600	0
+bin	1620	0
+bin	1640	0
+bin	1660	0
+bin	1680	0
+bin	1700	0
+bin	1720	0
+bin	1740	0
 scalar WirelessA.hostC.wlan[0].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
 attr recordingmode count
@@ -4547,7 +4575,7 @@ par WirelessA.hostC hasSctp false
 par WirelessA.hostC numApps 0
 par WirelessA.hostD.radioIn[0].channel typename "\"ned.IdealChannel\""
 par WirelessA.hostD.energyStorage typename "\"inet.power.storage.IdealEpEnergyStorage\""
-scalar WirelessA.hostD.energyStorage residualEnergyCapacity:last -0.001719282393564
+scalar WirelessA.hostD.energyStorage residualEnergyCapacity:last -0.001765362393564
 attr interpolationmode linear
 attr recordingmode last
 attr source residualEnergyCapacityChanged
@@ -4695,14 +4723,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar WirelessA.hostD.wlan[0].queue queueBitLength:max 1248
+scalar WirelessA.hostD.wlan[0].queue queueBitLength:max 1440
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar WirelessA.hostD.wlan[0].queue queueBitLength:timeavg 0.00077872735804045
+scalar WirelessA.hostD.wlan[0].queue queueBitLength:timeavg 0.00087556392069833
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -4792,7 +4820,7 @@ attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar WirelessA.hostD.wlan[0].queue outgoingPacketLengths:sum 4656
+scalar WirelessA.hostD.wlan[0].queue outgoingPacketLengths:sum 5040
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
@@ -4800,18 +4828,20 @@ attr title "outgoing packet lengths, sum"
 attr unit b
 statistic WirelessA.hostD.wlan[0].queue outgoingPacketLengths:histogram
 field count 8
-field mean 582
-field stddev 413.32657444551
+field mean 630
+field stddev 501.80474290305
 field min 296
-field max 1248
-field sum 4656
-field sqrsum 3905664
+field max 1440
+field sum 5040
+field sqrsum 4937856
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
+bin	0	0
+bin	20	0
 bin	40	0
 bin	60	0
 bin	80	0
@@ -4872,7 +4902,7 @@ bin	1160	0
 bin	1180	0
 bin	1200	0
 bin	1220	0
-bin	1240	2
+bin	1240	0
 bin	1260	0
 bin	1280	0
 bin	1300	0
@@ -4882,10 +4912,22 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	2
 bin	1460	0
 bin	1480	0
 bin	1500	0
+bin	1520	0
+bin	1540	0
+bin	1560	0
+bin	1580	0
+bin	1600	0
+bin	1620	0
+bin	1640	0
+bin	1660	0
+bin	1680	0
+bin	1700	0
+bin	1720	0
+bin	1740	0
 statistic WirelessA.hostD.wlan[0].queue flowQueueingTime:histogram
 field count 0
 field mean nan
@@ -4907,7 +4949,7 @@ attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar WirelessA.hostD.wlan[0].queue incomingPacketLengths:sum 4656
+scalar WirelessA.hostD.wlan[0].queue incomingPacketLengths:sum 5040
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
@@ -4915,18 +4957,20 @@ attr title "incoming packet lengths, sum"
 attr unit b
 statistic WirelessA.hostD.wlan[0].queue incomingPacketLengths:histogram
 field count 8
-field mean 582
-field stddev 413.32657444551
+field mean 630
+field stddev 501.80474290305
 field min 296
-field max 1248
-field sum 4656
-field sqrsum 3905664
+field max 1440
+field sum 5040
+field sqrsum 4937856
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
+bin	0	0
+bin	20	0
 bin	40	0
 bin	60	0
 bin	80	0
@@ -4987,7 +5031,7 @@ bin	1160	0
 bin	1180	0
 bin	1200	0
 bin	1220	0
-bin	1240	2
+bin	1240	0
 bin	1260	0
 bin	1280	0
 bin	1300	0
@@ -4997,10 +5041,22 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	2
 bin	1460	0
 bin	1480	0
 bin	1500	0
+bin	1520	0
+bin	1540	0
+bin	1560	0
+bin	1580	0
+bin	1600	0
+bin	1620	0
+bin	1640	0
+bin	1660	0
+bin	1680	0
+bin	1700	0
+bin	1720	0
+bin	1740	0
 scalar WirelessA.hostD.wlan[0].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
 attr recordingmode count
@@ -5063,7 +5119,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, count"
-scalar WirelessA.hostD.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 516
+scalar WirelessA.hostD.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 564
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
@@ -5696,7 +5752,7 @@ par WirelessA.hostD hasSctp false
 par WirelessA.hostD numApps 0
 par WirelessA.hostE.radioIn[0].channel typename "\"ned.IdealChannel\""
 par WirelessA.hostE.energyStorage typename "\"inet.power.storage.IdealEpEnergyStorage\""
-scalar WirelessA.hostE.energyStorage residualEnergyCapacity:last -0.001390963311798
+scalar WirelessA.hostE.energyStorage residualEnergyCapacity:last -0.001435123311798
 attr interpolationmode linear
 attr recordingmode last
 attr source residualEnergyCapacityChanged
@@ -5830,7 +5886,7 @@ attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length, max"
 attr unit pk
-scalar WirelessA.hostE.wlan[0].queue queueLength:timeavg 1.6167369998252e-06
+scalar WirelessA.hostE.wlan[0].queue queueLength:timeavg 6.4587065887814e-06
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -5844,14 +5900,14 @@ attr recordingmode last
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, last"
 attr unit b
-scalar WirelessA.hostE.wlan[0].queue queueBitLength:max 1248
+scalar WirelessA.hostE.wlan[0].queue queueBitLength:max 1440
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode max
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length, max"
 attr unit b
-scalar WirelessA.hostE.wlan[0].queue queueBitLength:timeavg 0.0010921999563035
+scalar WirelessA.hostE.wlan[0].queue queueBitLength:timeavg 0.0032032986970884
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode timeavg
@@ -5860,12 +5916,12 @@ attr title "queue bit length, timeavg"
 attr unit b
 statistic WirelessA.hostE.wlan[0].queue queueingTime:histogram
 field count 4
-field mean 1.602723325e-05
-field stddev 1.9305518622049e-05
+field mean 6.402723325e-05
+field stddev 0.00011481794553669
 field min 0
-field max 4.4108933e-05
-field sum 6.4108933e-05
-field sqrsum 2.1455979703985e-09
+field max 0.000236108933
+field sum 0.000256108933
+field sqrsum 5.5947428242398e-08
 attr interpolationmode none
 attr recordingmode histogram
 attr source queueingTime(packetPulled)
@@ -5873,68 +5929,72 @@ attr title "queueing times"
 attr unit s
 bin	-inf	0
 bin	0	1
-bin	1e-06	0
-bin	2e-06	0
-bin	3e-06	0
-bin	4e-06	0
-bin	5e-06	0
-bin	6e-06	0
-bin	7e-06	0
-bin	8e-06	0
-bin	9e-06	2
+bin	5e-06	2
 bin	1e-05	0
-bin	1.1e-05	0
-bin	1.2e-05	0
-bin	1.3e-05	0
-bin	1.4e-05	0
 bin	1.5e-05	0
-bin	1.6e-05	0
-bin	1.7e-05	0
-bin	1.8e-05	0
-bin	1.9e-05	0
 bin	2e-05	0
-bin	2.1e-05	0
-bin	2.2e-05	0
-bin	2.3e-05	0
-bin	2.4e-05	0
 bin	2.5e-05	0
-bin	2.6e-05	0
-bin	2.7e-05	0
-bin	2.8e-05	0
-bin	2.9e-05	0
 bin	3e-05	0
-bin	3.1e-05	0
-bin	3.2e-05	0
-bin	3.3e-05	0
-bin	3.4e-05	0
 bin	3.5e-05	0
-bin	3.6e-05	0
-bin	3.7e-05	0
-bin	3.8e-05	0
-bin	3.9e-05	0
 bin	4e-05	0
-bin	4.1e-05	0
-bin	4.2e-05	0
-bin	4.3e-05	0
-bin	4.4e-05	1
 bin	4.5e-05	0
-bin	4.6e-05	0
-bin	4.7e-05	0
-bin	4.8e-05	0
-bin	4.9e-05	0
 bin	5e-05	0
-bin	5.1e-05	0
-bin	5.2e-05	0
-bin	5.3e-05	0
-bin	5.4e-05	0
 bin	5.5e-05	0
-bin	5.6e-05	0
+bin	6e-05	0
+bin	6.5e-05	0
+bin	7e-05	0
+bin	7.5e-05	0
+bin	8e-05	0
+bin	8.5e-05	0
+bin	9e-05	0
+bin	9.5e-05	0
+bin	0.0001	0
+bin	0.000105	0
+bin	0.00011	0
+bin	0.000115	0
+bin	0.00012	0
+bin	0.000125	0
+bin	0.00013	0
+bin	0.000135	0
+bin	0.00014	0
+bin	0.000145	0
+bin	0.00015	0
+bin	0.000155	0
+bin	0.00016	0
+bin	0.000165	0
+bin	0.00017	0
+bin	0.000175	0
+bin	0.00018	0
+bin	0.000185	0
+bin	0.00019	0
+bin	0.000195	0
+bin	0.0002	0
+bin	0.000205	0
+bin	0.00021	0
+bin	0.000215	0
+bin	0.00022	0
+bin	0.000225	0
+bin	0.00023	0
+bin	0.000235	1
+bin	0.00024	0
+bin	0.000245	0
+bin	0.00025	0
+bin	0.000255	0
+bin	0.00026	0
+bin	0.000265	0
+bin	0.00027	0
+bin	0.000275	0
+bin	0.00028	0
+bin	0.000285	0
+bin	0.00029	0
+bin	0.000295	0
+bin	0.0003	0
 scalar WirelessA.hostE.wlan[0].queue outgoingPackets:count 4
 attr recordingmode count
 attr source packetPulled
 attr title "outgoing packets, count"
 attr unit pk
-scalar WirelessA.hostE.wlan[0].queue outgoingPacketLengths:sum 3296
+scalar WirelessA.hostE.wlan[0].queue outgoingPacketLengths:sum 3680
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPulled)
@@ -5942,18 +6002,20 @@ attr title "outgoing packet lengths, sum"
 attr unit b
 statistic WirelessA.hostE.wlan[0].queue outgoingPacketLengths:histogram
 field count 4
-field mean 824
-field stddev 489.76729168045
+field mean 920
+field stddev 600.58638013195
 field min 384
-field max 1248
-field sum 3296
-field sqrsum 3435520
+field max 1440
+field sum 3680
+field sqrsum 4467712
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
 bin	-inf	0
+bin	120	0
+bin	140	0
 bin	160	0
 bin	180	0
 bin	200	0
@@ -6008,7 +6070,7 @@ bin	1160	0
 bin	1180	0
 bin	1200	0
 bin	1220	0
-bin	1240	2
+bin	1240	0
 bin	1260	0
 bin	1280	0
 bin	1300	0
@@ -6018,9 +6080,21 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	2
 bin	1460	0
 bin	1480	0
+bin	1500	0
+bin	1520	0
+bin	1540	0
+bin	1560	0
+bin	1580	0
+bin	1600	0
+bin	1620	0
+bin	1640	0
+bin	1660	0
+bin	1680	0
+bin	1700	0
+bin	1720	0
 statistic WirelessA.hostE.wlan[0].queue flowQueueingTime:histogram
 field count 0
 field mean nan
@@ -6042,7 +6116,7 @@ attr recordingmode count
 attr source packetPushStarted
 attr title "incoming packets, count"
 attr unit pk
-scalar WirelessA.hostE.wlan[0].queue incomingPacketLengths:sum 3296
+scalar WirelessA.hostE.wlan[0].queue incomingPacketLengths:sum 3680
 attr interpolationmode none
 attr recordingmode sum
 attr source packetLength(packetPushStarted)
@@ -6050,18 +6124,20 @@ attr title "incoming packet lengths, sum"
 attr unit b
 statistic WirelessA.hostE.wlan[0].queue incomingPacketLengths:histogram
 field count 4
-field mean 824
-field stddev 489.76729168045
+field mean 920
+field stddev 600.58638013195
 field min 384
-field max 1248
-field sum 3296
-field sqrsum 3435520
+field max 1440
+field sum 3680
+field sqrsum 4467712
 attr interpolationmode none
 attr recordingmode histogram
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
 bin	-inf	0
+bin	120	0
+bin	140	0
 bin	160	0
 bin	180	0
 bin	200	0
@@ -6116,7 +6192,7 @@ bin	1160	0
 bin	1180	0
 bin	1200	0
 bin	1220	0
-bin	1240	2
+bin	1240	0
 bin	1260	0
 bin	1280	0
 bin	1300	0
@@ -6126,9 +6202,21 @@ bin	1360	0
 bin	1380	0
 bin	1400	0
 bin	1420	0
-bin	1440	0
+bin	1440	2
 bin	1460	0
 bin	1480	0
+bin	1500	0
+bin	1520	0
+bin	1540	0
+bin	1560	0
+bin	1580	0
+bin	1600	0
+bin	1620	0
+bin	1640	0
+bin	1660	0
+bin	1680	0
+bin	1700	0
+bin	1720	0
 scalar WirelessA.hostE.wlan[0].queue droppedPacketsQueueOverflow:count 0
 attr interpolationmode none
 attr recordingmode count
@@ -6191,7 +6279,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, count"
-scalar WirelessA.hostE.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 516
+scalar WirelessA.hostE.wlan[0].mac packetDropNotAddressedToUs:sum(packetBytes) 564
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
@@ -6697,7 +6785,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetSent
 attr title "packets sent, count"
-scalar WirelessA.hostE.udp packetSent:sum(packetBytes) 332
+scalar WirelessA.hostE.udp packetSent:sum(packetBytes) 380
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSent
@@ -6785,7 +6873,7 @@ attr interpolationmode none
 attr recordingmode count
 attr source packetSent
 attr title "Packets Sent, count"
-scalar WirelessA.hostE.app[0] packetSent:sum(packetBytes) 128
+scalar WirelessA.hostE.app[0] packetSent:sum(packetBytes) 152
 attr interpolationmode none
 attr recordingmode sum(packetBytes)
 attr source packetSent

@@ -139,7 +139,7 @@ void SummerUdpApp::processDataChunk(UdpSocket *socket, Packet *pk) {
     const auto &l4PortInd = pk->getTag<L4PortInd>();
     L3Address remoteAddress = l3AddressInd->getSrcAddress();
     int srcPort = l4PortInd->getSrcPort();
-    EV << "Testttt" << pk->str() << endl;
+    EV_INFO << "Packet recieved:" << pk->str() << endl;
     // Peek at the HelloPacket chunk to modify
     const auto &dataChunk = pk->peekAtFront<DataChunk>(B(-1),
             Chunk::PF_ALLOW_ALL);
@@ -157,7 +157,9 @@ void SummerUdpApp::processDataChunk(UdpSocket *socket, Packet *pk) {
         hostAPort = srcPort;
 
     } catch (nlohmann::json::out_of_range &e) {
-        EV_ERROR << "Error: x does not exist in the JSON data." << endl;
+        if(x<=-1){
+            EV_ERROR << "Error: x does not exist in the JSON data." << endl;
+        }
     } catch (nlohmann::json::type_error &e) {
         EV_ERROR
                         << "Type Error: Expected an integer for x, but found different type."
@@ -170,13 +172,14 @@ void SummerUdpApp::processDataChunk(UdpSocket *socket, Packet *pk) {
         hostBAddress = remoteAddress;
         hostBPort = srcPort;
     } catch (nlohmann::json::out_of_range &e) {
+        if(y<=-1)
         EV_ERROR << "Error: y does not exist in the JSON data." << endl;
     } catch (nlohmann::json::type_error &e) {
         EV_ERROR
                         << "Type Error: Expected an integer for y, but found different type."
                         << endl;
     }
-    EV << "DataChunkRecieved:::" << dataChunk->getData() << endl;
+    EV_INFO << "Data Recieved:" << dataChunk->getData() << endl;
 
     bool isReady = isReadyToSum();
     if (!isReady) {
@@ -187,9 +190,10 @@ void SummerUdpApp::processDataChunk(UdpSocket *socket, Packet *pk) {
 
     int result = x + y;
     nlohmann::json resultJson;
-    resultJson["Results"] = result;
+    resultJson["SumResults"] = result;
 
     if (checkEvenOdd) {
+        resultJson["SumResults"] = {{"Value" , result}, {"Even/Odd" , evenOrOdd(result)}};
         resultJson["x"] = { { "Value", x }, { "Even/Odd", evenOrOdd(x) } };
         resultJson["y"] = { { "Value", y }, { "Even/Odd", evenOrOdd(y) } };
     }
@@ -209,11 +213,11 @@ void SummerUdpApp::processDataChunk(UdpSocket *socket, Packet *pk) {
     // Sending the response packet
     emit(packetSentSignal, responsePacket);
     // Log the sending action
-    EV << "Sending response packet to HostA" << endl;
+    EV_INFO << "Sending response packet to HostA" << endl;
     echoSendPacket(hostAAddress, hostAPort, socket, resultStr);
 
     // Log the sending action
-    EV << "Sending response packet to HostB" << endl;
+    EV_INFO << "Sending response packet to HostB" << endl;
     echoSendPacket(hostBAddress, hostBPort, socket, resultStr);
     delete pk; // Clean up the original packet
 }
@@ -262,9 +266,9 @@ void SummerUdpApp::processXYChunk(UdpSocket *socket, Packet *pk) {
 
 void SummerUdpApp::processPacket(UdpSocket *socket, Packet *pk) {
 
-    EV_INFO << "Processing packet...:" << endl;
+    EV_INFO << "Processing received packet...:" << endl;
     ChunkType chunkType = PacketHelper::checkPacketChunk(pk); // Ensure this method is defined to return the correct chunk type
-    EV_INFO << "Processing packet +1:" << endl;
+
     switch (chunkType) {
     case ChunkType::HELLO_CHUNK:
         EV << " HELLO CHUNK RECIEVED" << endl;

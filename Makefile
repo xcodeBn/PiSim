@@ -37,13 +37,13 @@ OBJS = \
     $O/Modules/Simple/Computer/Computer.o \
     $O/Modules/Simple/Server/Server.o \
     $O/Network/Reciever/UdpSummerSink.o \
-    $O/Network/Udp/HelloUdpApp.o \
-    $O/Network/Udp/SummerUdpApp.o \
     $O/Network/Udp/Base/PiBaseSummerApp.o \
     $O/Network/Udp/Base/PiUdpBaseApp.o \
     $O/Network/Udp/Custom/EvenOddApp.o \
     $O/Network/Udp/Custom/SenderUdpApp.o \
+    $O/Network/Udp/archieve/HelloUdpApp.o \
     $O/Network/Udp/archieve/SummerEchoApp.o \
+    $O/Network/Udp/archieve/SummerUdpApp.o \
     $O/Test/SimpleServer.o \
     $O/Test/InetTests/UdpBasicAppTest.o \
     $O/Util/DashSummer/DashSummer.o \

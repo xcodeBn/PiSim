@@ -1,8 +1,8 @@
 version 3
-run Task01-0-20240508-00:12:41-10236
+run Task01-0-20240508-13:21:45-3196
 attr configname Task01
-attr datetime 20240508-00:12:41
-attr datetimef 20240508-001241
+attr datetime 20240508-13:21:45
+attr datetimef 20240508-132145
 attr experiment Task01
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network WirelessA
-attr processid 10236
+attr processid 3196
 attr repetition 0
 attr replication #0
 attr resultdir results

@@ -68,7 +68,7 @@ void SenderUdpApp::sendPacket() {
 
     L3Address destAddr = chooseDestAddr();
     emit(packetSentSignal, packet);
-    EV_UNDERLINE << "Sending packet: " << packet->str() << "  from host" <<endl;
+    EV_INFO << "Sending packet: " << packet->str() << "  from host" <<endl;
     socket.sendTo(packet, destAddr, destPort);
     numSent++;
 }
