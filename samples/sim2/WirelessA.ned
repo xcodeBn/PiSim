@@ -13,7 +13,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package samples.Alia1;
+package samples.sim2;
 
 
 
@@ -32,7 +32,7 @@ import inet.visualizer.contract.IIntegratedVisualizer;
 network WirelessA
 {
     parameters:
-        @display("bgb=650,500;bgg=100,1,grey95");
+        @display("bgb=795.312,504;bgg=100,1,grey95");
         @figure[title](type=label; pos=0,-1; anchor=sw; color=darkblue);
 
         @figure[rcvdPkText](type=indicatorText; pos=380,20; anchor=w; font=,18; textFormat="packets received: %g"; initialValue=0);
@@ -40,21 +40,29 @@ network WirelessA
 
     submodules:
         visualizer: <default(firstAvailableOrEmpty("IntegratedCanvasVisualizer"))> like IIntegratedVisualizer if typename != "" {
-            @display("p=580,125");
+            @display("p=688.46405,135.072");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=580,200");
+            @display("p=688.46405,213.696");
         }
         radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
-            @display("p=580,275");
+            @display("p=688.46405,280.224");
         }
         hostA: <default("WirelessHost")> like INetworkNode {
-            @display("p=50,325");
+            @display("p=52.416,174.384");
         }
         hostB: <default("WirelessHost")> like INetworkNode {
-            @display("p=450,325");
+            @display("p=52.416,400.17603");
+        }
+        hostC: <default("WirelessHost")> like INetworkNode {
+            @display("p=181.44,296.35202");
+        }
+        hostD: <default("WirelessHost")> like INetworkNode {
+            @display("p=327.6,296.35202");
+        }
+        hostE: <default("WirelessHost")> like INetworkNode {
+            @display("p=473.76,296.35202");
         }
 }
-
 
 
