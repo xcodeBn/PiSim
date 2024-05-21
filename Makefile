@@ -34,8 +34,7 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc, .msg and .sm files
 OBJS = \
-    $O/Modules/Simple/Computer/Computer.o \
-    $O/Modules/Simple/Server/Server.o \
+    $O/Network/Mobility/Hilbert/HilbertMobility.o \
     $O/Network/Reciever/UdpSummerSink.o \
     $O/Network/Udp/Base/PiBaseSummerApp.o \
     $O/Network/Udp/Base/PiUdpBaseApp.o \
@@ -44,11 +43,8 @@ OBJS = \
     $O/Network/Udp/archieve/HelloUdpApp.o \
     $O/Network/Udp/archieve/SummerEchoApp.o \
     $O/Network/Udp/archieve/SummerUdpApp.o \
-    $O/Test/SimpleServer.o \
-    $O/Test/InetTests/UdpBasicAppTest.o \
     $O/Util/DashSummer/DashSummer.o \
     $O/Util/StringUtil/StringUtil.o \
-    $O/examples/DrAlia/Node.o \
     $O/Network/Packet/DataChunk_m.o \
     $O/Network/Packet/DetailedResultChunk_m.o \
     $O/Network/Packet/EvenOddChunk_m.o \
