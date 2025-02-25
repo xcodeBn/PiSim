@@ -1,5 +1,5 @@
-file 12083 1713827239                                           
-version 3
+file 12083 1713823639                                           
+version 2
 run Wireless03-0-20240423-02:07:10-3224
 attr configname Wireless03
 attr datetime 20240423-02:07:10
@@ -62,169 +62,202 @@ attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+0	11125 9 0 0 0 0 1 0 0 0 0
 vector 1 WirelessB.hostA.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+1	11134 9 0 0 0 0 1 0 0 0 0
 vector 2 WirelessB.hostA.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+2	11143 9 0 0 0 0 1 0 0 0 0
 vector 3 WirelessB.hostB.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+3	11152 9 0 0 0 0 1 0 0 0 0
 vector 4 WirelessB.hostB.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+4	11161 9 0 0 0 0 1 0 0 0 0
 vector 5 WirelessB.hostB.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+5	11170 9 0 0 0 0 1 0 0 0 0
 vector 6 WirelessB.hostR1.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+6	11179 9 0 0 0 0 1 0 0 0 0
 vector 7 WirelessB.hostR1.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+7	11188 9 0 0 0 0 1 0 0 0 0
 vector 8 WirelessB.hostR1.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+8	11197 9 0 0 0 0 1 0 0 0 0
 vector 9 WirelessB.hostR2.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+9	11206 9 0 0 0 0 1 0 0 0 0
 vector 10 WirelessB.hostR2.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+10	11215 10 0 0 0 0 1 0 0 0 0
 vector 11 WirelessB.hostR2.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+11	11225 10 0 0 0 0 1 0 0 0 0
 vector 12 WirelessB.hostR3.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+12	11235 10 0 0 0 0 1 0 0 0 0
 vector 13 WirelessB.hostR3.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+13	11245 10 0 0 0 0 1 0 0 0 0
 vector 14 WirelessB.hostR3.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+14	11255 10 0 0 0 0 1 0 0 0 0
 vector 15 WirelessB.hostA.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+15	11265 77 0 13 0 0.030819250545 5 0 3 7 17
 vector 16 WirelessB.hostB.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+16	11342 30 0 0 0 0 3 0 2 2 4
 vector 17 WirelessB.hostR1.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+17	11372 30 0 0 0 0 3 0 2 2 4
 vector 18 WirelessB.hostR2.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+18	11402 30 0 0 0 0 3 0 2 2 4
 vector 19 WirelessB.hostR3.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+19	11432 30 0 0 0 0 3 0 2 2 4
 vector 20 WirelessB.hostA.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+20	11462 57 0 13 0 0.030819250545 3 0 1 2 2
 vector 21 WirelessB.hostB.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+21	11519 10 0 0 0 0 1 1 1 1 1
 vector 22 WirelessB.hostR1.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+22	11529 58 0 16 0 0.030819786197 3 1 3 5 11
 vector 23 WirelessB.hostR2.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+23	11587 57 0 14 0 0.030819670346 3 1 3 5 11
 vector 24 WirelessB.hostR3.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+24	11644 10 0 0 0 0 1 1 1 1 1
 vector 25 WirelessB.hostA.app[0] packetSent:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetSent
 attr title "packets sent, packetBytes"
+25	11654 26 3 3 0.022315250545 0.022315250545 1 1000 1000 1000 1000000
 vector 26 WirelessB.hostA.udp packetSent:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetSent
 attr title "packets sent, packetBytes"
+26	11680 26 5 5 0.022315250545 0.022315250545 1 1008 1008 1008 1016064
 vector 27 WirelessB.hostA.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
+27	11706 26 7 7 0.022315250545 0.022315250545 1 8224 8224 8224 67634176
 vector 28 WirelessB.hostA.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
+28	11732 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
 vector 29 WirelessB.hostA.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
+29	11755 26 7 7 0.022315250545 0.022315250545 1 8224 8224 8224 67634176
 vector 30 WirelessB.hostA.wlan[0].mac rcvdPkFromHl:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceivedFromUpper
 attr title "packets received from higher layer, packetBytes"
+30	11781 26 7 7 0.022315250545 0.022315250545 1 1028 1028 1028 1056784
 vector 31 WirelessB.hostA.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
+31	11807 94 7 13 0.022315250545 0.030819250545 4 0 2 4 6
 vector 32 WirelessB.hostA.wlan[0].mac sentDownPk:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetSentToLower
 attr title "packets sent to lower layer, packetBytes"
+32	11901 26 7 7 0.022315250545 0.022315250545 1 1051 1051 1051 1104601
 vector 33 WirelessB.hostA.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -232,6 +265,7 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
+33	11927 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
 vector 34 WirelessB.hostA.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -239,63 +273,28 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
+34	11950 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
 vector 35 WirelessB.hostR2.wlan[0].mac rcvdPkFromLl:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceivedFromLower
 attr title "packets received from lower layer, packetBytes"
+35	11973 27 15 15 0.030819670346 0.030819670346 1 1051 1051 1051 1104601
 vector 36 WirelessB.hostR2.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+36	12000 27 15 15 0.030819670346 0.030819670346 1 1051 1051 1051 1104601
 vector 37 WirelessB.hostR1.wlan[0].mac rcvdPkFromLl:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceivedFromLower
 attr title "packets received from lower layer, packetBytes"
+37	12027 27 17 17 0.030819786197 0.030819786197 1 1051 1051 1051 1104601
 vector 38 WirelessB.hostR1.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
-0	11125 9 0 0 0 0 1 0 0 0 0
-1	11134 9 0 0 0 0 1 0 0 0 0
-2	11143 9 0 0 0 0 1 0 0 0 0
-3	11152 9 0 0 0 0 1 0 0 0 0
-4	11161 9 0 0 0 0 1 0 0 0 0
-5	11170 9 0 0 0 0 1 0 0 0 0
-6	11179 9 0 0 0 0 1 0 0 0 0
-7	11188 9 0 0 0 0 1 0 0 0 0
-8	11197 9 0 0 0 0 1 0 0 0 0
-9	11206 9 0 0 0 0 1 0 0 0 0
-10	11215 10 0 0 0 0 1 0 0 0 0
-11	11225 10 0 0 0 0 1 0 0 0 0
-12	11235 10 0 0 0 0 1 0 0 0 0
-13	11245 10 0 0 0 0 1 0 0 0 0
-14	11255 10 0 0 0 0 1 0 0 0 0
-15	11265 77 0 13 0 0.030819250545 5 0 3 7 17
-16	11342 30 0 0 0 0 3 0 2 2 4
-17	11372 30 0 0 0 0 3 0 2 2 4
-18	11402 30 0 0 0 0 3 0 2 2 4
-19	11432 30 0 0 0 0 3 0 2 2 4
-20	11462 57 0 13 0 0.030819250545 3 0 1 2 2
-21	11519 10 0 0 0 0 1 1 1 1 1
-22	11529 58 0 16 0 0.030819786197 3 1 3 5 11
-23	11587 57 0 14 0 0.030819670346 3 1 3 5 11
-24	11644 10 0 0 0 0 1 1 1 1 1
-25	11654 26 3 3 0.022315250545 0.022315250545 1 1000 1000 1000 1000000
-26	11680 26 5 5 0.022315250545 0.022315250545 1 1008 1008 1008 1016064
-27	11706 26 7 7 0.022315250545 0.022315250545 1 8224 8224 8224 67634176
-28	11732 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
-29	11755 26 7 7 0.022315250545 0.022315250545 1 8224 8224 8224 67634176
-30	11781 26 7 7 0.022315250545 0.022315250545 1 1028 1028 1028 1056784
-31	11807 94 7 13 0.022315250545 0.030819250545 4 0 2 4 6
-32	11901 26 7 7 0.022315250545 0.022315250545 1 1051 1051 1051 1104601
-33	11927 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
-34	11950 23 7 7 0.022315250545 0.022315250545 1 0 0 0 0
-35	11973 27 15 15 0.030819670346 0.030819670346 1 1051 1051 1051 1104601
-36	12000 27 15 15 0.030819670346 0.030819670346 1 1051 1051 1051 1104601
-37	12027 27 17 17 0.030819786197 0.030819786197 1 1051 1051 1051 1104601
-38	12054 27 17 17 0.030819786197 0.030819786197 1 1051 1051 1051 1104601
-
+38	12054 29 17 17 0.030819786197 0.030819786197 1 1051 1051 1051 1104601

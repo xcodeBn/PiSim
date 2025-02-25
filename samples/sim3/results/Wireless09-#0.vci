@@ -1,9 +1,9 @@
-file 17717858 1716305832                                        
+file 6174952 1739962550                                         
 version 3
-run Wireless09-0-20240521-18:36:13-8580
+run Wireless09-0-20250219-12:55:12-6628
 attr configname Wireless09
-attr datetime 20240521-18:36:13
-attr datetimef 20240521-183613
+attr datetime 20250219-12:55:12
+attr datetimef 20250219-125512
 attr experiment Wireless09
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -11,7 +11,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network WirelessB
-attr processid 8580
+attr processid 6628
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -20,8 +20,8 @@ attr seedset 0
 config image-path ../../../inet4.5/images
 config description "Configuring node movements"
 config extends Wireless08
-config *.hostR1.mobility.typename HilbertMobility
-config *.hostR*.mobility.speed 3000mps
+config *.hostR*.mobility.typename LinearMobility
+config *.hostR*.mobility.speed 12mps
 config *.hostR*.mobility.networkHeight 675.0
 config *.hostR*.mobility.networkWidth 850.0
 config sim-time-limit 100.0s
@@ -499,13 +499,13 @@ attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
-vector 73 WirelessB.hostR4.energyStorage residualEnergyCapacity:vector ETV
+vector 73 WirelessB.hostR1.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
-vector 74 WirelessB.hostR1.energyStorage residualEnergyCapacity:vector ETV
+vector 74 WirelessB.hostR4.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
@@ -529,63 +529,65 @@ attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
-vector 78 WirelessB.hostR2.wlan[0].queue incomingPacketLengths:vector ETV
+vector 78 WirelessB.hostR2.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 79 WirelessB.hostR1.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
-vector 79 WirelessB.hostR2.wlan[0].queue queueLength:vector ETV
+vector 80 WirelessB.hostR1.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
-vector 80 WirelessB.hostR2.wlan[0].queue queueBitLength:vector ETV
+vector 81 WirelessB.hostR1.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
-vector 81 WirelessB.hostR4.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+vector 82 WirelessB.hostR4.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
-vector 82 WirelessB.hostR1.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, packetBytes"
-vector 83 WirelessB.hostR2.wlan[0].radio transmissionState:vector ETV
+vector 83 WirelessB.hostR1.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
-vector 84 WirelessB.hostR2.wlan[0].queue queueingTime:vector ETV
+vector 84 WirelessB.hostR1.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
-vector 85 WirelessB.hostR2.wlan[0].queue outgoingPacketLengths:vector ETV
+vector 85 WirelessB.hostR1.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
-vector 86 WirelessB.hostR5.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, packetBytes"
-vector 87 WirelessB.hostA.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetDropReasonIsNotAddressedToUs(packetDropped)
-attr title "packet drop: not addressed to us, packetBytes"
+vector 86 WirelessB.hostR6.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
+vector 87 WirelessB.hostB.energyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+attr unit J
 vector 88 WirelessB.hostR3.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
@@ -606,35 +608,33 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
-vector 91 WirelessB.hostR3.wlan[0].radio transmissionState:vector ETV
+vector 91 WirelessB.hostR5.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 92 WirelessB.hostA.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 93 WirelessB.hostR3.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
-vector 92 WirelessB.hostR3.wlan[0].queue queueingTime:vector ETV
+vector 94 WirelessB.hostR3.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
-vector 93 WirelessB.hostR3.wlan[0].queue outgoingPacketLengths:vector ETV
+vector 95 WirelessB.hostR3.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
-vector 94 WirelessB.hostR6.energyStorage residualEnergyCapacity:vector ETV
-attr interpolationmode linear
-attr recordingmode vector
-attr source residualEnergyCapacityChanged
-attr title "Residual energy capacity"
-attr unit J
-vector 95 WirelessB.hostB.energyStorage residualEnergyCapacity:vector ETV
-attr interpolationmode linear
-attr recordingmode vector
-attr source residualEnergyCapacityChanged
-attr title "Residual energy capacity"
-attr unit J
 vector 96 WirelessB.hostR7.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
@@ -655,7 +655,7 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
-vector 99 WirelessB.hostR2.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+vector 99 WirelessB.hostR1.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
@@ -719,477 +719,400 @@ attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
-vector 110 WirelessB.hostR4.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+vector 110 WirelessB.hostR1.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
-vector 111 WirelessB.hostR5.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+vector 111 WirelessB.hostR4.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
-vector 112 WirelessB.hostR3.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, packetBytes"
-vector 113 WirelessB.hostB.udp packetReceived:vector(packetBytes) ETV
+vector 112 WirelessB.hostB.udp packetReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceived
 attr title "packets received, packetBytes"
-vector 114 WirelessB.hostB.app[0] packetReceived:vector(packetBytes) ETV
+vector 113 WirelessB.hostB.app[0] packetReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceived
 attr title "packets received, packetBytes"
-vector 115 WirelessB.hostB.app[0] endToEndDelay:vector ETV
+vector 114 WirelessB.hostB.app[0] endToEndDelay:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source dataAge(packetReceived)
 attr title "end-to-end delay"
 attr unit s
-vector 116 WirelessB.hostB.app[0] rcvdPkSeqNo:vector ETV
+vector 115 WirelessB.hostB.app[0] rcvdPkSeqNo:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source appPkSeqNo(packetReceived)
 attr title "received packet sequence number"
-vector 117 WirelessB.hostR7.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+vector 116 WirelessB.hostR7.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
-vector 118 WirelessB.hostB.wlan[0].radio transmissionState:vector ETV
+vector 117 WirelessB.hostB.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
-vector 119 WirelessB.hostR2.wlan[0].queue incomingDataRate:vector ETV
+vector 118 WirelessB.hostR7.wlan[0].queue incomingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPushStarted)
 attr title "incoming datarate"
 attr unit bps
-vector 120 WirelessB.hostA.wlan[0].queue outgoingDataRate:vector ETV
+vector 119 WirelessB.hostR6.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 120 WirelessB.hostR6.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
-vector 121 WirelessB.hostA.wlan[0].queue incomingDataRate:vector ETV
-attr interpolationmode linear
-attr recordingmode vector
-attr source throughput(packetPushStarted)
-attr title "incoming datarate"
-attr unit bps
-vector 122 WirelessB.hostR1.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
-attr interpolationmode none
-attr recordingmode vector(packetBytes)
-attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
-attr title "packet drop: incorrectly received, packetBytes"
-vector 123 WirelessB.hostR7.wlan[0].queue incomingDataRate:vector ETV
-attr interpolationmode linear
-attr recordingmode vector
-attr source throughput(packetPushStarted)
-attr title "incoming datarate"
-attr unit bps
-vector 124 WirelessB.hostR6.wlan[0].queue incomingDataRate:vector ETV
-attr interpolationmode linear
-attr recordingmode vector
-attr source throughput(packetPushStarted)
-attr title "incoming datarate"
-attr unit bps
-vector 125 WirelessB.hostR6.wlan[0].queue outgoingDataRate:vector ETV
-attr interpolationmode linear
-attr recordingmode vector
-attr source throughput(packetPulled)
-attr title "outgoing datarate"
-attr unit bps
-vector 126 WirelessB.hostR7.wlan[0].queue outgoingDataRate:vector ETV
-attr interpolationmode linear
-attr recordingmode vector
-attr source throughput(packetPulled)
-attr title "outgoing datarate"
-attr unit bps
-vector 127 WirelessB.hostB.app[0] throughput:vector ETV
+vector 121 WirelessB.hostB.app[0] throughput:vector ETV
 attr recordingmode vector
 attr source throughput(packetReceived)
 attr title throughput
 attr unit bps
-vector 128 WirelessB.hostA.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
-attr interpolationmode none
-attr recordingmode vector
-attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
-attr title "dropped packet lengths: queue overflow"
-attr unit b
-vector 129 WirelessB.hostR2.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
-attr interpolationmode none
-attr recordingmode vector
-attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
-attr title "dropped packet lengths: queue overflow"
-attr unit b
-vector 130 WirelessB.hostR3.wlan[0].queue incomingDataRate:vector ETV
+vector 122 WirelessB.hostA.wlan[0].queue incomingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPushStarted)
 attr title "incoming datarate"
 attr unit bps
-vector 131 WirelessB.hostR3.wlan[0].queue outgoingDataRate:vector ETV
+vector 123 WirelessB.hostR7.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
-vector 132 WirelessB.hostR2.wlan[0].queue outgoingDataRate:vector ETV
+vector 124 WirelessB.hostR1.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 125 WirelessB.hostR1.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
-vector 133 WirelessB.hostR2.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+vector 126 WirelessB.hostA.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 127 WirelessB.hostR3.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 128 WirelessB.hostR3.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 129 WirelessB.hostR5.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
-vector 134 WirelessB.hostR7.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+vector 130 WirelessB.hostR2.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, packetBytes"
+vector 131 WirelessB.hostA.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
 attr title "dropped packet lengths: queue overflow"
 attr unit b
-vector 135 WirelessB.hostR6.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+vector 132 WirelessB.hostR3.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
-vector 136 WirelessB.hostA.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+vector 133 WirelessB.hostA.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
-vector 137 WirelessB.hostR3.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+vector 134 WirelessB.hostR6.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, packetBytes"
+vector 135 WirelessB.hostB.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 136 WirelessB.hostR7.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsNotAddressedToUs(packetDropped)
+attr title "packet drop: not addressed to us, packetBytes"
+vector 137 WirelessB.hostB.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packet drop: incorrectly received, packetBytes"
+vector 138 WirelessB.hostR7.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
 attr title "dropped packet lengths: queue overflow"
 attr unit b
-vector 138 WirelessB.hostR7.wlan[0].mac packetDropRetryLimitReached:vector(packetBytes) ETV
+vector 139 WirelessB.hostR1.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 140 WirelessB.hostR6.wlan[0].mac packetDropRetryLimitReached:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsRetryLimitReached(packetDropped)
 attr title "packet drop: retry limit reached, packetBytes"
-0	38137 9 0 0 0 0 1 0 0 0 0
-1	38146 9 0 0 0 0 1 0 0 0 0
-2	38155 9 0 0 0 0 1 0 0 0 0
-3	38164 7435 0 156199 0 23.523843907499 264 0 263 34716 6098444
-4	45599 9 0 0 0 0 1 0 0 0 0
-5	45608 9 0 0 0 0 1 0 0 0 0
-6	45617 9 0 0 0 0 1 0 0 0 0
-7	45626 9 0 0 0 0 1 0 0 0 0
-8	45635 9 0 0 0 0 1 0 0 0 0
-9	45644 9 0 0 0 0 1 0 0 0 0
-10	45653 10 0 0 0 0 1 0 0 0 0
-11	45663 10 0 0 0 0 1 0 0 0 0
-12	45673 10 0 0 0 0 1 0 0 0 0
-13	45683 10 0 0 0 0 1 0 0 0 0
-14	45693 10 0 0 0 0 1 0 0 0 0
-15	45703 10 0 0 0 0 1 0 0 0 0
-16	45713 10 0 0 0 0 1 0 0 0 0
-17	45723 10 0 0 0 0 1 0 0 0 0
-18	45733 10 0 0 0 0 1 0 0 0 0
-19	45743 10 0 0 0 0 1 0 0 0 0
-20	45753 10 0 0 0 0 1 0 0 0 0
-21	45763 10 0 0 0 0 1 0 0 0 0
-22	45773 10 0 0 0 0 1 0 0 0 0
-23	45783 10 0 0 0 0 1 0 0 0 0
-24	45793 10 0 0 0 0 1 0 0 0 0
-25	45803 10 0 0 0 0 1 0 0 0 0
-26	45813 10 0 0 0 0 1 0 0 0 0
-27	45823 691569 0 157239 0 23.693694729268 22729 0 0.1 176.645 12.653905000002
-28	737392 251012 0 157240 0 23.693694795116 8129 0 0.1 49.023000000004 2.7457109999999
-29	988404 279255 0 157234 0 23.693694371622 8916 0 0.01 36.434 0.224318
-30	1267659 856965 0 157236 0 23.693694443476 28331 0 0.1 241.66500000003 18.814035000004
-31	2124624 690375 0 157225 0 23.693693611377 22659 0 0.1 167.813 11.225401000001
-32	2814999 382220 0 157230 0 23.693694159601 12276 0 0.01 62.475000000005 0.48700499999998
-33	3197219 404424 0 157232 0 23.693694165335 13024 0 0.01 57.130000000006 0.40173999999999
-34	3601643 348479 0 157238 0 23.693694654441 11442 0 0.1 80.114 5.4155279999996
-35	3950122 572589 0 157241 0 23.693704054758 18672 0 0.1 127.71099999998 7.9743469999983
-36	4522711 68619 0 157172 0 23.684636189035 2475 0 3 6182 16072
-37	4591330 691559 0 157239 0 23.693694729268 22728 0 0.1 176.645 12.653905000002
-38	5282889 14572 0 156219 0 23.524093907499 529 0 3 1317 3423
-39	5297461 251002 0 157240 0 23.693694795116 8128 0 0.1 49.023000000004 2.7457109999999
-40	5548463 30 0 0 0 0 3 0 2 2 4
-41	5548493 279245 0 157234 0 23.693694371622 8915 0 0.01 36.434 0.224318
-42	5827738 102764 0 157195 0 23.684886779278 3703 0 3 9252 24054
-43	5930502 856955 0 157236 0 23.693694443476 28330 0 0.1 241.66500000003 18.814035000004
-44	6787457 60516 0 157225 0 23.693693611377 2175 0 3 5432 14122
-45	6847973 690365 0 157225 0 23.693693611377 22658 0 0.1 167.813 11.225401000001
-46	7538338 30 0 0 0 0 3 0 2 2 4
-47	7538368 382210 0 157230 0 23.693694159601 12275 0 0.01 62.475000000005 0.48700499999998
-48	7920578 30 0 0 0 0 3 0 2 2 4
-49	7920608 404414 0 157232 0 23.693694165335 13023 0 0.01 57.130000000006 0.40173999999999
-50	8325022 29140 0 156195 0 23.523843404216 1055 0 3 2632 6842
-51	8354162 348469 0 157238 0 23.693694654441 11441 0 0.1 80.114 5.4155279999996
-52	8702631 42757 0 157241 0 23.693704054758 1542 0 3 3850 10010
-53	8745388 572579 0 157241 0 23.693704054758 18671 0 0.1 127.71099999998 7.9743469999983
-54	9317967 270778 0 157239 0 23.693694729268 9749 0 3 14007 28625
-55	9588745 146547 0 157240 0 23.693694795116 5279 0 3 7918 14774
-56	9735292 214090 0 157234 0 23.693694371622 7713 1 3 12968 26098
-57	9949382 271139 0 157236 0 23.693694443476 9762 0 3 13223 28311
-58	10220521 277667 0 157225 0 23.693693611377 9999 0 3 15715 34485
-59	10498188 290377 0 157230 0 23.693694159601 10457 1 3 20301 48155
-60	10788565 274920 0 157232 0 23.693694165335 9903 1 3 18032 40112
-61	11063485 146675 0 157238 0 23.693694654441 5284 0 3 7908 16272
-62	11210160 277577 0 157241 0 23.693704054758 9996 0 3 15365 30857
-63	11487737 59892 5 157114 0.022315250545 23.667987045992 1947 1000 1000 1947000 1947000000
-64	11547629 59892 7 157115 0.022315250545 23.667987045992 1947 1008 1008 1962576 1978276608
-65	11607521 59894 9 157117 0.022315250545 23.667987045992 1947 8224 8224 16012128 131683740672
-66	11667415 47311 9 157201 0.022315250545 23.684887369521 1165 0 0.483825916728 201.18580677342 41.81441095283
-67	11714726 35823 9 157201 0.022315250545 23.684887369521 1165 8224 8224 9580960 78793815040
-68	11750549 87572 9 157201 0.022315250545 23.684887369521 3108 0 10 26804 241034
-69	11838121 98650 9 157201 0.022315250545 23.684887369521 3108 0 82240 220436096 16302135977984
-70	11936771 431152 11 157239 0.022865250545 23.693694729268 9878 -1.1481249491693 -4.573050109e-05 -5686.177914603 4373.7878643743
-71	12367923 137178 11 157172 0.022865250545 23.684636189035 4944 0 2 4944 7416
-72	12505101 427515 13 157236 0.022865840788 23.693694443476 9764 -0.77300417008459 -4.5731681576e-05 -3757.8782556122 1927.5263721773
-73	12932616 461346 14 157230 0.022866006598 23.693694159601 10459 -0.22119109984159 -4.5732013196e-05 -1156.6338193068 170.54514835764
-74	13393962 346276 15 157234 0.022866063156 23.693694371622 7797 -0.13080974428641 -4.5732126312e-05 -516.85385462403 45.397543777056
-75	13740238 443148 16 157232 0.022866319081 23.693694165335 10015 -0.17110387867666 -4.5732638162e-05 -855.40441905898 97.248144547598
-76	14183386 441572 17 157225 0.022866368436 23.693693611377 10082 -0.62506297370347 -4.5732736872e-05 -3110.8400865794 1284.9566363853
-77	14624958 445799 18 157241 0.022866794877 23.693704054758 10157 -0.38163875821531 -4.5733589754e-05 -1989.4350620849 508.90488935713
-78	15070757 35793 26 157176 0.031401840788 23.684636779278 1164 8224 8224 9572736 78726180864
-79	15106550 47768 26 157176 0.031401840788 23.684636779278 1690 0 10 14314 129728
-80	15154318 53625 26 157176 0.031401840788 23.684636779278 1690 0 82240 117718336 8774046384128
-81	15207943 57689 28 157231 0.031402006598 23.693694159601 1873 1055 1055 1976015 2084695825
-82	15265632 18499 30 157235 0.031402063156 23.693694371622 604 1055 1055 637220 672267100
-83	15284131 205468 36 157195 0.031411840788 23.684886779278 7400 0 2 7400 11100
-84	15489599 21380 36 156940 0.031411840788 23.639911024115 526 1e-05 1.593284227411 196.89256576501 114.73651528566
-85	15510979 16231 36 156940 0.031411840788 23.639911024115 526 8224 8224 4325824 35575576576
-86	15527210 32206 72 157233 0.040498376159 23.693694165335 1045 1055 1055 1102475 1163111125
-87	15559416 19074 74 156910 0.040498431031 23.63965995016 620 1055 1055 654100 690075500
-88	15578490 16203 80 156916 0.040498672887 23.639660192016 525 8224 8224 4317600 35507942400
-89	15594693 28652 80 157146 0.040498672887 23.675669088084 1027 0 10 3112 18792
-90	15623345 31688 80 157146 0.040498672887 23.675669088084 1027 0 82240 25593088 1270981435392
-91	15655033 120972 85 157225 0.040508672887 23.693693611377 4344 0 2 4344 6516
-92	15776005 19566 85 157146 0.040508672887 23.675669088084 502 1e-05 0.437301186999 50.818520528975 11.169321988513
-93	15795571 15481 85 157146 0.040508672887 23.675669088084 502 8224 8224 4128448 33952356352
-94	15811052 257971 91 157238 0.040509715951 23.693694654441 5872 -0.30796412800708 -8.1019431902e-05 -924.96531469306 192.12008683997
-95	16069023 239619 93 157240 0.040509856626 23.693694795116 5366 -0.093877569227548 -8.1019713252e-05 -253.14469550493 15.91838936044
-96	16308642 15484 126 157229 0.049495116268 23.693694054758 502 8224 8224 4128448 33952356352
-97	16324126 17954 126 157229 0.049495116268 23.693694054758 632 0 10 5209 48291
-98	16342080 19990 126 157229 0.049495116268 23.693694054758 632 0 82240 42838816 3266121993216
-99	16362070 15472 132 157237 0.049495504986 23.693694443476 502 1055 1055 529610 558738550
-100	16377542 88472 137 157144 0.049505116268 23.675668644703 3076 0 2 3076 4614
-101	16466014 5303 137 152935 0.049505116268 23.031276073029 130 1e-05 7.13283116196 177.58429261115 586.36887286716
-102	16471317 4105 137 152935 0.049505116268 23.031276073029 130 8224 8224 1069120 8792442880
-103	16475422 7871 182 156082 0.058511559649 23.514647238264 249 1055 1055 262695 277143225
-104	16483293 8328 186 156086 0.058511725601 23.514647404216 263 8224 8224 2162912 17787788288
-105	16491621 15078 186 156093 0.058511725601 23.514657404216 526 0 3 271 283
-106	16506699 15880 186 156093 0.058511725601 23.514657404216 526 0 24672 2228704 19140471808
-107	16522579 60324 193 156195 0.058521725601 23.523843404216 2104 0 2 2104 3156
-108	16582903 8807 193 156093 0.058521725601 23.514657404216 263 1e-05 0.027841019698 0.30820314464 0.0048481389737731
-109	16591710 8328 193 156093 0.058521725601 23.514657404216 263 8224 8224 2162912 17787788288
-110	16600038 22430 248 156979 0.067199416653 23.648877831801 720 18 1055 553237 579950501
-111	16622468 11056 266 156976 0.067449786214 23.648877559486 360 18 1055 190029 197064717
-112	16633524 10466 272 156981 0.067450082942 23.648877856214 343 18 1055 155502 160340076
-113	16643990 8323 293 156199 0.067648228884 23.523843907499 263 1008 1008 265104 267224832
-114	16652313 8323 294 156200 0.067648228884 23.523843907499 263 1000 1000 263000 263000000
-115	16660636 10926 294 156200 0.067648228884 23.523843907499 263 0.045332978339 8.462070573805 686.97558679862 2632.0506922147
-116	16671562 8069 294 156200 0.067648228884 23.523843907499 263 0 1737 190122 212301692
-117	16679631 10043 296 156737 0.067648334934 23.612676766768 317 1055 1055 334435 352828925
-118	16689674 30136 303 156219 0.067658228884 23.524093907499 1052 0 2 1052 1578
-119	16719810 5336 506 157176 0.1 23.6 236 0 822400 95645120 45470456524800
-120	16725146 5336 530 157201 0.1 23.6 236 0 904640 95727360 45598961459200
-121	16730482 5369 566 156777 0.1 23.6 236 164480 1480320 159710080 1.208893261824e+14
-122	16735851 4265 583 156973 0.112065488527 23.648877132995 138 18 1055 99962 104638606
-123	16740116 5073 612 157013 0.1 23.6 236 0 657920 40955520 10943209676800
-124	16745189 4764 666 156086 0.1 23.5 235 0 411200 21546880 4477382451200
-125	16749953 4764 673 156093 0.1 23.5 235 0 411200 21546880 4477382451200
-126	16754717 4457 689 152753 0.1 23 230 0 328960 10526720 1758488576000
-127	16759174 4770 754 156200 0.1 23.5 235 0 400000 20960000 4096000000000
-128	16763944 24597 1432 157117 0.232118832545 23.667987045992 773 8224 8224 6357152 52281218048
-129	16788541 20105 1591 155038 0.25497086546 23.353607201843 634 8224 8224 5214016 42880067584
-130	16808646 5022 1901 156681 0.1 23.6 236 0 575680 42847040 12437924966400
-131	16813668 5098 1906 157036 0.1 23.6 236 0 657920 41037760 10706490060800
-132	16818766 5022 1924 156703 0.1 23.6 236 0 575680 42929280 12485268889600
-133	16823788 1330 2820 156743 0.451627621435 23.612677155486 42 1055 1055 44310 46747050
-134	16825118 11572 4874 157229 0.783098534289 23.693694054758 362 8224 8224 2977088 24483571712
-135	16836690 156 7584 150813 1.184906099191 22.700335497075 5 1055 1055 5275 5565125
-136	16836846 991 24611 153938 3.771933770811 23.174051984423 31 1055 1055 32705 34503775
-137	16837837 653 97543 140306 14.676995131208 21.220846776243 20 8224 8224 164480 1352683520
-138	16838490 33 106544 106544 16.100181795191 16.100181795191 1 1055 1055 1055 1113025
-3	16838523 479 159675 164282 24.077800039278 24.717216796744 16 264 279 4344 1179736
-27	16839002 31684 157250 164721 23.69370559909 24.788795339382 1003 0 0.1 7.6899999999999 0.54308
-28	16870686 14604 157245 164700 23.693704909113 24.780049100779 456 0 0.1 2.839 0.166433
-29	16885290 17485 157248 164697 23.693705209335 24.780048925011 542 0 0.01 2.41 0.01693
-30	16902775 39161 157249 164718 23.693705323572 24.788794749139 1246 0 0.1 10.464 0.804248
-31	16941936 33667 157243 164725 23.693704498139 24.788795581238 1067 0 0.1 7.7919999999999 0.517184
-32	16975603 19150 157246 164723 23.693704932589 24.788795556825 593 0 0.01 2.894 0.021948
-33	16994753 19714 157247 164719 23.693704953657 24.78879528451 612 0 0.01 2.641 0.018257
-34	17014467 20368 157244 164698 23.693704664091 24.780048960104 645 0 0.1 4.708 0.328606
-35	17034835 30040 157241 164711 23.693704054758 24.780260017953 948 0 0.1 6.7969999999999 0.444039
-36	17064875 3062 157332 164599 23.702892485852 24.770860494698 106 2 3 265 689
-37	17067937 31684 157250 164721 23.69370559909 24.788795339382 1003 0 0.1 7.6899999999999 0.54308
-38	17099621 926 159685 164301 24.077810039278 24.717466796744 32 2 3 80 208
-39	17100547 14604 157245 164700 23.693704909113 24.780049100779 456 0 0.1 2.839 0.166433
-41	17115151 17485 157248 164697 23.693705209335 24.780048925011 542 0 0.01 2.41 0.01693
-42	17132636 4570 157376 164718 23.711519076095 24.788794749139 158 2 3 395 1027
-43	17137206 39161 157249 164718 23.693705323572 24.788794749139 1246 0 0.1 10.464 0.804248
-44	17176367 2886 157264 164688 23.693994498139 24.78004791704 100 2 3 250 650
-45	17179253 33667 157243 164725 23.693704498139 24.788795581238 1067 0 0.1 7.7919999999999 0.517184
-47	17212920 19150 157246 164723 23.693704932589 24.788795556825 593 0 0.01 2.894 0.021948
-49	17232070 19714 157247 164719 23.693704953657 24.78879528451 612 0 0.01 2.641 0.018257
-50	17251784 1848 159624 164276 24.068933535995 24.717216293461 64 2 3 160 416
-51	17253632 20368 157244 164698 23.693704664091 24.780048960104 645 0 0.1 4.708 0.328606
-52	17274000 2455 157251 164396 23.693944054758 24.734661408908 85 2 3 212 550
-53	17276455 30040 157241 164711 23.693704054758 24.780260017953 948 0 0.1 6.7969999999999 0.444039
-54	17306495 12768 157250 164721 23.69370559909 24.788795339382 442 0 3 636 1282
-55	17319263 8104 157245 164700 23.693704909113 24.780049100779 280 0 3 420 796
-56	17327367 12616 157248 164697 23.693705209335 24.780048925011 437 1 3 792 1750
-57	17339983 12810 157249 164718 23.693705323572 24.788794749139 443 0 3 609 1297
-58	17352793 13690 157243 164725 23.693704498139 24.788795581238 474 0 3 746 1632
-59	17366483 14266 157246 164723 23.693704932589 24.788795556825 493 1 3 941 2193
-60	17380749 13468 157247 164719 23.693704953657 24.78879528451 466 1 3 840 1846
-61	17394217 8125 157244 164698 23.693704664091 24.780048960104 281 0 3 417 871
-62	17402342 13567 157251 164711 23.693944054758 24.780260017953 470 0 3 716 1454
-63	17415909 2971 157279 164659 23.700331943577 24.778560918416 93 1000 1000 93000 93000000
-64	17418880 2971 157280 164660 23.700331943577 24.778560918416 93 1008 1008 93744 94493952
-65	17421851 2971 157282 164662 23.700331943577 24.778560918416 93 8224 8224 764832 6289978368
-66	17424822 1967 157477 164626 23.729164206571 24.771111675184 47 0.116524404828 0.395210977851 11.085394813761 2.934286245616
-67	17426789 1501 157477 164626 23.729164206571 24.771111675184 47 8224 8224 386528 3178806272
-68	17428290 4128 157282 164662 23.700331943577 24.778560918416 140 6 10 1305 12279
-69	17432418 4612 157282 164662 23.700331943577 24.778560918416 140 49344 82240 10732320 830480047104
-70	17437030 19741 157250 164721 23.69370559909 24.788795339382 451 -1.1977813451997 -1.1481249709089 -528.49247659153 619.40749512217
-71	17456771 6124 157332 164599 23.702892485852 24.770860494698 212 0 2 212 318
-72	17462895 19845 157249 164718 23.693705323572 24.788794749139 443 -0.80868000782819 -0.77300419184478 -350.04252911326 276.63302099205
-73	17482740 22155 157246 164723 23.693704932589 24.788795556825 494 -0.23129305108682 -0.22119112138756 -111.76385598043 25.289694795009
-74	17504895 19866 157248 164697 23.693705209335 24.780048925011 444 -0.13853419878346 -0.13080976596184 -59.859763884649 8.0723151874915
-75	17524761 21193 157247 164719 23.693704953657 24.78879528451 473 -0.17911098947251 -0.1711039002533 -82.839299891899 14.510456138126
-76	17545954 21386 157243 164725 23.693704498139 24.788795581238 478 -0.6550269748823 -0.62506299547699 -306.76818123588 196.90463126631
-77	17567340 21430 157251 164711 23.693944054758 24.780260017953 479 -0.40322239206974 -0.38166275821531 -187.51251495601 73.430710273192
-78	17588770 1502 157451 164603 23.728913616328 24.770861084941 47 8224 8224 386528 3178806272
-79	17590272 2050 157426 164696 23.720306740293 24.780048749139 70 1 10 494 4062
-80	17592322 2307 157426 164696 23.720306740293 24.780048749139 70 8224 82240 4062656 274730022912
-81	17594629 2491 157289 164724 23.702531046363 24.788795556825 78 1055 1055 82290 86815950
-82	17597120 1565 157293 164278 23.702531258384 24.717216624144 49 1055 1055 51695 54538225
-83	17598685 9140 157376 164718 23.711519076095 24.788794749139 316 0 2 316 474
-84	17607825 961 157426 164696 23.720306740293 24.780048749139 23 0.072088866281 0.53145981102 6.350571296095 2.3560496872923
-85	17608786 736 157426 164696 23.720306740293 24.780048749139 23 8224 8224 189152 1555586048
-86	17609522 1562 157291 164720 23.702531052097 24.78879528451 49 1055 1055 51695 54538225
-87	17611084 927 157396 164722 23.720055666338 24.788795339382 29 1055 1055 30595 32277725
-88	17612011 732 157402 164673 23.720055908194 24.77979791704 23 8224 8224 189152 1555586048
-89	17612743 1414 157253 164678 23.693944498139 24.77980791704 49 0 3 42 64
-90	17614157 1519 157253 164678 23.693944498139 24.77980791704 49 0 24672 345408 4328587264
-91	17615676 5772 157264 164688 23.693994498139 24.78004791704 200 0 2 200 300
-92	17621448 987 157253 164678 23.693944498139 24.77980791704 26 1e-05 0.116395683406 0.657013219004 0.040120536042198
-93	17622435 829 157253 164678 23.693944498139 24.77980791704 26 8224 8224 213824 1758488576
-94	17623264 14018 157244 164698 23.693704664091 24.780048960104 313 -0.32582150862735 -0.30796414802638 -98.811542674925 31.205876105314
-95	17637282 13182 157245 164700 23.693704909113 24.780049100779 288 -0.098686350160868 -0.093877589455542 -27.695775003763 2.6639873279609
-96	17650464 796 157287 164375 23.70253094152 24.734411408908 25 8224 8224 205600 1690854400
-97	17651260 1081 157287 164375 23.70253094152 24.734411408908 37 0 10 241 2031
-98	17652341 1203 157287 164375 23.70253094152 24.734411408908 37 0 82240 1981984 137365011456
-99	17653544 800 157295 164381 23.702531330238 24.734411797626 25 1055 1055 26375 27825625
-100	17654344 5140 157241 164396 23.693704054758 24.734661408908 172 0 2 172 258
-101	17659484 503 159640 163209 24.069174145328 24.565307609179 12 1e-05 1.235560701826 11.119939211899 12.290919742868
-102	17659987 393 159640 163209 24.069174145328 24.565307609179 12 8224 8224 98688 811610112
-103	17660380 462 159612 164191 24.068923370043 24.708280127509 14 1055 1055 14770 15582350
-104	17660842 526 159618 164197 24.068923535995 24.708280293461 16 8224 8224 131584 1082146816
-105	17661368 956 159618 164203 24.068923535995 24.708290293461 32 0 1 16 16
-106	17662324 1004 159618 164203 24.068923535995 24.708290293461 32 0 8224 131584 1082146816
-107	17663328 3824 159624 164276 24.068933535995 24.717216293461 128 0 2 128 192
-108	17667152 551 159624 164203 24.068933535995 24.708290293461 16 1e-05 0.009387006566 0.009537006566 8.8117392270127e-05
-109	17667703 526 159624 164203 24.068933535995 24.708290293461 16 8224 8224 131584 1082146816
-110	17668229 1205 157354 164321 23.711427933125 24.725514299238 37 18 1055 31776 33393018
-111	17669434 515 157356 164253 23.711427938859 24.716887488313 16 18 1055 10658 11132194
-112	17669949 543 159577 164259 24.060155938911 24.716887785041 17 18 1055 10676 11132518
-113	17670492 527 159675 164282 24.077800039278 24.717216796744 16 1008 1008 16128 16257024
-114	17671019 527 159676 164283 24.077800039278 24.717216796744 16 1000 1000 16000 16000000
-115	17671546 685 159676 164283 24.077800039278 24.717216796744 16 1.013042740811 3.014435585264 32.582443484057 74.825528363399
-116	17672231 527 159676 164283 24.077800039278 24.717216796744 16 1737 1937 29315 53795345
-117	17672758 558 157352 164285 23.711427828282 24.717216902794 17 1055 1055 17935 18921425
-118	17673316 1916 159685 164301 24.077810039278 24.717466796744 64 0 2 64 96
-119	17675232 261 157451 164319 23.7 24.7 11 82240 740160 3536320 1481188454400
-120	17675493 261 157477 164342 23.7 24.7 11 82240 740160 3536320 1481188454400
-121	17675754 262 157282 164370 23.7 24.7 11 411200 822400 7319360 5092853452800
-122	17676016 672 157358 164017 23.711428122237 24.681069294325 21 18 1055 13859 14471917
-123	17676688 247 157287 164375 23.7 24.7 11 0 411200 2302720 716922265600
-124	17676935 259 159618 164197 23.6 24.7 12 0 411200 1315840 324644044800
-125	17677194 259 159624 164203 23.6 24.7 12 0 411200 1315840 324644044800
-126	17677453 311 159640 163209 23.1 24.5 15 0 328960 1069120 236719616000
-127	17677764 258 159676 164283 23.6 24.7 12 0 320000 1280000 307200000000
-128	17678022 1484 157349 164662 23.707842058264 24.778560918416 45 8224 8224 370080 3043537920
-129	17679506 626 160540 164603 24.194694543522 24.770861084941 19 8224 8224 156256 1285049344
-130	17680132 246 157402 164673 23.7 24.7 11 0 411200 2138240 649288089600
-131	17680378 246 157311 164678 23.7 24.7 11 0 411200 2302720 730449100800
-132	17680624 246 157426 164696 23.7 24.7 11 0 411200 2138240 649288089600
-133	17680870 128 157360 162566 23.711428217 24.467205764929 4 1055 1055 4220 4452100
-134	17680998 491 157287 159511 23.70253094152 24.051217837998 15 8224 8224 123360 1014512640
-135	17681489 33 162571 162571 24.467205978878 24.467205978878 1 1055 1055 1055 1113025
-27	17681522 2345 164740 165069 24.788806699129 24.842439961306 75 0 0.1 0.647 0.050819
-28	17683867 130 164742 164860 24.788806764977 24.80673130521 4 0.002 0.005 0.014 5.8e-05
-29	17683997 130 164741 164859 24.78880674279 24.806731283023 4 0.002 0.005 0.014 5.8e-05
-30	17684127 2604 164738 165066 24.788806413337 24.842439371063 83 0 0.1 0.753 0.060831
-31	17686731 1584 164733 165073 24.788805581238 24.842440203162 50 0 0.1 0.334 0.020788
-32	17688315 875 164736 165071 24.788806129462 24.842440178749 27 0 0.01 0.151 0.001277
-33	17689190 1125 164737 165067 24.788806135196 24.842439906434 35 0 0.01 0.146 0.001002
-34	17690315 132 164739 164855 24.788806624302 24.806731164535 4 0.002 0.005 0.014 5.8e-05
-35	17690447 978 164729 165075 24.788796017953 24.842440639877 30 0 0.01 0.111 0.000577
-36	17691425 288 164760 165043 24.789336699129 24.84218878082 10 2 3 25 65
-37	17691713 2345 164740 165069 24.788806699129 24.842439961306 75 0 0.1 0.647 0.050819
-39	17694058 130 164742 164860 24.788806764977 24.80673130521 4 0.002 0.005 0.014 5.8e-05
-41	17694188 130 164741 164859 24.78880674279 24.806731283023 4 0.002 0.005 0.014 5.8e-05
-42	17694318 348 164789 165066 24.797883289372 24.842439371063 12 2 3 30 78
-43	17694666 2604 164738 165066 24.788806413337 24.842439371063 83 0 0.1 0.753 0.060831
-44	17697270 116 164733 164847 24.788805581238 24.806730121471 4 2 3 10 26
-45	17697386 1584 164733 165073 24.788805581238 24.842440203162 50 0 0.1 0.334 0.020788
-47	17698970 875 164736 165071 24.788806129462 24.842440178749 27 0 0.01 0.151 0.001277
-49	17699845 1125 164737 165067 24.788806135196 24.842439906434 35 0 0.01 0.146 0.001002
-51	17700970 132 164739 164855 24.788806624302 24.806731164535 4 0.002 0.005 0.014 5.8e-05
-53	17701102 978 164729 165075 24.788796017953 24.842440639877 30 0 0.01 0.111 0.000577
-54	17702080 721 164740 165069 24.788806699129 24.842439961306 25 0 3 34 74
-55	17702801 114 164742 164860 24.788806764977 24.80673130521 4 1 2 6 10
-56	17702915 114 164741 164859 24.78880674279 24.806731283023 4 1 2 6 10
-57	17703029 724 164738 165066 24.788806413337 24.842439371063 25 0 3 32 70
-58	17703753 692 164733 165073 24.788805581238 24.842440203162 24 0 3 37 77
-59	17704445 725 164736 165071 24.788806129462 24.842440178749 25 1 3 50 124
-60	17705170 723 164737 165067 24.788806135196 24.842439906434 25 1 3 45 99
-61	17705893 116 164739 164855 24.788806624302 24.806731164535 4 1 2 6 10
-62	17706009 752 164729 165075 24.788796017953 24.842440639877 26 1 3 41 75
-63	17706761 96 164772 165010 24.793197350365 24.833309181818 3 1000 1000 3000 3000000
-64	17706857 96 164773 165011 24.793197350365 24.833309181818 3 1008 1008 3024 3048192
-65	17706953 96 164775 165013 24.793197350365 24.833309181818 3 8224 8224 24672 202902528
-66	17707049 209 164803 165070 24.798123879615 24.842439961306 5 0.151169460931 0.277533371632 1.026935295561 0.22156406207649
-67	17707258 159 164803 165070 24.798123879615 24.842439961306 5 8224 8224 41120 338170880
-68	17707417 233 164775 165070 24.793197350365 24.842439961306 8 7 10 70 620
-69	17707650 263 164775 165070 24.793197350365 24.842439961306 8 57568 82240 575680 41933189120
-70	17707913 1096 164740 165069 24.788806699129 24.842439961306 25 -1.2021498865228 -1.1977813679192 -29.99575021869 35.989849568803
-71	17709009 576 164760 165043 24.789336699129 24.84218878082 20 0 2 20 30
-72	17709585 1124 164738 165066 24.788806413337 24.842439371063 25 -0.81008479006463 -0.80868003115659 -20.238552825366 16.3839674857
-73	17710709 1123 164736 165071 24.788806129462 24.842440178749 25 -0.23182159004857 -0.23129307223209 -5.7890137117747 1.3405079012526
-74	17711832 178 164741 164859 24.78880674279 24.806731283023 4 -0.13861389149948 -0.13855171441901 -0.55428973183699 0.076809279235514
-75	17712010 1121 164737 165067 24.788806135196 24.842439906434 25 -0.17942612926842 -0.17911101117389 -4.4819867589619 0.80352847371511
-76	17713131 1070 164733 165073 24.788805581238 24.842440203162 24 -0.65613195212615 -0.6550269948823 -15.738282640807 10.320568935413
-77	17714201 1168 164729 165075 24.788796017953 24.842440639877 26 -0.40357420933359 -0.40326507206974 -10.488960882734 4.2314733834904
-78	17715369 160 164780 165047 24.797873289372 24.842189371063 5 8224 8224 41120 338170880
-79	17715529 178 164751 165047 24.789046413337 24.842189371063 6 8 10 57 545
-80	17715707 198 164751 165047 24.789046413337 24.842189371063 6 65792 82240 468768 36860625920
-81	17715905 160 164782 165049 24.797873455182 24.842189536873 5 1055 1055 5275 5565125
-83	17716065 696 164789 165066 24.797883289372 24.842439371063 24 0 2 24 36
-84	17716761 42 164751 164751 24.789046413337 24.789046413337 1 0.330698312606 0.330698312606 0.330698312606 0.10936137396046
-85	17716803 32 164751 164751 24.789046413337 24.789046413337 1 8224 8224 8224 67634176
-88	17716835 32 164728 164728 24.788795581238 24.788795581238 1 8224 8224 8224 67634176
-89	17716867 29 164728 164728 24.788795581238 24.788795581238 1 1 1 1 1
-90	17716896 32 164728 164728 24.788795581238 24.788795581238 1 8224 8224 8224 67634176
-91	17716928 232 164733 164847 24.788805581238 24.806730121471 8 0 2 8 12
-94	17717160 180 164739 164855 24.788806624302 24.806731164535 4 -0.32590120103622 -0.32583902395575 -1.3034389699839 0.42473828964873
-95	17717340 180 164742 164860 24.788806764977 24.80673130521 4 -0.09876604256973 -0.098703865489264 -0.39489833611799 0.038986176497722
-110	17717520 33 164845 164845 24.806730097058 24.806730097058 1 1055 1055 1055 1113025
-111	17717553 33 164841 164841 24.806729824743 24.806729824743 1 1055 1055 1055 1113025
-117	17717586 33 164850 164850 24.806730564852 24.806730564852 1 1055 1055 1055 1113025
-119	17717619 24 164885 164885 24.8 24.8 1 493440 493440 493440 243483033600
-120	17717643 24 164909 164909 24.8 24.8 1 493440 493440 493440 243483033600
-121	17717667 24 164880 164880 24.8 24.8 1 822400 822400 822400 676341760000
-128	17717691 33 164775 164775 24.793197350365 24.793197350365 1 8224 8224 8224 67634176
-129	17717724 99 164938 165047 24.824275010091 24.842189371063 3 8224 8224 24672 202902528
-136	17717823 33 164843 164843 24.806729879615 24.806729879615 1 1055 1055 1055 1113025
+vector 141 WirelessB.hostR3.wlan[0].queue droppedPacketLengthsQueueOverflow:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetDropReasonIsQueueOverflow(packetDropped))
+attr title "dropped packet lengths: queue overflow"
+attr unit b
+vector 142 WirelessB.hostR3.wlan[0].mac packetDropRetryLimitReached:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsRetryLimitReached(packetDropped)
+attr title "packet drop: retry limit reached, packetBytes"
+0	39277 9 0 0 0 0 1 0 0 0 0
+1	39286 9 0 0 0 0 1 0 0 0 0
+2	39295 9 0 0 0 0 1 0 0 0 0
+3	39304 2385 0 47349 0 7.088745026916 91 0 90 4095 247065
+4	41689 9 0 0 0 0 1 0 0 0 0
+5	41698 9 0 0 0 0 1 0 0 0 0
+6	41707 9 0 0 0 0 1 0 0 0 0
+7	41716 9 0 0 0 0 1 0 0 0 0
+8	41725 9 0 0 0 0 1 0 0 0 0
+9	41734 9 0 0 0 0 1 0 0 0 0
+10	41743 10 0 0 0 0 1 0 0 0 0
+11	41753 10 0 0 0 0 1 0 0 0 0
+12	41763 10 0 0 0 0 1 0 0 0 0
+13	41773 10 0 0 0 0 1 0 0 0 0
+14	41783 10 0 0 0 0 1 0 0 0 0
+15	41793 10 0 0 0 0 1 0 0 0 0
+16	41803 10 0 0 0 0 1 0 0 0 0
+17	41813 10 0 0 0 0 1 0 0 0 0
+18	41823 10 0 0 0 0 1 0 0 0 0
+19	41833 10 0 0 0 0 1 0 0 0 0
+20	41843 10 0 0 0 0 1 0 0 0 0
+21	41853 10 0 0 0 0 1 0 0 0 0
+22	41863 10 0 0 0 0 1 0 0 0 0
+23	41873 10 0 0 0 0 1 0 0 0 0
+24	41883 10 0 0 0 0 1 0 0 0 0
+25	41893 10 0 0 0 0 1 0 0 0 0
+26	41903 10 0 0 0 0 1 0 0 0 0
+27	41913 245047 0 58628 0 8.924485258086 8339 0 0.1 65.372000000004 4.6982239999998
+28	286960 100560 0 57252 0 8.688048698666 3392 0 0.1 19.576 0.96381200000001
+29	387520 307253 0 58629 0 8.924485527942 10516 0 0.1 89.774999999997 6.9683049999993
+30	694773 124624 0 58631 0 8.92448575473 4148 0 0.01 21.373 0.172121
+31	819397 244133 0 58633 0 8.924486366587 8304 0 0.1 62.133000000005 4.2366210000001
+32	1063530 130959 0 58630 0 8.924485657023 4359 0 0.01 22.081 0.174067
+33	1194489 140992 0 58632 0 8.924486364785 4695 0 0.01 21.042 0.150394
+34	1335481 122111 0 57233 0 8.687495963493 4166 0 0.1 29.052 1.9454339999999
+35	1457592 195878 0 58634 0 8.924486829264 6610 0 0.1 43.786000000003 2.596482
+36	1653470 24529 0 58627 0 8.924485258086 920 0 3 2295 5967
+37	1677999 245037 0 58628 0 8.924485258086 8338 0 0.1 65.372000000004 4.6982239999998
+38	1923036 4802 0 47385 0 7.088995026916 183 0 3 452 1174
+39	1927838 100550 0 57252 0 8.688048698666 3391 0 0.1 19.576 0.96381200000001
+40	2028388 36700 0 58611 0 8.92421498821 1373 0 3 3427 8909
+41	2065088 307243 0 58629 0 8.924485527942 10515 0 0.1 89.774999999997 6.9683049999993
+42	2372331 30 0 0 0 0 3 0 2 2 4
+43	2372361 124614 0 58631 0 8.92448575473 4147 0 0.01 21.373 0.172121
+44	2496975 21996 0 57145 0 8.669790370089 825 0 3 2057 5347
+45	2518971 244123 0 58633 0 8.924486366587 8303 0 0.1 62.133000000005 4.2366210000001
+46	2763094 30 0 0 0 0 3 0 2 2 4
+47	2763124 130949 0 58630 0 8.924485657023 4358 0 0.01 22.081 0.174067
+48	2894073 30 0 0 0 0 3 0 2 2 4
+49	2894103 140982 0 58632 0 8.924486364785 4694 0 0.01 21.042 0.150394
+50	3035085 10034 0 47345 0 7.088744375193 381 0 3 947 2461
+51	3045119 122101 0 57233 0 8.687495963493 4165 0 0.1 29.052 1.9454339999999
+52	3167220 13272 0 57228 0 8.687495069086 501 0 3 1247 3241
+53	3180492 195868 0 58634 0 8.924486829264 6609 0 0.1 43.786000000003 2.596482
+54	3376360 95371 0 58627 0 8.924485258086 3569 0 3 5123 10491
+55	3471731 57096 0 57229 0 8.68749563891 2148 0 3 3458 7086
+56	3528827 98392 0 58629 0 8.924485527942 3687 0 3 5044 10804
+57	3627219 95414 0 58631 0 8.92448575473 3571 1 3 6901 16615
+58	3722633 98229 0 58633 0 8.924486366587 3676 0 3 5647 12169
+59	3820862 99586 0 58630 0 8.924485657023 3730 1 3 7165 17031
+60	3920448 97699 0 58632 0 8.924486364785 3657 1 3 6681 14971
+61	4018147 53903 0 57233 0 8.687495963493 2030 0 3 3004 6002
+62	4072050 102162 0 58634 0 8.924486829264 3828 0 3 5995 12025
+63	4174212 21765 4 58639 0.022315250545 8.926951894043 733 1000 1000 733000 733000000
+64	4195977 21765 6 58640 0.022315250545 8.926951894043 733 1008 1008 738864 744774912
+65	4217742 21765 8 58642 0.022315250545 8.926951894043 733 8224 8224 6028192 49575851008
+66	4239507 15813 8 58617 0.022315250545 8.924215258086 399 0 0.604071206662 77.931476258571 19.906136916379
+67	4255320 11889 8 58617 0.022315250545 8.924215258086 399 8224 8224 3281376 26986036224
+68	4267209 30729 8 58642 0.022315250545 8.926951894043 1130 0 10 9920 90578
+69	4297938 34714 8 58642 0.022315250545 8.926951894043 1130 0 82240 81582080 6126168393728
+70	4332652 154102 10 58627 0.022665250545 8.924485258086 3597 -0.42711676815303 -4.533050109e-05 -733.58723813898 200.46756215471
+71	4486754 48998 10 58628 0.022665250545 8.924485258086 1834 0 2 1835 2753
+72	4535752 157884 12 58631 0.022665840295 8.92448575473 3619 -0.082500511718731 -4.533168059e-05 -150.54760172321 8.2637813848262
+73	4693636 158298 13 58629 0.022665872879 8.924485527942 3687 -0.31165048790737 -4.5331745758e-05 -545.84108908464 111.54976326164
+74	4851934 163647 14 58630 0.022666005691 8.924485657023 3753 -0.082481278012359 -4.5332011382e-05 -153.67153921063 8.4194449391288
+75	5015581 160769 15 58632 0.022666319028 8.924486364785 3685 -0.065039684846787 -4.5332638056e-05 -122.29538241952 5.3502415866184
+76	5176350 159231 16 58633 0.022666368268 8.924486366587 3703 -0.20885515747339 -4.5332736536e-05 -441.70475246159 67.794661782859
+77	5335581 165732 17 58634 0.022666794841 8.924486829264 3833 -0.13758655660917 -4.5333589682e-05 -290.68314760013 28.26576653457
+78	5501313 25531 22 58595 0.031201840295 8.923965214617 859 1055 1055 906245 956088475
+79	5526844 11854 26 58591 0.031201872879 8.92396498821 398 8224 8224 3273152 26918402048
+80	5538698 17108 26 58591 0.031201872879 8.92396498821 632 0 10 4201 35079
+81	5555806 19230 26 58591 0.031201872879 8.92396498821 632 0 82240 34549024 2372539259904
+82	5575036 22741 28 58593 0.031202005691 8.923965117299 764 1055 1055 806020 850351100
+83	5597777 73340 34 58611 0.031211872879 8.92421498821 2740 0 2 2740 4110
+84	5671117 9067 34 56452 0.031211872879 8.534882791079 234 1e-05 1.169669572888 49.034048240401 23.271195306595
+85	5680184 6960 34 56452 0.031211872879 8.534882791079 234 8224 8224 1924416 15826397184
+86	5687144 94524 42 57233 0.031213418899 8.687495963493 2180 -0.1140810489463 -6.2426837798e-05 -122.59197125286 9.2137408573967
+87	5781668 97949 43 57252 0.031213480369 8.688048698666 2251 -0.039183528817273 -6.2426960738e-05 -40.681805132406 1.0051354156827
+88	5879617 6954 77 56486 0.040338387867 8.543749624807 234 8224 8224 1924416 15826397184
+89	5886571 10411 77 56486 0.040338387867 8.543749624807 387 0 10 1424 10562
+90	5896982 11485 77 56486 0.040338387867 8.543749624807 387 0 82240 11710976 714352166912
+91	5908467 12543 79 57527 0.040338397842 8.741595417183 422 1055 1055 445210 469696550
+92	5921010 7820 81 58390 0.040338494849 8.886989093345 263 1055 1055 277465 292725575
+93	5928830 43932 85 57145 0.040348387867 8.669790370089 1644 0 2 1644 2466
+94	5972762 5735 85 56206 0.040348387867 8.490507506848 153 1e-05 1.25843495084 12.678055227228 3.9405099090455
+95	5978497 4542 85 56206 0.040348387867 8.490507506848 153 8224 8224 1258272 10348028928
+96	5983039 4503 131 48113 0.049234832375 7.20534035109 152 8224 8224 1250048 10280394752
+97	5987542 5509 131 48113 0.049234832375 7.20534035109 204 0 10 1363 11853
+98	5993051 6161 131 48113 0.049234832375 7.20534035109 204 0 82240 11209312 801667888128
+99	5999212 4694 133 56345 0.049234903038 8.517008564377 158 1055 1055 166690 175857950
+100	6003906 27480 143 57228 0.049244832375 8.687495069086 996 0 2 996 1494
+101	6031386 2025 143 46386 0.049244832375 6.954188655697 52 1e-05 3.367244620706 39.765943178525 101.3997650767
+102	6033411 1575 143 46386 0.049244832375 6.954188655697 52 8224 8224 427648 3516977152
+103	6034986 2625 180 47265 0.05841127714 7.079808373952 86 1055 1055 90730 95720150
+104	6037611 2770 184 47269 0.058411442565 7.079808375193 91 8224 8224 748384 6154710016
+105	6040381 4996 184 47274 0.058411442565 7.079818375193 182 0 2 99 107
+106	6045377 5285 184 47274 0.058411442565 7.079818375193 182 0 16448 814176 7236856832
+107	6050662 20764 191 47345 0.058421442565 7.088744375193 756 0 2 756 1134
+108	6071426 2989 191 47274 0.058421442565 7.079818375193 91 1e-05 0.027500987242 0.222001775144 0.004204009335855
+109	6074415 2772 191 47274 0.058421442565 7.079818375193 91 8224 8224 748384 6154710016
+110	6077187 1438 241 50707 0.067118997532 7.626978147378 48 1055 1055 50640 53425200
+111	6078625 4249 243 53477 0.067119130338 8.066357417698 140 18 1055 132145 139132985
+112	6082874 2745 255 47349 0.067827946611 7.088745026916 90 1008 1008 90720 91445760
+113	6085619 2745 256 47350 0.067827946611 7.088745026916 90 1000 1000 90000 90000000
+114	6088364 3636 256 47350 0.067827946611 7.088745026916 90 0.045512696066 3.911264616277 151.11900694474 382.05240941575
+115	6092000 2588 256 47350 0.067827946611 7.088745026916 90 0 395 15079 4878891
+116	6094588 5105 258 47352 0.067828052918 7.088745202053 171 18 1055 116111 121339813
+117	6099693 9904 265 47385 0.067837946611 7.088995026916 360 0 2 360 540
+118	6109597 1467 450 48113 0.1 7.2 72 0 575680 12418240 3388472217600
+119	6111064 1355 503 46957 0.1 7 70 0 493440 7319360 1602929971200
+120	6112419 1354 510 46962 0.1 7 70 0 411200 7319360 1616456806400
+121	6113773 1348 585 47076 0.1 7 70 0 480000 7040000 1587200000000
+122	6115121 1934 646 58482 0.1 8.9 89 82240 1727040 60117440 46579657011200
+123	6117055 1274 679 46386 0.1 6.9 69 0 493440 4194240 845427200000
+124	6118329 1906 916 58487 0.1 8.9 89 0 904640 32484800 15278560358400
+125	6120235 1746 924 56305 0.1 8.5 85 0 575680 19079680 6587568742400
+126	6121981 1905 944 58513 0.1 8.9 89 0 822400 32567040 15271796940800
+127	6123886 1745 968 56285 0.1 8.5 85 0 575680 18997440 6567278489600
+128	6125631 1671 976 56206 0.1 8.4 84 0 575680 12500480 3354655129600
+129	6127302 2974 1095 53484 0.213801602211 8.066357993241 99 18 1055 59854 62343332
+130	6130276 1078 1099 53475 0.213801746817 8.066357397088 35 1055 1055 36925 38955875
+131	6131354 10166 1247 56338 0.238713233645 8.516712879954 332 8224 8224 2730368 22454546432
+132	6141520 2570 1322 53486 0.249939422105 8.066358005609 86 18 1055 46139 47874007
+133	6144090 308 1326 52384 0.249939516299 7.887075864359 10 1055 1055 10550 11130250
+134	6144398 92 1332 40025 0.249940481818 6.048701132906 3 1055 1055 3165 3339075
+135	6144490 2535 3502 57230 0.590453053906 8.68749563891 83 1055 1055 87565 92381075
+136	6147025 30 3813 3813 0.636077471963 0.636077471963 1 1055 1055 1055 1113025
+137	6147055 308 11192 40022 1.790712646622 6.048700997244 10 1055 1055 10550 11130250
+138	6147363 2773 11314 48113 1.808497738977 7.20534035109 90 8224 8224 740160 6087075840
+139	6150136 4750 11820 58591 1.881593365989 8.92396498821 154 8224 8224 1266496 10415663104
+140	6154886 31 12014 12014 1.902584386796 1.902584386796 1 1055 1055 1055 1113025
+141	6154917 2191 23096 56486 3.599737601186 8.543749624807 71 8224 8224 583904 4802026496
+142	6157108 31 56206 56206 8.490507506848 8.490507506848 1 1055 1055 1055 1113025
+vector 143 WirelessB.hostA.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+vector 144 WirelessB.hostB.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 145 WirelessB.hostB.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 146 WirelessB.hostR2.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 147 WirelessB.hostR2.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 148 WirelessB.hostR4.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 149 WirelessB.hostR4.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 150 WirelessB.hostR5.wlan[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 151 WirelessB.hostR5.wlan[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+118	6159031 319 58642 58642 7.3 8.926951894043 18 0 82240 82240 6763417600
+119	6159350 354 58642 58642 7.1 8.926951894043 20 0 164480 164480 27053670400
+120	6159704 354 58642 58642 7.1 8.926951894043 20 0 164480 164480 27053670400
+121	6160058 354 58642 58642 7.1 8.926951894043 20 0 160000 160000 25600000000
+122	6160412 42 58642 58642 8.926951894043 8.926951894043 1 610272.50900283 610272.50900283 610272.50900283 372432535244.61
+123	6160454 368 58642 58642 7 8.926951894043 21 0 82240 82240 6763417600
+124	6160822 42 58642 58642 8.926951894043 8.926951894043 1 915408.76350424 915408.76350424 915408.76350424 837973204300.37
+125	6160864 101 58642 58642 8.6 8.926951894043 5 0 164480 164480 27053670400
+126	6160965 42 58642 58642 8.926951894043 8.926951894043 1 915408.76350424 915408.76350424 915408.76350424 837973204300.37
+127	6161007 101 58642 58642 8.6 8.926951894043 5 0 246720 246720 60870758400
+128	6161108 117 58642 58642 8.5 8.926951894043 6 0 82240 82240 6763417600
+143	6161225 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+144	6162750 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+145	6164275 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+146	6165800 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+147	6167325 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+148	6168850 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+149	6170375 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+150	6171900 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
+151	6173425 1525 58642 58642 0.1 8.926951894043 90 0 0 0 0
 

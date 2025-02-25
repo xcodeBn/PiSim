@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<analysis version="2">
+    <inputs>
+        <input pattern="/PiSim/samples/sim4/results/HilbertCurve-*.vec"/>
+        <input pattern="/PiSim/samples/sim4/results/HilbertCurve-*.sca"/>
+    </inputs>
+    <charts/>
+</analysis>

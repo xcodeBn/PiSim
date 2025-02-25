@@ -1,5 +1,5 @@
-file 12413182 1716297795                                        
-version 3
+file 12413182 1716294195                                        
+version 2
 run Wireless08-0-20240521-16:22:41-10944
 attr configname Wireless08
 attr datetime 20240521-16:22:41
@@ -101,362 +101,430 @@ attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+0	37053 9 0 0 0 0 1 0 0 0 0
 vector 1 WirelessB.hostA.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+1	37062 9 0 0 0 0 1 0 0 0 0
 vector 2 WirelessB.hostA.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+2	37071 9 0 0 0 0 1 0 0 0 0
 vector 3 WirelessB.hostB.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+3	37080 10969 0 110828 0 17.579599761338 392 0 391 76636 20001996
 vector 4 WirelessB.hostB.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+4	48049 9 0 0 0 0 1 0 0 0 0
 vector 5 WirelessB.hostB.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+5	48058 9 0 0 0 0 1 0 0 0 0
 vector 6 WirelessB.hostR1.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+6	48067 9 0 0 0 0 1 0 0 0 0
 vector 7 WirelessB.hostR1.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+7	48076 9 0 0 0 0 1 0 0 0 0
 vector 8 WirelessB.hostR1.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+8	48085 9 0 0 0 0 1 0 0 0 0
 vector 9 WirelessB.hostR2.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+9	48094 9 0 0 0 0 1 0 0 0 0
 vector 10 WirelessB.hostR2.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+10	48103 10 0 0 0 0 1 0 0 0 0
 vector 11 WirelessB.hostR2.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+11	48113 10 0 0 0 0 1 0 0 0 0
 vector 12 WirelessB.hostR3.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+12	48123 10 0 0 0 0 1 0 0 0 0
 vector 13 WirelessB.hostR3.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+13	48133 10 0 0 0 0 1 0 0 0 0
 vector 14 WirelessB.hostR3.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+14	48143 10 0 0 0 0 1 0 0 0 0
 vector 15 WirelessB.hostR4.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+15	48153 10 0 0 0 0 1 0 0 0 0
 vector 16 WirelessB.hostR4.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+16	48163 10 0 0 0 0 1 0 0 0 0
 vector 17 WirelessB.hostR4.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+17	48173 10 0 0 0 0 1 0 0 0 0
 vector 18 WirelessB.hostR5.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+18	48183 10 0 0 0 0 1 0 0 0 0
 vector 19 WirelessB.hostR5.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+19	48193 10 0 0 0 0 1 0 0 0 0
 vector 20 WirelessB.hostR5.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+20	48203 10 0 0 0 0 1 0 0 0 0
 vector 21 WirelessB.hostR6.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+21	48213 10 0 0 0 0 1 0 0 0 0
 vector 22 WirelessB.hostR6.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+22	48223 10 0 0 0 0 1 0 0 0 0
 vector 23 WirelessB.hostR6.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+23	48233 10 0 0 0 0 1 0 0 0 0
 vector 24 WirelessB.hostR7.udp passedUpPk:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetSentToUpper
 attr title "packets passed up, count"
+24	48243 10 0 0 0 0 1 0 0 0 0
 vector 25 WirelessB.hostR7.udp droppedPkWrongPort:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsNoPortFound(packetDropped)
 attr title "packets dropped (wrong port), count"
+25	48253 10 0 0 0 0 1 0 0 0 0
 vector 26 WirelessB.hostR7.udp droppedPkBadChecksum:vector(count) ETV
 attr interpolationmode none
 attr recordingmode vector(count)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packets dropped (checksum error), count"
+26	48263 10 0 0 0 0 1 0 0 0 0
 vector 27 WirelessB.hostA.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+27	48273 379732 0 110815 0 17.575863186488 12640 0 0.1 100.10299999999 7.303360999999
 vector 28 WirelessB.hostB.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+28	428005 334926 0 110825 0 17.579599761338 11026 0 0.1 69.246000000004 4.0586520000001
 vector 29 WirelessB.hostR1.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+29	762931 461296 0 110817 0 17.575863809725 15335 0 0.1 112.15399999999 7.5056679999988
 vector 30 WirelessB.hostR2.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+30	1224227 221942 0 110816 0 17.575863776731 7250 0 0.01 33.866 0.257092
 vector 31 WirelessB.hostR3.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+31	1446169 445101 0 110727 0 17.561767294553 14821 0 0.1 109.90499999999 7.4504649999988
 vector 32 WirelessB.hostR4.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+32	1891270 269666 0 110818 0 17.575863942541 8774 0 0.01 40.014000000001 0.28489799999999
 vector 33 WirelessB.hostR5.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+33	2160936 240733 0 110729 0 17.56176775011 7822 0 0.01 33.129999999999 0.218
 vector 34 WirelessB.hostR6.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+34	2401669 450681 0 110824 0 17.579599258055 15011 0 0.1 113.47599999999 8.1048719999987
 vector 35 WirelessB.hostR7.energyStorage powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+35	2852350 467780 0 110830 0 17.579599867388 15573 0 0.1 115.90699999999 7.8141289999987
 vector 36 WirelessB.hostA.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+36	3320130 39093 0 110814 0 17.575863186488 1434 0 3 3580 9308
 vector 37 WirelessB.hostA.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+37	3359223 379722 0 110815 0 17.575863186488 12639 0 0.1 100.10299999999 7.303360999999
 vector 38 WirelessB.hostB.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+38	3738945 21328 0 110773 0 17.570552754772 783 0 3 1952 5074
 vector 39 WirelessB.hostB.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+39	3760273 334916 0 110825 0 17.579599761338 11025 0 0.1 69.246000000004 4.0586520000001
 vector 40 WirelessB.hostR1.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+40	4095189 39830 0 110219 0 17.489478636613 1459 0 3 3642 9468
 vector 41 WirelessB.hostR1.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+41	4135019 461286 0 110817 0 17.575863809725 15334 0 0.1 112.15399999999 7.5056679999988
 vector 42 WirelessB.hostR2.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+42	4596305 30 0 0 0 0 3 0 2 2 4
 vector 43 WirelessB.hostR2.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+43	4596335 221932 0 110816 0 17.575863776731 7249 0 0.01 33.866 0.257092
 vector 44 WirelessB.hostR3.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+44	4818267 39507 0 110368 0 17.516138924474 1449 0 3 3617 9403
 vector 45 WirelessB.hostR3.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+45	4857774 445091 0 110727 0 17.561767294553 14820 0 0.1 109.90499999999 7.4504649999988
 vector 46 WirelessB.hostR4.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+46	5302865 30 0 0 0 0 3 0 2 2 4
 vector 47 WirelessB.hostR4.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+47	5302895 269656 0 110818 0 17.575863942541 8773 0 0.01 40.014000000001 0.28489799999999
 vector 48 WirelessB.hostR5.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+48	5572551 30 0 0 0 0 3 0 2 2 4
 vector 49 WirelessB.hostR5.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+49	5572581 240723 0 110729 0 17.56176775011 7821 0 0.01 33.129999999999 0.218
 vector 50 WirelessB.hostR6.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+50	5813304 43295 0 110824 0 17.579599258055 1587 0 3 3962 10300
 vector 51 WirelessB.hostR6.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+51	5856599 450671 0 110824 0 17.579599258055 15010 0 0.1 113.47599999999 8.1048719999987
 vector 52 WirelessB.hostR7.wlan[0].radio radioMode:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source radioModeChanged
 attr title "Radio mode"
+52	6307270 41438 0 110685 0 17.561425642156 1519 0 3 3792 9858
 vector 53 WirelessB.hostR7.wlan[0].radio.energyConsumer powerConsumption:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source powerConsumptionChanged
 attr title "Power consumption"
 attr unit W
+53	6348708 467770 0 110830 0 17.579599867388 15572 0 0.1 115.90699999999 7.8141289999987
 vector 54 WirelessB.hostA.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+54	6816478 157464 0 110814 0 17.575863186488 5766 0 3 7952 15190
 vector 55 WirelessB.hostB.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+55	6973942 183223 0 110825 0 17.579599761338 6709 0 3 10080 19186
 vector 56 WirelessB.hostR1.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+56	7157165 199473 0 110817 0 17.575863809725 7304 0 3 11176 23180
 vector 57 WirelessB.hostR2.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+57	7356638 158143 0 110816 0 17.575863776731 5789 1 3 10843 25211
 vector 58 WirelessB.hostR3.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+58	7514781 186171 0 110727 0 17.561767294553 6815 0 3 10261 21507
 vector 59 WirelessB.hostR4.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+59	7700952 199723 0 110818 0 17.575863942541 7311 1 3 13374 29760
 vector 60 WirelessB.hostR5.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+60	7900675 176451 0 110729 0 17.56176775011 6460 1 3 11156 23422
 vector 61 WirelessB.hostR6.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+61	8077126 183650 0 110824 0 17.579599258055 6725 0 3 9658 19392
 vector 62 WirelessB.hostR7.wlan[0].radio receptionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source receptionStateChanged
 attr title "Radio reception state"
+62	8260776 197853 0 110830 0 17.579599867388 7248 0 3 11100 23314
 vector 63 WirelessB.hostA.app[0] packetSent:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetSent
 attr title "packets sent, packetBytes"
+63	8458629 44609 4 110810 0.022315250545 17.5758587486 1470 1000 1000 1470000 1470000000
 vector 64 WirelessB.hostA.udp packetSent:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetSent
 attr title "packets sent, packetBytes"
+64	8503238 44609 6 110811 0.022315250545 17.5758587486 1470 1008 1008 1481760 1493614080
 vector 65 WirelessB.hostA.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
+65	8547847 44609 8 110813 0.022315250545 17.5758587486 1470 8224 8224 12089280 99422238720
 vector 66 WirelessB.hostA.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
+66	8592456 14921 8 109935 0.022315250545 17.444883410998 369 0 12.994971531197 2475.9401222816 22129.071705783
 vector 67 WirelessB.hostA.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
+67	8607377 11189 8 109935 0.022315250545 17.444883410998 369 8224 8224 3034656 24957010944
 vector 68 WirelessB.hostA.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -464,6 +532,7 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
+68	8618566 53919 8 110813 0.022315250545 17.5758587486 1838 0 1101 1013713 746608971
 vector 69 WirelessB.hostA.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -471,64 +540,75 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
+69	8672485 61050 8 110813 0.022315250545 17.5758587486 1838 0 9054624 8336775712 5.0496282547793e+16
 vector 70 WirelessB.hostA.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+70	8733535 249932 10 110814 0.022545250545 17.575863186488 5765 -0.67853413807315 -4.509050109e-05 -1980.2692487653 903.84685832572
 vector 71 WirelessB.hostA.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
+71	8983467 78126 10 110815 0.022545250545 17.575863186488 2862 0 2 2863 4295
 vector 72 WirelessB.hostR2.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+72	9061593 263178 12 110816 0.022545840788 17.575863776731 5997 -0.14476289824277 -4.5091681576e-05 -433.64430777784 41.876887374984
 vector 73 WirelessB.hostR1.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+73	9324771 317142 13 110817 0.022545873782 17.575863809725 7303 -0.44534149177952 -4.5091747564e-05 -1612.7424492038 476.743196872
 vector 74 WirelessB.hostR4.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+74	9641913 320939 14 110818 0.022546006598 17.575863942541 7311 -0.14813344790742 -4.5092013196e-05 -540.96387113384 53.443699479875
 vector 75 WirelessB.hostR5.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+75	9962852 284311 15 110729 0.022546319081 17.56176775011 6460 -0.11838597505252 -4.5092638162e-05 -382.03526953362 30.161239417626
 vector 76 WirelessB.hostR3.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+76	10247163 295963 16 110727 0.022546368436 17.561767294553 6814 -0.4352241407694 -4.5092736872e-05 -1473.2064020335 424.83123291298
 vector 77 WirelessB.hostR7.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+77	10543126 323145 17 110830 0.022546794877 17.579599867388 7446 -0.46387170248048 -4.5093589754e-05 -1704.6443633789 523.17347329808
 vector 78 WirelessB.hostR2.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+78	10866271 41739 30 110798 0.031081840788 17.573433776731 1377 1055 1055 1452735 1532635425
 vector 79 WirelessB.hostR1.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
+79	10908010 10649 34 109907 0.031081873782 17.444632787761 351 8224 8224 2886624 23739595776
 vector 80 WirelessB.hostR1.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -536,6 +616,7 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
+80	10918659 19012 34 109907 0.031081873782 17.444632787761 695 0 13 1790 10520
 vector 81 WirelessB.hostR1.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -543,46 +624,54 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
+81	10937671 20881 34 109907 0.031081873782 17.444632787761 695 0 106912 14720960 711511531520
 vector 82 WirelessB.hostR4.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+82	10958552 31435 36 110376 0.031082006598 17.516139472698 1037 1055 1055 1094035 1154206925
 vector 83 WirelessB.hostR1.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
+83	10989987 79600 42 110219 0.031091873782 17.489478636613 2912 0 2 2912 4368
 vector 84 WirelessB.hostR1.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
+84	11069587 12964 42 109468 0.031091873782 17.372004817448 344 1e-05 0.318887591348 25.949438798498 4.5407582697554
 vector 85 WirelessB.hostR1.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
+85	11082551 10421 42 109468 0.031091873782 17.372004817448 344 8224 8224 2829056 23266156544
 vector 86 WirelessB.hostR6.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+86	11092972 302758 50 110824 0.031093417617 17.579599258055 6975 -0.42810354585979 -6.2186835234e-05 -1484.7382055697 422.9676390169
 vector 87 WirelessB.hostB.energyStorage residualEnergyCapacity:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source residualEnergyCapacityChanged
 attr title "Residual energy capacity"
 attr unit J
+87	11395730 298582 51 110825 0.031093480573 17.579599761338 6763 -0.10214997944238 -6.2186961146e-05 -344.45876753651 23.437602494632
 vector 88 WirelessB.hostR3.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
+88	11694312 10384 86 109446 0.040018388119 17.371754303111 343 8224 8224 2820832 23198522368
 vector 89 WirelessB.hostR3.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -590,6 +679,7 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
+89	11704696 18730 86 110342 0.040018388119 17.507552924474 686 0 11 1221 5379
 vector 90 WirelessB.hostR3.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -597,39 +687,46 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
+90	11723426 20417 86 110342 0.040018388119 17.507552924474 686 0 90464 10041504 363804232704
 vector 91 WirelessB.hostR5.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+91	11743843 20804 88 110378 0.040018398305 17.516139478432 686 1055 1055 723730 763535150
 vector 92 WirelessB.hostA.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+92	11764647 10382 90 109450 0.040018497019 17.371754412011 343 1055 1055 361865 381767575
 vector 93 WirelessB.hostR3.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
+93	11775029 78954 94 110368 0.040028388119 17.516138924474 2892 0 2 2892 4338
 vector 94 WirelessB.hostR3.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
+94	11853983 12601 94 110342 0.040028388119 17.507552924474 343 1e-05 0.421032467647 21.66463477581 4.457630939415
 vector 95 WirelessB.hostR3.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
+95	11866584 10396 94 110342 0.040028388119 17.507552924474 343 8224 8224 2820832 23198522368
 vector 96 WirelessB.hostR7.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
+96	11876980 10393 140 110372 0.0491548315 17.516139367855 343 8224 8224 2820832 23198522368
 vector 97 WirelessB.hostR7.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -637,6 +734,7 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
+97	11887373 18718 140 110713 0.0491548315 17.561676860822 678 0 38 5491 116251
 vector 98 WirelessB.hostR7.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -644,39 +742,46 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
+98	11906091 20730 140 110713 0.0491548315 17.561676860822 678 0 312512 45157984 7862540594176
 vector 99 WirelessB.hostR1.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+99	11926821 10385 142 110374 0.049154902456 17.516139438811 343 1055 1055 361865 381767575
 vector 100 WirelessB.hostR7.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
+100	11937206 85848 152 110685 0.0491648315 17.561425642156 3032 0 2 3032 4548
 vector 101 WirelessB.hostR7.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
+101	12023054 13012 152 110713 0.0491648315 17.561676860822 335 1e-05 1.247246137897 120.18456720544 96.550412115927
 vector 102 WirelessB.hostR7.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
+102	12036066 10485 152 110713 0.0491648315 17.561676860822 335 8224 8224 2755040 22657448960
 vector 103 WirelessB.hostR3.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+103	12046551 12099 301 110687 0.076026400168 17.561426085537 386 1055 1055 407230 429627650
 vector 104 WirelessB.hostR6.wlan[0].queue incomingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPushStarted)
 attr title "incoming packet lengths"
 attr unit b
+104	12058650 12240 305 110691 0.07602656612 17.561426251489 391 8224 8224 3215584 26444962816
 vector 105 WirelessB.hostR6.wlan[0].queue queueLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -684,6 +789,7 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
 attr title "queue length"
 attr unit pk
+105	12070890 22141 305 110775 0.07602656612 17.570553258055 782 0 4 511 695
 vector 106 WirelessB.hostR6.wlan[0].queue queueBitLength:vector ETV
 attr autoWarmupFilter false
 attr interpolationmode sample-hold
@@ -691,304 +797,197 @@ attr recordingmode vector
 attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
 attr title "queue bit length"
 attr unit b
+106	12093031 23508 305 110775 0.07602656612 17.570553258055 782 0 32896 4202464 47005752320
 vector 107 WirelessB.hostR6.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
+107	12116539 89698 312 110824 0.07603656612 17.579599258055 3168 0 2 3168 4752
 vector 108 WirelessB.hostR6.wlan[0].queue queueingTime:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source queueingTime(packetPulled)
 attr title "queueing times"
 attr unit s
+108	12206237 13831 312 110775 0.07603656612 17.570553258055 391 1e-05 0.089951938053 2.685083386667 0.076520577552724
 vector 109 WirelessB.hostR6.wlan[0].queue outgoingPacketLengths:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source packetLength(packetPulled)
 attr title "outgoing packet lengths"
 attr unit b
+109	12220068 12247 312 110775 0.07603656612 17.570553258055 391 8224 8224 3215584 26444962816
 vector 110 WirelessB.hostR1.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+110	12232315 11390 370 110800 0.084934124356 17.573433809725 364 1055 1055 384020 405141100
 vector 111 WirelessB.hostR4.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+111	12243705 12470 372 110802 0.084934257172 17.573433942541 398 1055 1055 419890 442983950
 vector 112 WirelessB.hostB.udp packetReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceived
 attr title "packets received, packetBytes"
+112	12256175 12241 383 110828 0.085243069403 17.579599761338 391 1008 1008 394128 397281024
 vector 113 WirelessB.hostB.app[0] packetReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetReceived
 attr title "packets received, packetBytes"
+113	12268416 12241 384 110829 0.085243069403 17.579599761338 391 1000 1000 391000 391000000
 vector 114 WirelessB.hostB.app[0] endToEndDelay:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source dataAge(packetReceived)
 attr title "end-to-end delay"
 attr unit s
+114	12280657 16213 384 110829 0.085243069403 17.579599761338 391 0.062927818858 13.390675406146 2686.8778727537 24385.324662945
 vector 115 WirelessB.hostB.app[0] rcvdPkSeqNo:vector ETV
 attr interpolationmode none
 attr recordingmode vector
 attr source appPkSeqNo(packetReceived)
 attr title "received packet sequence number"
+115	12296870 11722 384 110829 0.085243069403 17.579599761338 391 0 350 66710 15338326
 vector 116 WirelessB.hostR7.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+116	12308592 11914 386 110756 0.085243175453 17.570302860822 381 1055 1055 401955 424062525
 vector 117 WirelessB.hostB.wlan[0].radio transmissionState:vector ETV
 attr interpolationmode sample-hold
 attr recordingmode vector
 attr source transmissionStateChanged
 attr title "Radio transmission state"
+117	12320506 44156 393 110773 0.085253069403 17.570552754772 1560 0 2 1560 2340
 vector 118 WirelessB.hostR7.wlan[0].queue incomingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPushStarted)
 attr title "incoming datarate"
 attr unit bps
+118	12364662 3710 461 110318 0.1 17.5 175 0 411200 28043840 6567278489600
 vector 119 WirelessB.hostR7.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
+119	12368372 3654 473 110533 0.1 17.5 175 0 575680 27303680 7507393536000
 vector 120 WirelessB.hostR6.wlan[0].queue incomingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPushStarted)
 attr title "incoming datarate"
 attr unit bps
+120	12372026 3712 513 110511 0.1 17.5 175 0 575680 31909120 9076506419200
 vector 121 WirelessB.hostR6.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
+121	12375738 3719 520 110518 0.1 17.5 175 0 493440 31909120 8833023385600
 vector 122 WirelessB.hostB.app[0] throughput:vector ETV
 attr recordingmode vector
 attr source throughput(packetReceived)
 attr title throughput
 attr unit bps
+122	12379457 3701 583 110436 0.1 17.5 175 0 560000 30960000 8736000000000
 vector 123 WirelessB.hostA.wlan[0].queue incomingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPushStarted)
 attr title "incoming datarate"
 attr unit bps
+123	12383158 3909 679 110483 0.1 17.5 175 164480 1398080 120317120 93220184780800
 vector 124 WirelessB.hostR1.wlan[0].queue incomingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPushStarted)
 attr title "incoming datarate"
 attr unit bps
+124	12387067 3569 766 109792 0.1 17.4 174 0 493440 28701760 8704518451200
 vector 125 WirelessB.hostR1.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
+125	12390636 3620 774 109134 0.1 17.3 173 0 411200 28043840 7094825062400
 vector 126 WirelessB.hostA.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
+126	12394256 3613 794 109820 0.1 17.4 174 0 493440 30182080 8988581990400
 vector 127 WirelessB.hostR3.wlan[0].queue incomingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPushStarted)
 attr title "incoming datarate"
 attr unit bps
+127	12397869 3636 822 109112 0.1 17.3 173 0 411200 27961600 7033954304000
 vector 128 WirelessB.hostR3.wlan[0].queue outgoingDataRate:vector ETV
 attr interpolationmode linear
 attr recordingmode vector
 attr source throughput(packetPulled)
 attr title "outgoing datarate"
 attr unit bps
+128	12401505 3732 830 110342 0.1 17.5 175 0 411200 28126080 6357612544000
 vector 129 WirelessB.hostR2.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+129	12405237 1827 1405 110223 0.25369837937 17.489479022695 58 1055 1055 61190 64555450
 vector 130 WirelessB.hostR3.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+130	12407064 974 1409 110213 0.253698507625 17.489478145492 31 1055 1055 32705 34503775
 vector 131 WirelessB.hostR5.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+131	12408038 1795 1411 110228 0.253698517811 17.489479161136 57 1055 1055 60135 63442425
 vector 132 WirelessB.hostA.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+132	12409833 731 6559 110231 1.048128324557 17.48947925985 23 1055 1055 24265 25599575
 vector 133 WirelessB.hostB.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+133	12410564 312 7890 99350 1.260859772633 15.79522619452 10 1055 1055 10550 11130250
 vector 134 WirelessB.hostR7.wlan[0].mac packetDropNotAddressedToUs:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsNotAddressedToUs(packetDropped)
 attr title "packet drop: not addressed to us, packetBytes"
+134	12410876 1195 8132 105701 1.305954079889 16.796197872895 38 1055 1055 40090 42294950
 vector 135 WirelessB.hostR6.wlan[0].mac packetDropIncorrectlyReceived:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
 attr title "packet drop: incorrectly received, packetBytes"
+135	12412071 572 10567 110215 1.676544121834 17.489478311444 18 1055 1055 18990 20034450
 vector 136 WirelessB.hostA.wlan[0].mac packetDropRetryLimitReached:vector(packetBytes) ETV
 attr interpolationmode none
 attr recordingmode vector(packetBytes)
 attr source packetDropReasonIsRetryLimitReached(packetDropped)
 attr title "packet drop: retry limit reached, packetBytes"
-0	37053 9 0 0 0 0 1 0 0 0 0
-1	37062 9 0 0 0 0 1 0 0 0 0
-2	37071 9 0 0 0 0 1 0 0 0 0
-3	37080 10969 0 110828 0 17.579599761338 392 0 391 76636 20001996
-4	48049 9 0 0 0 0 1 0 0 0 0
-5	48058 9 0 0 0 0 1 0 0 0 0
-6	48067 9 0 0 0 0 1 0 0 0 0
-7	48076 9 0 0 0 0 1 0 0 0 0
-8	48085 9 0 0 0 0 1 0 0 0 0
-9	48094 9 0 0 0 0 1 0 0 0 0
-10	48103 10 0 0 0 0 1 0 0 0 0
-11	48113 10 0 0 0 0 1 0 0 0 0
-12	48123 10 0 0 0 0 1 0 0 0 0
-13	48133 10 0 0 0 0 1 0 0 0 0
-14	48143 10 0 0 0 0 1 0 0 0 0
-15	48153 10 0 0 0 0 1 0 0 0 0
-16	48163 10 0 0 0 0 1 0 0 0 0
-17	48173 10 0 0 0 0 1 0 0 0 0
-18	48183 10 0 0 0 0 1 0 0 0 0
-19	48193 10 0 0 0 0 1 0 0 0 0
-20	48203 10 0 0 0 0 1 0 0 0 0
-21	48213 10 0 0 0 0 1 0 0 0 0
-22	48223 10 0 0 0 0 1 0 0 0 0
-23	48233 10 0 0 0 0 1 0 0 0 0
-24	48243 10 0 0 0 0 1 0 0 0 0
-25	48253 10 0 0 0 0 1 0 0 0 0
-26	48263 10 0 0 0 0 1 0 0 0 0
-27	48273 379732 0 110815 0 17.575863186488 12640 0 0.1 100.10299999999 7.303360999999
-28	428005 334926 0 110825 0 17.579599761338 11026 0 0.1 69.246000000004 4.0586520000001
-29	762931 461296 0 110817 0 17.575863809725 15335 0 0.1 112.15399999999 7.5056679999988
-30	1224227 221942 0 110816 0 17.575863776731 7250 0 0.01 33.866 0.257092
-31	1446169 445101 0 110727 0 17.561767294553 14821 0 0.1 109.90499999999 7.4504649999988
-32	1891270 269666 0 110818 0 17.575863942541 8774 0 0.01 40.014000000001 0.28489799999999
-33	2160936 240733 0 110729 0 17.56176775011 7822 0 0.01 33.129999999999 0.218
-34	2401669 450681 0 110824 0 17.579599258055 15011 0 0.1 113.47599999999 8.1048719999987
-35	2852350 467780 0 110830 0 17.579599867388 15573 0 0.1 115.90699999999 7.8141289999987
-36	3320130 39093 0 110814 0 17.575863186488 1434 0 3 3580 9308
-37	3359223 379722 0 110815 0 17.575863186488 12639 0 0.1 100.10299999999 7.303360999999
-38	3738945 21328 0 110773 0 17.570552754772 783 0 3 1952 5074
-39	3760273 334916 0 110825 0 17.579599761338 11025 0 0.1 69.246000000004 4.0586520000001
-40	4095189 39830 0 110219 0 17.489478636613 1459 0 3 3642 9468
-41	4135019 461286 0 110817 0 17.575863809725 15334 0 0.1 112.15399999999 7.5056679999988
-42	4596305 30 0 0 0 0 3 0 2 2 4
-43	4596335 221932 0 110816 0 17.575863776731 7249 0 0.01 33.866 0.257092
-44	4818267 39507 0 110368 0 17.516138924474 1449 0 3 3617 9403
-45	4857774 445091 0 110727 0 17.561767294553 14820 0 0.1 109.90499999999 7.4504649999988
-46	5302865 30 0 0 0 0 3 0 2 2 4
-47	5302895 269656 0 110818 0 17.575863942541 8773 0 0.01 40.014000000001 0.28489799999999
-48	5572551 30 0 0 0 0 3 0 2 2 4
-49	5572581 240723 0 110729 0 17.56176775011 7821 0 0.01 33.129999999999 0.218
-50	5813304 43295 0 110824 0 17.579599258055 1587 0 3 3962 10300
-51	5856599 450671 0 110824 0 17.579599258055 15010 0 0.1 113.47599999999 8.1048719999987
-52	6307270 41438 0 110685 0 17.561425642156 1519 0 3 3792 9858
-53	6348708 467770 0 110830 0 17.579599867388 15572 0 0.1 115.90699999999 7.8141289999987
-54	6816478 157464 0 110814 0 17.575863186488 5766 0 3 7952 15190
-55	6973942 183223 0 110825 0 17.579599761338 6709 0 3 10080 19186
-56	7157165 199473 0 110817 0 17.575863809725 7304 0 3 11176 23180
-57	7356638 158143 0 110816 0 17.575863776731 5789 1 3 10843 25211
-58	7514781 186171 0 110727 0 17.561767294553 6815 0 3 10261 21507
-59	7700952 199723 0 110818 0 17.575863942541 7311 1 3 13374 29760
-60	7900675 176451 0 110729 0 17.56176775011 6460 1 3 11156 23422
-61	8077126 183650 0 110824 0 17.579599258055 6725 0 3 9658 19392
-62	8260776 197853 0 110830 0 17.579599867388 7248 0 3 11100 23314
-63	8458629 44609 4 110810 0.022315250545 17.5758587486 1470 1000 1000 1470000 1470000000
-64	8503238 44609 6 110811 0.022315250545 17.5758587486 1470 1008 1008 1481760 1493614080
-65	8547847 44609 8 110813 0.022315250545 17.5758587486 1470 8224 8224 12089280 99422238720
-66	8592456 14921 8 109935 0.022315250545 17.444883410998 369 0 12.994971531197 2475.9401222816 22129.071705783
-67	8607377 11189 8 109935 0.022315250545 17.444883410998 369 8224 8224 3034656 24957010944
-68	8618566 53919 8 110813 0.022315250545 17.5758587486 1838 0 1101 1013713 746608971
-69	8672485 61050 8 110813 0.022315250545 17.5758587486 1838 0 9054624 8336775712 5.0496282547793e+16
-70	8733535 249932 10 110814 0.022545250545 17.575863186488 5765 -0.67853413807315 -4.509050109e-05 -1980.2692487653 903.84685832572
-71	8983467 78126 10 110815 0.022545250545 17.575863186488 2862 0 2 2863 4295
-72	9061593 263178 12 110816 0.022545840788 17.575863776731 5997 -0.14476289824277 -4.5091681576e-05 -433.64430777784 41.876887374984
-73	9324771 317142 13 110817 0.022545873782 17.575863809725 7303 -0.44534149177952 -4.5091747564e-05 -1612.7424492038 476.743196872
-74	9641913 320939 14 110818 0.022546006598 17.575863942541 7311 -0.14813344790742 -4.5092013196e-05 -540.96387113384 53.443699479875
-75	9962852 284311 15 110729 0.022546319081 17.56176775011 6460 -0.11838597505252 -4.5092638162e-05 -382.03526953361 30.161239417626
-76	10247163 295963 16 110727 0.022546368436 17.561767294553 6814 -0.4352241407694 -4.5092736872e-05 -1473.2064020335 424.83123291298
-77	10543126 323145 17 110830 0.022546794877 17.579599867388 7446 -0.46387170248048 -4.5093589754e-05 -1704.6443633789 523.17347329808
-78	10866271 41739 30 110798 0.031081840788 17.573433776731 1377 1055 1055 1452735 1532635425
-79	10908010 10649 34 109907 0.031081873782 17.444632787761 351 8224 8224 2886624 23739595776
-80	10918659 19012 34 109907 0.031081873782 17.444632787761 695 0 13 1790 10520
-81	10937671 20881 34 109907 0.031081873782 17.444632787761 695 0 106912 14720960 711511531520
-82	10958552 31435 36 110376 0.031082006598 17.516139472698 1037 1055 1055 1094035 1154206925
-83	10989987 79600 42 110219 0.031091873782 17.489478636613 2912 0 2 2912 4368
-84	11069587 12964 42 109468 0.031091873782 17.372004817448 344 1e-05 0.318887591348 25.949438798498 4.5407582697554
-85	11082551 10421 42 109468 0.031091873782 17.372004817448 344 8224 8224 2829056 23266156544
-86	11092972 302758 50 110824 0.031093417617 17.579599258055 6975 -0.42810354585979 -6.2186835234e-05 -1484.7382055697 422.9676390169
-87	11395730 298582 51 110825 0.031093480573 17.579599761338 6763 -0.10214997944238 -6.2186961146e-05 -344.45876753651 23.437602494632
-88	11694312 10384 86 109446 0.040018388119 17.371754303111 343 8224 8224 2820832 23198522368
-89	11704696 18730 86 110342 0.040018388119 17.507552924474 686 0 11 1221 5379
-90	11723426 20417 86 110342 0.040018388119 17.507552924474 686 0 90464 10041504 363804232704
-91	11743843 20804 88 110378 0.040018398305 17.516139478432 686 1055 1055 723730 763535150
-92	11764647 10382 90 109450 0.040018497019 17.371754412011 343 1055 1055 361865 381767575
-93	11775029 78954 94 110368 0.040028388119 17.516138924474 2892 0 2 2892 4338
-94	11853983 12601 94 110342 0.040028388119 17.507552924474 343 1e-05 0.421032467647 21.66463477581 4.457630939415
-95	11866584 10396 94 110342 0.040028388119 17.507552924474 343 8224 8224 2820832 23198522368
-96	11876980 10393 140 110372 0.0491548315 17.516139367855 343 8224 8224 2820832 23198522368
-97	11887373 18718 140 110713 0.0491548315 17.561676860822 678 0 38 5491 116251
-98	11906091 20730 140 110713 0.0491548315 17.561676860822 678 0 312512 45157984 7862540594176
-99	11926821 10385 142 110374 0.049154902456 17.516139438811 343 1055 1055 361865 381767575
-100	11937206 85848 152 110685 0.0491648315 17.561425642156 3032 0 2 3032 4548
-101	12023054 13012 152 110713 0.0491648315 17.561676860822 335 1e-05 1.247246137897 120.18456720544 96.550412115927
-102	12036066 10485 152 110713 0.0491648315 17.561676860822 335 8224 8224 2755040 22657448960
-103	12046551 12099 301 110687 0.076026400168 17.561426085537 386 1055 1055 407230 429627650
-104	12058650 12240 305 110691 0.07602656612 17.561426251489 391 8224 8224 3215584 26444962816
-105	12070890 22141 305 110775 0.07602656612 17.570553258055 782 0 4 511 695
-106	12093031 23508 305 110775 0.07602656612 17.570553258055 782 0 32896 4202464 47005752320
-107	12116539 89698 312 110824 0.07603656612 17.579599258055 3168 0 2 3168 4752
-108	12206237 13831 312 110775 0.07603656612 17.570553258055 391 1e-05 0.089951938053 2.685083386667 0.076520577552724
-109	12220068 12247 312 110775 0.07603656612 17.570553258055 391 8224 8224 3215584 26444962816
-110	12232315 11390 370 110800 0.084934124356 17.573433809725 364 1055 1055 384020 405141100
-111	12243705 12470 372 110802 0.084934257172 17.573433942541 398 1055 1055 419890 442983950
-112	12256175 12241 383 110828 0.085243069403 17.579599761338 391 1008 1008 394128 397281024
-113	12268416 12241 384 110829 0.085243069403 17.579599761338 391 1000 1000 391000 391000000
-114	12280657 16213 384 110829 0.085243069403 17.579599761338 391 0.062927818858 13.390675406146 2686.8778727537 24385.324662945
-115	12296870 11722 384 110829 0.085243069403 17.579599761338 391 0 350 66710 15338326
-116	12308592 11914 386 110756 0.085243175453 17.570302860822 381 1055 1055 401955 424062525
-117	12320506 44156 393 110773 0.085253069403 17.570552754772 1560 0 2 1560 2340
-118	12364662 3710 461 110318 0.1 17.5 175 0 411200 28043840 6567278489600
-119	12368372 3654 473 110533 0.1 17.5 175 0 575680 27303680 7507393536000
-120	12372026 3712 513 110511 0.1 17.5 175 0 575680 31909120 9076506419200
-121	12375738 3719 520 110518 0.1 17.5 175 0 493440 31909120 8833023385600
-122	12379457 3701 583 110436 0.1 17.5 175 0 560000 30960000 8736000000000
-123	12383158 3909 679 110483 0.1 17.5 175 164480 1398080 120317120 93220184780800
-124	12387067 3569 766 109792 0.1 17.4 174 0 493440 28701760 8704518451200
-125	12390636 3620 774 109134 0.1 17.3 173 0 411200 28043840 7094825062400
-126	12394256 3613 794 109820 0.1 17.4 174 0 493440 30182080 8988581990400
-127	12397869 3636 822 109112 0.1 17.3 173 0 411200 27961600 7033954304000
-128	12401505 3732 830 110342 0.1 17.5 175 0 411200 28126080 6357612544000
-129	12405237 1827 1405 110223 0.25369837937 17.489479022695 58 1055 1055 61190 64555450
-130	12407064 974 1409 110213 0.253698507625 17.489478145492 31 1055 1055 32705 34503775
-131	12408038 1795 1411 110228 0.253698517811 17.489479161136 57 1055 1055 60135 63442425
-132	12409833 731 6559 110231 1.048128324557 17.48947925985 23 1055 1055 24265 25599575
-133	12410564 312 7890 99350 1.260859772633 15.79522619452 10 1055 1055 10550 11130250
-134	12410876 1195 8132 105701 1.305954079889 16.796197872895 38 1055 1055 40090 42294950
-135	12412071 572 10567 110215 1.676544121834 17.489478311444 18 1055 1055 18990 20034450
-136	12412643 537 12716 105947 2.018566564412 16.832336178664 17 1055 1055 17935 18921425
-
+136	12412643 539 12716 105947 2.018566564412 16.832336178664 17 1055 1055 17935 18921425

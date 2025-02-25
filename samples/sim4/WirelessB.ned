@@ -3,7 +3,7 @@
 //
 
 
-package samples.sim3;
+package samples.sim4;
 
 import inet.node.contract.INetworkNode;
 

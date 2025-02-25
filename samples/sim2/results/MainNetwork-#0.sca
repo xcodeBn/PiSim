@@ -1,8 +1,8 @@
 version 3
-run MainNetwork-0-20240508-13:21:38-15420
+run MainNetwork-0-20250219-13:01:13-20332
 attr configname MainNetwork
-attr datetime 20240508-13:21:38
-attr datetimef 20240508-132138
+attr datetime 20250219-13:01:13
+attr datetimef 20250219-130113
 attr experiment MainNetwork
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,7 +10,7 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network WirelessA
-attr processid 15420
+attr processid 20332
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -111,7 +111,7 @@ config *.hostA.app[0].packetName "\"UDPData\""
 config *.hostA.app[0].stopTime 2.0s
 config *.hostA.app[0].varName "\"x\""
 config *.hostB.numApps 1
-config *.hostB.app[0].typename SummerUdpApp
+config *.hostB.app[0].typename PiBaseSummerApp
 config *.hostB.app[0].localPort 5000
 config *.hostB.app[0].destPort 5000
 config *.hostB.app[0].messageLength 1000B
@@ -826,7 +826,7 @@ par WirelessA.visualizer typename "\"inet.visualizer.canvas.integrated.Integrate
 par WirelessA.configurator typename "\"inet.networklayer.configurator.ipv4.Ipv4NetworkConfigurator\""
 par WirelessA.configurator minLinkWeight 0.001
 par WirelessA.configurator configureIsolatedNetworksSeparatly false
-par WirelessA.configurator config "<config>...</config> at D:/Work/omnetpp-6.0/samples/PiSim/samples/Alia2/\\config.xml:1"
+par WirelessA.configurator config "<config>...</config> at D:/Work/omnetpp-6.0/samples/PiSim/samples/sim2/\\config.xml:1"
 par WirelessA.configurator assignAddresses true
 par WirelessA.configurator assignUniqueAddresses true
 par WirelessA.configurator assignDisjunctSubnetAddresses true
@@ -6835,7 +6835,7 @@ par WirelessA.hostE.tn typename "\"inet.common.MessageDispatcher\""
 par WirelessA.hostE.tn displayStringTextFormat "\"processed %p pk (%l)\""
 par WirelessA.hostE.tn forwardServiceRegistration true
 par WirelessA.hostE.tn forwardProtocolRegistration true
-par WirelessA.hostE.app[0] typename "\"Network.Udp.SummerUdpApp\""
+par WirelessA.hostE.app[0] typename "\"Network.Udp.archieve.SummerUdpApp\""
 par WirelessA.hostE.app[0] destAddresses "\"hostA\""
 par WirelessA.hostE.app[0] destPort 5000
 par WirelessA.hostE.app[0] localAddress "\"\""
@@ -6953,5 +6953,5 @@ par WirelessA.hostE hasUdp true
 par WirelessA.hostE hasTcp true
 par WirelessA.hostE hasSctp false
 par WirelessA.hostE numApps 1
-par WirelessA typename "\"samples.Alia2.WirelessA\""
+par WirelessA typename "\"samples.sim2.WirelessA\""
 
